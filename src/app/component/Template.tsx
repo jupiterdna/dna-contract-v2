@@ -1,5 +1,11 @@
 "use client";
 
+import { Inter, Krona_One } from "next/font/google";
+const krona = Krona_One({
+  weight: ["400"],
+  subsets: ["latin"],
+});
+
 import React from "react";
 import {
   ContractDocumentWrapper,
@@ -23,26 +29,35 @@ import {
 } from "@playbook/pdf-components";
 
 // sample assets
-import car from "./assets/car.png";
-import Glogo from "./assets/Glogo.png";
-import symbols_chip from "./assets/symbols-chip.png";
-import symbols_crack from "./assets/symbols-crack.png";
-import symbols_dent from "./assets/symbols-dent.png";
-import symbols_missing from "./assets/symbols-missing.png";
-import symbols_paint_swap from "./assets/symbols-paint-swap.png";
-import symbols_scratch from "./assets/symbols-scratch.png";
-import vehicle_screenshot from "./assets/vehicle_damage_marks.png";
+import car from "../assets/car.png";
+import Glogo from "../assets/Glogo.png";
+import symbols_chip from "../assets/symbols-chip.png";
+import symbols_crack from "../assets/symbols-crack.png";
+import symbols_dent from "../assets/symbols-dent.png";
+import symbols_missing from "../assets/symbols-missing.png";
+import symbols_paint_swap from "../assets/symbols-paint-swap.png";
+import symbols_scratch from "../assets/symbols-scratch.png";
+import vehicle_screenshot from "../assets/vehicle_damage_marks.png";
 
 const ContractTemplate = React.forwardRef<
   React.ElementRef<typeof ContractDocumentWrapper>,
   React.ComponentPropsWithoutRef<typeof ContractDocumentWrapper> & ContextType
 >((props, ref) => (
   <ContractDocumentWrapper ref={ref} {...props}>
-    <Header
+    {/* <Header
       title="Colorado Rental Agreement"
       sub_title="Agreement #: G01009946"
       logo_url={Glogo.src}
-    />
+    /> */}
+    <div className="flex justify-between items-center mb-4">
+      <div className="w-[160px]">
+        <img src={Glogo.src} alt="logo" />
+      </div>
+      <div className={`flex flex-col text-right uppercase ${krona.className}`}>
+        <div className="text-sm">Colorado Rental Agreement</div>
+        <span>Agreement#: GO123456</span>
+      </div>
+    </div>
     <div
       style={{
         display: "flex",
@@ -321,7 +336,6 @@ const ContractTemplate = React.forwardRef<
                 price_unit: "$70.00/Daily",
                 qty: "7",
                 subtotal: "$490.00",
-                
               },
               {
                 charge_name: "CDW",

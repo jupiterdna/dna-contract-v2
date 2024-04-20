@@ -1,7 +1,9 @@
 'use client'
 import Image from "next/image";
+import ContractTemplate from "../component/Template";
 import { Document, PDFDownloadLink, PDFViewer, Page, StyleSheet, Text, View } from "@react-pdf/renderer";
 import { Html } from "react-pdf-html";
+import TestRender from "../component/TestRender";
 
 const styles = StyleSheet.create({
   page: {
@@ -21,12 +23,7 @@ export default function Design() {
   return (
     <div>
         <div className="bg-gray-200 p-8 w-full">
-        {/* <TestRender /> */}
-
-
-         {/* <PDFDownloadLink document={<TestRender />} fileName="somename.pdf">
-          {({ blob, url, loading, error }) => (loading ? 'Loading document...' : 'Download now!')}
-        </PDFDownloadLink> */}
+        <ContractTemplate template="2"/>
       </div>
     </div>
   );
