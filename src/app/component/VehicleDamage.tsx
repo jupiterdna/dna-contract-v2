@@ -60,7 +60,7 @@ const styles = StyleSheet.create({
   },
   text: {
     fontSize: 8,
-    fontFamily: "karla",
+    fontFamily: "Karla",
   },
   //   content:{
   //     paddingVertical: 10,

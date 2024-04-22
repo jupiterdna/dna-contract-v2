@@ -33,11 +33,11 @@ Font.register({
     fonts: [
       {
         fontWeight: 'normal',
-        src: 'src: "http://localhost:3000/font/Karla.ttf",'
+        src: 'http://localhost:3000/font/Karla.ttf'
       },
       {
         fontWeight: 'bold',
-        src: 'src: "http://localhost:3000/font/Karla-Bold.ttf",'
+        src: "http://localhost:3000/font/Karla-Bold.ttf"
       },
     ]
 });

@@ -499,11 +499,11 @@ function TestRender() {
 const style = StyleSheet.create({
   text: {
     fontSize: 8,
-    fontFamily: "karla",
+    fontFamily: "Karla",
   },
   textHeading: {
     fontSize: 9,
-    fontFamily: "karla",
+    fontFamily: "Karla",
   },
   row: {
     display: "flex",
