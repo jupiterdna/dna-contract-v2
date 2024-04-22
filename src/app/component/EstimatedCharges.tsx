@@ -79,11 +79,11 @@ const styles = StyleSheet.create({
   },
   textheading: {
     fontSize: 10,
-    fontFamily: "karla",
+    fontFamily: "Karla",
   },
   text: {
     fontSize: 8,
-    fontFamily: "karla",
+    fontFamily: "Karla",
   },
   //   content:{
   //     paddingVertical: 10,

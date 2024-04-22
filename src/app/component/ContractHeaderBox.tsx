@@ -64,12 +64,13 @@ const style = StyleSheet.create({
     },
   headingText:{
     fontSize: 10,
-    fontWeight: 'bold'
+    fontWeight: 'bold',
+    fontFamily: 'Karla'
   },
   text:{
     fontSize: 8
   },
-  heading: {fontWeight: 300, fontSize: 12}
+  heading: {fontWeight: 700, fontSize: 12, fontFamily: 'Karla'}
 })
 
 export default ContractHeaderBox
