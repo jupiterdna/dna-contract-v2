@@ -22,14 +22,17 @@ type EstimatedChargesProps = {
   rows: any[];
 };
 
+const aligment = ['flex-start', 'flex-start', 'center', 'flex-end']
+
 const EstimatedCharges = ({ heading, rows }: EstimatedChargesProps) => {
   return (
     <View>
       <View style={styles.mainContainer}>
         {heading.map((item, index) => {
+          const align: any = {justifyContent: aligment[index]}
           return (
             <View key={index} style={styles.row}>
-              <View style={styles.content}>
+              <View style={{...styles.content, ...align}}>
                 <Text style={styles.textheading}>{item.label}</Text>
               </View>
             </View>
@@ -41,11 +44,14 @@ const EstimatedCharges = ({ heading, rows }: EstimatedChargesProps) => {
           {rows.map((item, index) => {
             return (
               <View key={index} style={styles.mainContainer}>
-                {Object.values(item).map((value, index) => {
+                {Object.values(item).map((value, in_index) => {
+                  
+                  const align: any = {justifyContent: aligment[in_index]}
+
                   return (
-                    <View key={index} style={styles.row}>
-                      <View style={styles.content}>
-                        <Text style={styles.text}>{value}</Text>
+                    <View key={in_index} style={styles.row}>
+                      <View style={{...styles.content, ...align}}>
+                        <Text style={{...styles.text}}>{value}</Text>
                       </View>
                     </View>
                   );
@@ -67,7 +73,8 @@ const styles = StyleSheet.create({
   },
   content: {
     columnGap: 3,
-    width: "25%",
+    width: "100%",
+    flexDirection: 'row',
   },
   row: {
     flexDirection: "row",
@@ -76,10 +83,12 @@ const styles = StyleSheet.create({
     marginBottom: 5,
     paddingHorizontal: 3,
     paddingBottom: 3,
+    width:'25%'
   },
   textheading: {
-    fontSize: 10,
+    fontSize: 9,
     fontFamily: "Karla",
+    fontWeight: "bold",
   },
   text: {
     fontSize: 8,

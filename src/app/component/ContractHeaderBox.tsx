@@ -63,9 +63,10 @@ const style = StyleSheet.create({
         paddingBottom: 10
     },
   headingText:{
-    fontSize: 10,
+    fontSize: 9,
     fontWeight: 'bold',
-    fontFamily: 'Karla'
+    fontFamily: 'Karla',
+    textTransform: 'uppercase'
   },
   text:{
     fontSize: 8

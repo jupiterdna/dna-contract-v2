@@ -3,6 +3,7 @@
 import React from "react";
 import { Text, View, StyleSheet, Image } from "@react-pdf/renderer";
 import { docStyles } from "../styles";
+import SignatureComponent from "./SignatureComponent";
 
 type itemType = {
   img?: any;
@@ -16,22 +17,28 @@ type HeaderProps = {
 
 const VehicleDamage = ({ items }: HeaderProps) => {
   return (
-    <View style={styles.mainContainer}>
-      {items.map((item, index) => {
-        return (
-          <View key={index} style={styles.row}>
-            <View style={styles.content}>
-              <Image
-                src={item.img}
-                style={{ width: 10, height: 10 }}
-                cache={false}
-              />
-              <Text style={styles.text}>{item.label}</Text>
+    <View>
+      <View style={styles.mainContainer}>
+        {items.map((item, index) => {
+          return (
+            <View key={index} style={styles.row}>
+              <View style={styles.content}>
+                <Image
+                  src={item.img}
+                  style={{ width: 10, height: 10 }}
+                  cache={false}
+                />
+                <Text style={styles.text}>{item.label}</Text>
+              </View>
+              <Text style={styles.text}>{item.value}</Text>
             </View>
-            <Text style={styles.text}>{item.value}</Text>
-          </View>
-        );
-      })}
+          );
+        })}
+      </View>
+      <View style={styles.signatureContainer}>
+        <Text style={styles.labelText}>Condition Agreed to:</Text>
+        <SignatureComponent />
+      </View>
     </View>
   );
 };
@@ -39,14 +46,13 @@ const VehicleDamage = ({ items }: HeaderProps) => {
 const styles = StyleSheet.create({
   mainContainer: {
     width: "100%",
-    flexWrap:'wrap',
+    flexWrap: "wrap",
     flexDirection: "row",
     columnGap: 10,
   },
   content: {
     flexDirection: "row",
     columnGap: 3,
-    
   },
   row: {
     flexDirection: "row",
@@ -61,6 +67,14 @@ const styles = StyleSheet.create({
   text: {
     fontSize: 8,
     fontFamily: "Karla",
+  },
+  labelText: {
+    fontSize: 9,
+    fontFamily: "Karla",
+  },
+  signatureContainer: {
+    marginTop: 20,
+    rowGap: 5
   },
   //   content:{
   //     paddingVertical: 10,

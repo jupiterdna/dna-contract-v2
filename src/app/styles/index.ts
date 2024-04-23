@@ -1,7 +1,5 @@
 import { StyleSheet, Font } from "@react-pdf/renderer";
 
-
-
 Font.register({
   family: "krona",
   src: "http://fonts.gstatic.com/s/kronaone/v4/ix3TbrGcGYAHLWi4hTTy1KCWcynf_cDxXwCLxiixG1c.ttf",
@@ -27,32 +25,27 @@ Font.register({
 //   src: "http://localhost:3000/font/krona.ttf",
 // });
 
-
 Font.register({
-    family: "Karla",
-    fonts: [
-      {
-        fontWeight: 'normal',
-        src: 'http://localhost:3000/font/Karla.ttf'
-      },
-      {
-        fontWeight: 'bold',
-        src: "http://localhost:3000/font/Karla-Bold.ttf"
-      },
-    ]
+  family: "Karla",
+  fonts: [
+    {
+      fontWeight: "normal",
+      src: "http://localhost:3000/font/Karla.ttf",
+    },
+    {
+      fontWeight: "bold",
+      src: "http://localhost:3000/font/Karla-Bold.ttf",
+    },
+  ],
 });
-
-
-
-
 
 export const docStyles = StyleSheet.create({
   page: {
     flexDirection: "column",
-    backgroundColor: "#E4E4E4",
+    backgroundColor: "#fff",
     display: "flex",
     flex: 1,
-    padding: 30,
+    padding: 40,
   },
   section: {
     margin: 10,
