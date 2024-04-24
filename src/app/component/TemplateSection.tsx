@@ -3,14 +3,14 @@
 import React from 'react'
 import { Text, View, StyleSheet } from "@react-pdf/renderer";
 
-type HeaderProps = {
+type TemplateSectionProps = {
     title: string
     children?: any
     style?: any
 }
 
 
-const HeaderView = ({title, children, style}:HeaderProps)  => {
+const TemplateSection = ({title, children, style}:TemplateSectionProps)  => {
 
   return (
       <View style={style}>
@@ -58,4 +58,4 @@ heading: {fontWeight: 300, fontSize: 12}
 })
 
 
-export default HeaderView
+export default TemplateSection

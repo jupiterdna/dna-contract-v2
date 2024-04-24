@@ -4,7 +4,7 @@ import React from "react";
 import { Text, View, StyleSheet, Font } from "@react-pdf/renderer";
 import { docStyles } from "../styles";
 import SignatureComponent from "./SignatureComponent";
-import HeaderView from "./HeaderView";
+import TemplateSection from "./TemplateSection";
 
 type RentalAgreementProps = {
   title: string;
@@ -17,7 +17,7 @@ const RentalAgreement = ({ title }: RentalAgreementProps) => {
 
   return (
     <View>
-      <HeaderView title={title} />
+      <TemplateSection title={title} />
       <View>
         <View style={style.textcontainer}>
           <Text style={{ ...style.headingText }}>
@@ -618,7 +618,7 @@ const RentalAgreement = ({ title }: RentalAgreementProps) => {
                 Failure to cooperate with us or our assignee/designee in the
                 investigation of a damage incident or claim may invalidate
                 optional protection that you purchase.
-              </Text>
+              </Text>{" "}
               <Text style={style.textNormal}>
                 PROHIBITED USE OF THE VEHICLE VIOLATES THIS AGREEMENT AND MAY
                 VOID ALL LIABILITY AND OTHER INSURANCE COVERAGE (TO THE FULLEST
@@ -691,41 +691,423 @@ const RentalAgreement = ({ title }: RentalAgreementProps) => {
               RESPONSIBILITY TO OTHERS; INSURANCE.
             </Text>{" "}
             <Text style={style.textNormal}>
-            You are responsible for all damage or loss caused to others and
-            their property. You agree to maintain automobile insurance during
-            the term of each rental which provides to us, and to you, the
-            following primary coverage: (a) Bodily injury{' '}
-            <Text  style={style.textBold}>(BI)</Text> and property
-            damage <Text  style={style.textBold}>(“PD“)</Text>{' '}
-            liability coverage; (b) Personal injury protection{' '}
-            <Text  style={style.textBold}>(“PIP“)</Text>, no-fault, or
-            similar coverage where required; (c) Uninsured/underinsured{' '}
-            <Text  style={style.textBold}>(“UM“/“UIM“)</Text> coverage
-            where required, and (d) Comprehensive and collision damage coverage
-            extending to the Vehicle. Your insurance coverage must provide at
-            least the minimum limits of coverage required by the financial
-            responsibility laws of the state where the loss occurs.{' '}
-            <Text  style={style.textBold}>
-              To the extent permitted by law, by signing this Agreement, you
-              reject UM, UIM, and supplemental no-fault or PIP coverages. If we
-              are required to provide such coverage, you select the minimum
-              limits required by law.
-            </Text>{' '}
-            In states where the law requires us to provide insurance, your
-            insurance will be primary. Any insurance we are required to provide
-            applies only to claims of accidental BI and PD resulting from the
-            use of the Vehicle, and is excess to any other valid and collectible
-            insurance whether primary, secondary, excess or contingent. Our
-            insurance policy contains exclusions, conditions, and limitations
-            applicable to anyone claiming coverage. You agree to cooperate with
-            our insurer if any claim is made, and give us immediate notice of
-            damage, claim, or lawsuit against you. Engaging in a Prohibited Use
-            described in Paragraph 7 of this Agreement or any other material
-            breach of this Agreement may void any insurance coverage.{' '}
-            <Text  style={style.textBold}>
-              The Vehicle may not be taken to Mexico under any circumstances.
+              You are responsible for all damage or loss caused to others and
+              their property. You agree to maintain automobile insurance during
+              the term of each rental which provides to us, and to you, the
+              following primary coverage: (a) Bodily injury{" "}
+              <Text style={style.textBold}>(BI)</Text> and property damage{" "}
+              <Text style={style.textBold}>(“PD“)</Text> liability coverage; (b)
+              Personal injury protection{" "}
+              <Text style={style.textBold}>(“PIP“)</Text>, no-fault, or similar
+              coverage where required; (c) Uninsured/underinsured{" "}
+              <Text style={style.textBold}>(“UM“/“UIM“)</Text> coverage where
+              required, and (d) Comprehensive and collision damage coverage
+              extending to the Vehicle. Your insurance coverage must provide at
+              least the minimum limits of coverage required by the financial
+              responsibility laws of the state where the loss occurs.{" "}
+              <Text style={style.textBold}>
+                To the extent permitted by law, by signing this Agreement, you
+                reject UM, UIM, and supplemental no-fault or PIP coverages. If
+                we are required to provide such coverage, you select the minimum
+                limits required by law.
+              </Text>{" "}
+              In states where the law requires us to provide insurance, your
+              insurance will be primary. Any insurance we are required to
+              provide applies only to claims of accidental BI and PD resulting
+              from the use of the Vehicle, and is excess to any other valid and
+              collectible insurance whether primary, secondary, excess or
+              contingent. Our insurance policy contains exclusions, conditions,
+              and limitations applicable to anyone claiming coverage. You agree
+              to cooperate with our insurer if any claim is made, and give us
+              immediate notice of damage, claim, or lawsuit against you.
+              Engaging in a Prohibited Use described in Paragraph 7 of this
+              Agreement or any other material breach of this Agreement may void
+              any insurance coverage.{" "}
+              <Text style={style.textBold}>
+                The Vehicle may not be taken to Mexico under any circumstances.
+              </Text>
             </Text>
+          </Text>
+        </View>
+        {/* 10 */}
+        <View style={style.textcontainer}>
+          <Text style={{ ...style.headingText }}>
+            <Text style={style.indented}>
+              {spaces(3)} 10.{" "}
+              <Text style={style.underline}>RESERVE; CHARGES.</Text> You permit
+              us to reserve against your payment card at the time of rental a
+              reasonable amount in addition to the estimated total charges. We
+              may use the reserve to pay all Charges. We will authorize the
+              release of an excess reserve at completion of your rental. Your
+              payment card issuer’s rules will apply to crediting your account
+              for any excess, which may not be immediately released by your card
+              issuer.
+              <Text style={style.textNormal}>
+                You will pay us at or before conclusion of each rental, or on
+                demand, all Charges, including: (a) time & mileage charge for
+                the Rental Period, including an additional mileage fee if you
+                exceed the daily mileage allowance for the vehicle class rented
+                as noted on the Face Page. Daily rates are based on a 24-hour
+                day. Any fraction of a day will be charged at the hourly rate,
+                but will not exceed the daily rate; (b) a mileage charge based
+                on our experience and records if the odometer is tampered with
+                or disconnected; (c) fees for optional products, equipment, and
+                services you purchased; (d) fuel and a refueling fee if you
+                return the Vehicle with less fuel than when rented; (e) customer
+                facility charges, airport concession fees, tourism commission
+                assessments, vehicle license recovery fees, road safety charges,
+                or other taxes, surcharges, or fees; (f) expenses we incur
+                locating and recovering the Vehicle if you fail to return it or
+                if we repossess it under the terms of this Agreement; (g) all
+                costs we incur enforcing or defending our rights under this
+                Agreement; (h) a reasonable fee to clean the Vehicle if returned
+                substantially less clean than when rented or if the Vehicle is
+                returned containing evidence of smoking; (i) a lost key fee if
+                you lose the keys or key fob to the Vehicle; (j) a surcharge if
+                you return the Vehicle to a location other than the location
+                where you rented the Vehicle or if you do not return it on the
+                date and time due; (k) towing, storage charges, forfeitures,
+                court costs, penalties and all other costs we incur from your
+                use of the Vehicle; (l) replacement cost of lost or damaged
+                parts and supplies used in Optional Equipment; and (m) a
+                Government Administrative Rate Supplement (GARS) of $5 per day
+                (if applicable).{" "}
+              </Text>
+              <Text style={style.textBold}>
+                {" "}
+                If you use a credit card or other payment card issued by a bank
+                or financial institution outside of the United States, we will
+                charge your credit card in US dollars. Any currency conversion
+                will be handled by the issuing bank and any conversion charges
+                by the issuing bank shall be your responsibility. All Charges
+                are subject to our final audit. If errors are discovered after
+                the close of this transaction, you authorize us to correct the
+                Charges with the payment card issuer.{" "}
+              </Text>
             </Text>
+          </Text>
+        </View>
+        {/* 11 */}
+        <View style={style.textcontainer}>
+          <Text style={{ ...style.headingText }}>
+            {spaces(3)}11.{" "}
+            <Text style={style.underline}>
+              LIABILITY FOR TOLLS, VIOLATIONS, AND OTHER CHARGES; DISCLAIMER OF
+              LIABILITY.
+            </Text>{" "}
+            <Text style={style.textNormal}>
+              You are liable for all Tolls and Violations assessed against you,
+              us, or the Vehicle during the Rental Period.
+            </Text>
+          </Text>
+        </View>
+        <View style={style.textcontainer}>
+          <Text style={{ ...style.headingText }}>
+            <Text style={style.textNormal}>
+              {spaces(6)}(A){" "}
+              <Text style={{ ...style.textBold, ...style.underline }}>
+                Tolls.
+              </Text>{" "}
+              The Vehicle may be enrolled in an electronic toll collection
+              service to pay for Tolls electronically. If you use any toll
+              facility, including a cashless toll road, tunnel, or bridge, and
+              do not have your own electronic device or pass that is accepted by
+              the relevant toll authority or make other payment arrangements,
+              you agree that we (or a third-party processor (“Processor”)) may,
+              in our discretion and without prior notification to you, pay the
+              Toll plus applicable taxes and fees on your behalf directly to the
+              charging authority. You authorize us or the Processor to charge
+              any payment card of yours on file without notice for all Tolls
+              assessed against the Vehicle during the rental at the highest
+              undiscounted rate (whichever is higher) plus: any fines or fees
+              assessed by the toll authority; and an administrative fee of up to
+              $50 per Toll.{" "}
+            </Text>{" "}
+            Certain toll roads do not accept cash. To avoid toll violations and
+            associated fines, fees, and taxes (and our or a Processor’s
+            administrative fee), you must pay all Tolls with a personal
+            transponder that is accepted on the road; use only cash lanes and
+            pay cash; plan a route to avoid Tolls; or consult local authorities
+            for other payment methods.
+          </Text>
+        </View>
+        <View style={style.textcontainer}>
+          <Text style={{ ...style.headingText }}>
+            <Text style={style.textNormal}>
+              {spaces(6)}(B){" "}
+              <Text style={{ ...style.textBold, ...style.underline }}>
+                Violations.
+              </Text>{" "}
+              You are responsible to pay for all Violations. If we are notified
+              that we may be responsible for a Violation, you agree that we or a
+              Processor may in our discretion and without prior notification to
+              you, pay the Violation plus applicable taxes and fees on your
+              behalf directly to the charging authority, and you authorize us or
+              the Processor to charge any payment card of yours on file our
+              administrative fee of up to $50 for each “Violation” plus the
+              amount charged by the “Violation” authority.
+            </Text>
+          </Text>
+        </View>
+        <View style={style.textcontainer}>
+          <Text style={{ ...style.headingText }}>
+            <Text style={style.textNormal}>
+              {spaces(6)}(C){" "}
+              <Text style={{ ...style.textBold, ...style.underline }}>
+                General.
+              </Text>{" "}
+              If we or a Processor pay a Toll and/or Violation on your behalf,
+              you understand that you may not be able to challenge the validity
+              of the Toll or Violation, and you authorize us to release your
+              rental information to the charging authorities. Payments for Tolls
+              and Violations may not be processed until several weeks after
+              conclusion of your rental. You authorize us to release your rental
+              information, including personally identifiable information, to
+              government officials and other authorities charged with enforcing
+              Tolls and Violations. If we or a Processor pay a Toll or Violation
+              assessed on the Vehicle during the Rental Period, you authorize us
+              or the Processor to charge all payments and administrative fees to
+              the payment card you used to pay for the rental.
+            </Text>
+          </Text>
+        </View>
+        <View style={style.textcontainer}>
+          <Text style={{ ...style.headingText }}>
+            <Text style={style.textNormal}>
+              You authorize us to release your rental information, including
+              personally identifiable information, to government officials and
+              other authorities charged with enforcing Tolls and Violations. If
+              we or a Processor pay a Toll or Violation assessed on the Vehicle
+              during the Rental Period, you authorize us or the Processor to
+              charge all payments and administrative fees to the payment card
+              you used to pay for the rental. You authorize us or a Processor to
+              contact you directly or to send invoices regarding any tolls,
+              citations, fines, or penalties incurred by you or assessed against
+              us to our Vehicle while the Vehicle was rented by you. We disclaim
+              all liability arising from any error by a tolling or charging
+              authority.
+            </Text>
+          </Text>
+        </View>
+        {/* 12 */}
+        <View style={style.textcontainer}>
+          <Text style={{ ...style.headingText }}>
+            {spaces(3)}12.{" "}
+            <Text style={style.underline}>RENTAL OF ELECTRIC VEHICLES.</Text>{" "}
+            <Text style={style.textNormal}>
+              The terms in this Paragraph 12 apply to the rental of an electric
+              vehicle (“EV”) from Go Rentals. An EV is defined as a vehicle that
+              exclusively uses battery power rather than gasoline or diesel
+              fuel.
+            </Text>
+          </Text>
+        </View>
+        <View style={style.textcontainer}>
+          <Text style={{ ...style.headingText }}>
+            <Text style={style.textNormal}>
+              {spaces(6)}(a) Battery-powered electric vehicles (EVs) use battery
+              power rather than gasoline. For your safety, as well as for the
+              mechanical condition of our EV, we strongly recommend that you
+              charge the battery as often as possible, and keep it between a
+              15%-80% charge level. If the battery charge level falls below 15%,
+              it can cause battery damage, restricted entry to the EV, and may
+              significantly reduce battery life. If we are unable to enter the
+              vehicle, and/or the battery charge level is below 15%, the vehicle
+              will be towed to the nearest EV dealership. You will be
+              responsible for paying towing fees, repair fees, idle time, and
+              any other fees incurred as a result of battery damage, all of
+              which will be added to your final invoice.
+            </Text>
+          </Text>
+        </View>
+        <View style={style.textcontainer}>
+          <Text style={{ ...style.headingText }}>
+            <Text style={style.textNormal}>
+              {spaces(6)}(b) The battery charge level will be recorded at the
+              time of pickup. Please return the vehicle at the same level or
+              higher. If the EV is returned with a lower charge level, you will
+              be assessed a battery charge fee as follows: (1) $25 if the return
+              charge level is 50% to 75%; (2) $50 if the return charge level is
+              25% to 50%; and (3) $100 if the return charge level is less than
+              25%. The battery charge fee is in addition to any idle time fees
+              billed to Go Rentals, or fees related to charging station damages
+              caused by your negligence.
+            </Text>
+          </Text>
+        </View>
+        <View style={style.textcontainer}>
+          <Text style={{ ...style.headingText }}>
+            <Text style={style.textNormal}>
+              {spaces(6)}(c) Key cards, key fobs and charging equipment are
+              provided at the time of pick-up of the EV. Lost or damaged key
+              cards will incur a fee of $200, lost key fobs will incur a fee of
+              $400, and lost charging equipment will incur a fee of $800.
+            </Text>
+          </Text>
+        </View>
+        {/* 13 */}
+        <View style={style.textcontainer}>
+          <Text style={{ ...style.headingText }}>
+            {spaces(3)}13.{" "}
+            <Text style={style.underline}>PERSONAL INFORMATION.</Text>{" "}
+            <Text style={style.textNormal}>
+              You agree that we may disclose personally identifiable information
+              about you to our affiliates and other third parties in connection
+              with our enforcement of our rights under this Agreement and other
+              legitimate business functions. For a copy of the Go Rentals
+              Privacy Policy, see{" "}
+              <Text style={{ color: "#4a9df0" }}>
+                https://www.gorentals.com/privacy/.
+              </Text>
+            </Text>
+          </Text>
+        </View>
+        <View style={style.textcontainer}>
+          <Text style={{ ...style.headingText }}>
+            {spaces(3)}14.{" "}
+            <Text style={style.underline}>
+              COLLECTION AND USE OF VEHICLE DATA.
+            </Text>{" "}
+            <Text style={style.textNormal}>
+              Vehicles may be equipped with global positioning satellite (GPS)
+              technology or another telematics system, and/or an event data
+              recorder (EDR) that collects and transmits data from the Vehicle.
+              <Text style={style.textBold}>
+                {" "}
+                You acknowledge and authorize that your use of this Vehicle may
+                be remotely monitored by us or on behalf of us through such
+                systems to the fullest extent permitted by law. This remote
+                monitoring may include collection of Vehicle data, such as:
+                location, odometer, oil life, fuel level, tire pressure, battery
+                state of charge, diagnostic trouble codes, and other elements
+                that we may deem necessary (and to the fullest extent permitted
+                by applicable law).
+              </Text>{" "}
+              Once collected, the Vehicle data may be combined with other
+              information that you have provided to us and used to generate
+              safety, performance, and other similar information so that we can
+              deliver better services. Our use of the information collected from
+              the Vehicle may include sharing the data with third parties (such
+              as our service providers), as well as storage of this information
+              after the expiration of your rental agreement. The renter agrees
+              to inform all drivers and passengers of the Vehicle of the terms
+              of this Paragraph 14, and that you have authorized release of
+              information collected by GPS or other telematics system or EDR.
+            </Text>
+          </Text>
+        </View>
+        <View style={style.textcontainer}>
+          <Text style={style.headingText}>
+            If you download a mobile application made available by the vehicle
+            manufacturer and you register the Vehicle in that application, your
+            use of the application may result in the sharing of your personal
+            data, vehicle information, location information and driving
+            characteristics with the vehicle manufacturer. Your use of vehicle
+            manufacturer applications is strictly governed by the vehicle
+            manufacturer’s terms and conditions and privacy policy, and we are
+            not in any way responsible for, and you release us from, any claim
+            or cause of action that may arise from your use of these
+            applications. Before returning the Vehicle, it is your
+            responsibility to either remove the application or delete the
+            Vehicle from the application. In addition, the Vehicle may be
+            equipped with devices that permit you to pair your own mobile
+            devices, and which may download your personal contacts,
+            communications, location or other digital data. You should delete
+            all personal information from the Vehicle’s systems before returning
+            it.
+          </Text>
+        </View>
+        <View style={style.textcontainer}>
+          <Text style={style.headingText}>
+            We are not responsible for the operability of any telematics
+            navigational or other system included with the Vehicle.{" "}
+            <Text style={style.textNormal}>
+              To the fullest extent permitted by law, you agree to release and
+              to indemnify, defend and hold us and our parents, subsidiaries,
+              affiliates, members, officers, directors, employees, and agents
+              harmless from any damage to persons or property caused by failure
+              of the GPS or other telematics system or EDR to operate properly,
+              or otherwise arising from the use of the GPS or other telematics
+              system or EDR.
+            </Text>
+          </Text>
+        </View>
+        {/* 15 */}
+        <View style={style.textcontainer}>
+          <Text style={{ ...style.headingText }}>
+            {spaces(3)}15.{" "}
+            <Text style={style.underline}>PERSONAL PROPERTY.</Text>{" "}
+            <Text style={style.textNormal}>
+              You agree that: (a) we are not responsible for damage to, loss of
+              or theft of personal property of yours or another person that we
+              received, handled or stored, or that was left or carried in or on
+              the Vehicle or in any service vehicle or in our offices, whether
+              the damage, loss, or theft was caused by our negligence or
+              otherwise; (b) to the fullest extent permitted by law, you will
+              defend, indemnify and hold us and our affiliates harmless from all
+              losses, liabilities, damages, injuries, claims, demands, costs,
+              attorney fees and other expenses arising out of your or your
+              passengers’ failure to remove any personal property; and (c) we
+              are not responsible for any claim or cause of action which may
+              arise from a prior renter`s or passenger`s failure to remove any
+              personal property, data or records from the Vehicle.
+            </Text>
+          </Text>
+        </View>
+        {/* 16 */}
+        <View style={style.textcontainer}>
+          <Text style={{ ...style.headingText }}>
+            {spaces(3)}16.{" "}
+            <Text style={style.underline}>
+              ELECTRONIC COMMUNICATIONS AND CONSENT; TRANSACTIONAL EMAILS AND
+              TEXTS.
+            </Text>{" "}
+          </Text>
+        </View>
+        <View style={style.textcontainer}>
+          <Text style={{ ...style.headingText }}>
+            <Text style={style.textNormal}>
+              {spaces(6)}(a){" "}
+              <Text style={style.textBold}>Electronic Communications, Generally.</Text>{" "}
+              To the fullest extent permitted by law, we may provide this Agreement and any notices or other communications (including by e-mail) regarding this Agreement, your reservation, or the rental of the Vehicle (“Communications”) to you electronically, and you agree to receive Communications from us in an electronic form. We may deliver Electronic Communications to the email address that you provide to us when entering into this Agreement or otherwise. All Communications in either electronic or paper format will be considered to be in “writing.” All Communications will be considered to have been received no later than five (5) business days after dissemination, whether or not you have received or retrieved the Communications. Although we reserve the right to provide Communications in paper format to you at the postal address you provide to us, you expressly agree that any notice or other Communications due under this Agreement may be given in email form to the email address that you provide to us. Your consent to receive Communications electronically is valid until you revoke your consent.
+            </Text>
+          </Text>
+        </View>
+        <View style={style.textcontainer}>
+          <Text style={{ ...style.headingText }}>
+            <Text style={style.textNormal}>
+              {spaces(6)}(b){" "}
+              <Text style={style.textBold}>Texting & Calling.</Text>{" "}
+              By executing this Agreement, you consent to us and/or our representatives contacting you at the phone number(s) provided in connection with this Agreement for the purpose of delivering informational or transactional outreach, including customer surveys, via live, pre-recorded, or autodialed calls or texts. Your consent to receiving these calls or texts is not a condition of this Agreement or any other agreement with us. For questions about privacy, please see Paragraph 13 of this Agreement.
+            </Text>
+          </Text>
+        </View>
+        {/* 17 */}
+        <View style={style.textcontainer}>
+          <Text style={{ ...style.headingText }}>
+            {spaces(3)}17.{" "}
+            <Text style={style.underline}>U.S. GOVERNMENT RENTALS. </Text>{" "}
+            <Text style={style.textNormal}>Rentals that are subject to the U.S. Government Rental Agreement administered by the Defense Travel Management Office will be governed by the provisions of the U.S. Government Rental Agreement, including payment of the Government Administrative Rate Supplement charge noted on the Face Page. </Text>
+          </Text>
+        </View>
+        {/* 18 */}
+        <View style={style.textcontainer}>
+          <Text style={{ ...style.headingText }}>
+            {spaces(3)}18.{" "}
+            <Text style={style.underline}>MISCELLANEOUS.</Text>{" "}
+            <Text style={style.textNormal}>This Agreement constitutes the entire agreement between you and us. All prior representations and agreements, whether written or oral, between you and us regarding this rental are void. No term of this Agreement can be waived or modified except by a writing signed by us. A waiver by us of any breach of this Agreement is not a waiver of any additional breach or waiver of the performance of your obligations under this Agreement. Our acceptance of payment from you or our failure, refusal or neglect to exercise any of our rights under this Agreement does not constitute a waiver of any other provision of this Agreement.{' '}</Text>
+              To the fullest extent permitted by law, you: (a) release us from
+              any liability for consequential, special or punitive damages in
+              connection with the rental or reservation of the Vehicle; and (b)
+              waive all recourse against us for any criminal reports or
+              prosecutions that we make against you that arise out of your
+              breach of this Agreement.{" "}
+            <Text style={style.textNormal}>Unless otherwise provided, any reference to a statute or regulation will be deemed to be a reference to that statute or regulation as amended from time to time or to a newly adopted statute or regulation replacing a repealed statute or regulation. If any provision of this Agreement is deemed void or unenforceable, the remaining provisions are valid and enforceable.</Text>
+          </Text>
+        </View>
+        <View style={style.textcontainer}>
+          <Text style={{ ...style.headingText }}>
+            <Text style={style.textNormal}>By signing below, you certify that: (1) you hold a valid and unexpired driver’s license; and (2) you had the opportunity to read, and that you agree to, these Rental Agreement Terms and Conditions; and (3) you agree to our collection and use of vehicle data and texting and calling terms as described in Paragraphs 14 and 16 of the Agreement.</Text>
           </Text>
         </View>
       </View>

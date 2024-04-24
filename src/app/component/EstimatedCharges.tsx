@@ -4,21 +4,12 @@ import React from "react";
 import { Text, View, StyleSheet, Image } from "@react-pdf/renderer";
 import { docStyles } from "../styles";
 
+type headingType = {
+  label: string
+}
+
 type EstimatedChargesProps = {
-  heading: [
-    {
-      label: string;
-    },
-    {
-      label: string;
-    },
-    {
-      label: string;
-    },
-    {
-      label: string;
-    }
-  ];
+  heading: headingType[];
   rows: any[];
 };
 

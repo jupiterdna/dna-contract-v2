@@ -5,6 +5,11 @@ import { Text, View, StyleSheet, Font } from "@react-pdf/renderer";
 import { docStyles } from '../styles';
 
 
+type dateType = {
+  date?: string
+  month?: string
+}
+
 type ContractHeaderBoxProps = {
     first_heading: {
         label: string,
@@ -15,9 +20,10 @@ type ContractHeaderBoxProps = {
         value?: string
     }
     contact?: string
+    date?: dateType
 }
 
-const ContractHeaderBox = ({first_heading, second_heading, contact }:ContractHeaderBoxProps)  => {
+const TemplateHeaderBox = ({first_heading, second_heading, contact, date }:ContractHeaderBoxProps)  => {
 
 
   return (
@@ -37,8 +43,8 @@ const ContractHeaderBox = ({first_heading, second_heading, contact }:ContractHea
             textAlign: 'center',
       
         }}>
-            <Text style={style.text}>Aug</Text>
-            <Text style={{...style.text, ...style.heading, ...docStyles.fontKarlaBold}}>30</Text>
+            <Text style={style.text}>{date?.month}</Text>
+            <Text style={{...style.text, ...style.heading, ...docStyles.fontKarlaBold}}>{date?.date}</Text>
         </View>
         <View>
             <Text style={style.headingText}>{first_heading.label}</Text>
@@ -74,4 +80,4 @@ const style = StyleSheet.create({
   heading: {fontWeight: 700, fontSize: 12, fontFamily: 'Karla'}
 })
 
-export default ContractHeaderBox
+export default TemplateHeaderBox
