@@ -1,10 +1,9 @@
 'use client'
-
-import ContractTemplate from "../component/Template";
+import Image from "next/image";
+import ContractTemplate from "../../component/Template";
 import { Document, PDFDownloadLink, PDFViewer, Page, StyleSheet, Text, View } from "@react-pdf/renderer";
 import { Html } from "react-pdf-html";
-import TestRender from "../component/TestRender";
-
+import TestRender from "../../component/TestRender";
 
 const styles = StyleSheet.create({
   page: {
@@ -18,16 +17,14 @@ const styles = StyleSheet.create({
   },
 });
 
-export default function Design() {  
+export default function Design() {
+
+  
   return (
     <div>
-      <PDFViewer style={{
-        width: "100%",
-        height: "100vh",
-      }}>
-        <TestRender />
-      </PDFViewer>
+        <div className="bg-gray-200 p-8 w-full">
+        <ContractTemplate template="2"/>
+      </div>
     </div>
-        
   );
 }

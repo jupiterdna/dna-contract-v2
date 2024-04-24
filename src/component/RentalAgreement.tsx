@@ -8,9 +8,10 @@ import TemplateSection from "./TemplateSection";
 
 type RentalAgreementProps = {
   title: string;
+  agreement_type?: 'colorado' | 'arizona'
 };
 
-const RentalAgreement = ({ title }: RentalAgreementProps) => {
+const RentalAgreement = ({ title, agreement_type }: RentalAgreementProps) => {
   const spaces = (num: number) => {
     return <Text style={{ color: "transparent" }}>{"_".repeat(num)}</Text>;
   };
