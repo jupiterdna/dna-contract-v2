@@ -5,21 +5,40 @@ import { Text, View, StyleSheet, Font } from "@react-pdf/renderer";
 import { docStyles } from "../styles";
 import SignatureComponent from "./SignatureComponent";
 
+
 type AgreementProps = {
   content?: string;
+  renter_signature?: string;
+  additional_signatures?: string[];
 };
 
-const Agreement = ({ content }: AgreementProps) => {
+const Agreement = ({
+  content,
+  renter_signature,
+  additional_signatures,
+}: AgreementProps) => {
   return (
     <View style={{ ...style.container }}>
       <Text style={style.text}>{content}</Text>
-      <View style={{flexDirection: 'row', justifyContent: 'space-between'}}>
-      <View style={style.signatureContainer}>
-        <SignatureComponent />
-      </View>
-      <View style={style.signatureContainer}>
-        <SignatureComponent label="Signature of Additional Driver" />
-      </View>
+      <View style={{ flexDirection: "row", justifyContent: "space-between" }}>
+        <View style={style.signatureContainer}>
+          <SignatureComponent
+            image_source={renter_signature}
+          />
+        </View>
+        <View>
+          {!additional_signatures?.length ? (
+            <View style={style.signatureContainer}>
+              <SignatureComponent label="Signature of Additional Driver" />
+            </View>
+          ) : (
+            additional_signatures?.map((signature, i) => (
+              <View style={style.signatureContainer} key={i}>
+                <SignatureComponent image_source={signature} />
+              </View>
+            ))
+          )}
+        </View>
       </View>
     </View>
   );

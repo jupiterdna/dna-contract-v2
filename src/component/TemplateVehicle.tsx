@@ -55,7 +55,7 @@ const TemplateVehicle = ({ vehicles }: TemplateVehicleProps) => {
             key={id || i}
           >
             <Image
-              src={vehicle_image || car.src}
+              src={vehicle_image}
               style={{ ...docStyles.img, width: 60 }}
               cache={false}
             />

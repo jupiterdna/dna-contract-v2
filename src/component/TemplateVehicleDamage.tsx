@@ -4,13 +4,7 @@ import React from "react";
 import { Text, View, StyleSheet, Image } from "@react-pdf/renderer";
 import _, { isEmpty } from "lodash";
 import SignatureComponent from "./SignatureComponent";
-
-import symbols_chip from "../assets/symbols-chip.png";
-import symbols_crack from "../assets/symbols-crack.png";
-import symbols_dent from "../assets/symbols-dent.png";
-import symbols_missing from "../assets/symbols-missing.png";
-import symbols_paint_swap from "../assets/symbols-paint-swap.png";
-import symbols_scratch from "../assets/symbols-scratch.png";
+import { public_path } from "@/utils";
 
 type TemplateVehicleDamageProps = {
   damage: {
@@ -21,16 +15,18 @@ type TemplateVehicleDamageProps = {
     missing?: number;
     crack?: number;
     paint_swap?: number;
+    signature?: string
   }
+  path?: string;
 };
-
 
 
 const TemplateVehicleDamage = ({
   damage,
+  path,
 }: TemplateVehicleDamageProps) => {
 
-    const { dent, scratch, chip, missing, crack, paint_swap } = damage;
+    const { dent, scratch, chip, missing, crack, paint_swap, signature } = damage;
 
   return (
     <>
@@ -38,7 +34,7 @@ const TemplateVehicleDamage = ({
         <View style={styles.row}>
           <View style={styles.content}>
             <Image
-              src={symbols_dent.src}
+              src={path+'/images/symbols-dent.png'}
               style={{ width: 10, height: 10 }}
               cache={false}
             />
@@ -49,7 +45,7 @@ const TemplateVehicleDamage = ({
         <View style={styles.row}>
           <View style={styles.content}>
             <Image
-              src={symbols_scratch.src}
+              src={path+'/images/symbols-scratch.png'}
               style={{ width: 10, height: 10 }}
               cache={false}
             />
@@ -61,7 +57,7 @@ const TemplateVehicleDamage = ({
         <View style={styles.row}>
           <View style={styles.content}>
             <Image
-              src={symbols_missing.src}
+              src={path+'/images/symbols-missing.png'}
               style={{ width: 10, height: 10 }}
               cache={false}
             />
@@ -73,7 +69,7 @@ const TemplateVehicleDamage = ({
         <View style={styles.row}>
           <View style={styles.content}>
             <Image
-              src={symbols_paint_swap.src}
+              src={path+'/images/symbols-paint-swap.png'}
               style={{ width: 10, height: 10 }}
               cache={false}
             />
@@ -84,7 +80,7 @@ const TemplateVehicleDamage = ({
         <View style={styles.row}>
           <View style={styles.content}>
             <Image
-              src={symbols_chip.src}
+              src={path+'/images/symbols-chip.png'}
               style={{ width: 10, height: 10 }}
               cache={false}
             />
@@ -96,7 +92,7 @@ const TemplateVehicleDamage = ({
         <View style={styles.row}>
           <View style={styles.content}>
             <Image
-              src={symbols_crack.src}
+              src={path+'/images/symbols-crack.png'}
               style={{ width: 10, height: 10 }}
               cache={false}
             />
@@ -108,7 +104,7 @@ const TemplateVehicleDamage = ({
       <View style={styles.signatureContainer}>
         <Text style={styles.labelText}>Condition Agreed to:</Text>
         <SignatureComponent 
-            image_source="https://raw.githubusercontent.com/ww6015132/SilkySignature/master/signature.png"
+            image_source={signature}
         />
       </View>
     </>

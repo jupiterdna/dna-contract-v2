@@ -1,21 +1,21 @@
 import { Image, StyleSheet, Text, View } from '@react-pdf/renderer'
 import React from 'react'
 import { docStyles } from '../styles'
-
-import Glogo from "../assets/Glogo.png";
+import { public_path } from '@/utils';
 
 type TemplateHeaderProps = {
     title?: string
     subTitle?: string
+    path: string
 }
 
-const TemplateHeader = ({title, subTitle}: TemplateHeaderProps) => {
+const TemplateHeader = ({title, subTitle, path}: TemplateHeaderProps) => {
   return (
     <View
           style={style.container}
         >
           <View>
-            <Image src={Glogo.src} style={docStyles.img} cache={false} />
+            <Image src={path+'/images/Glogo.png'} style={docStyles.img} cache={false} />
           </View>
           <View style={{ flexDirection: "column" }}>
             <Text style={docStyles.headerText}>{title}</Text>
