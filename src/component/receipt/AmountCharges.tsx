@@ -5,9 +5,12 @@ import { Text, View, StyleSheet, Font } from "@react-pdf/renderer";
 import { docStyles } from "../../styles";
 import SignatureComponent from "../SignatureComponent";
 
-type AmountChargesProps = {};
+type AmountChargesProps = {
+  amount?: string
+  paymentMethod?: string
+};
 
-const AmountCharges = ({}: AmountChargesProps) => {
+const AmountCharges = ({amount, paymentMethod}: AmountChargesProps) => {
   return (
     <View style={style.container}>
       <View style={style.inner}>
@@ -16,7 +19,7 @@ const AmountCharges = ({}: AmountChargesProps) => {
             <Text style={style.textheading}>Amount Charges</Text>
           </View>
           <View style={style.totalContainer}>
-             <Text style={style.textheading}>$2,300</Text>
+             <Text style={style.textheading}>{amount}</Text>
           </View>
         </View>
         <View style={{...style.row, marginTop: -2}}>
@@ -24,7 +27,7 @@ const AmountCharges = ({}: AmountChargesProps) => {
             <Text style={style.textheading}>Payment Method</Text>
           </View>
           <View style={style.totalContainer}>
-             <Text style={style.textheading}>$2,300</Text>
+             <Text style={style.textheading}>{paymentMethod}</Text>
           </View>
         </View>
       </View>

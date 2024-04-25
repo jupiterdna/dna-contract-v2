@@ -287,15 +287,22 @@ export const template = (data?: any, display_template: boolean) => {
               </View>
 
               {/* total charges */}
-              <TotalCharges />
+              <TotalCharges 
+                 total="30"
+                />
             </View>
           </TemplateSection>
           <View style={{ width: "35%" }}>
             <TemplateSection title="Payment">
-              <AmountCharges />
+              <AmountCharges 
+                    amount="$2500"
+                    paymentMethod="$1,500"
+              />
             </TemplateSection>
             <TemplateSection title="Points">
-                <Points />
+                <Points 
+                    points="20"
+                />
             </TemplateSection>
             
           </View>

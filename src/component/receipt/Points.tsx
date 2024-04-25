@@ -5,14 +5,16 @@ import { Text, View, StyleSheet, Font } from "@react-pdf/renderer";
 import { docStyles } from "../../styles";
 import SignatureComponent from "../SignatureComponent";
 
-type PointsProps = {};
+type PointsProps = {
+    points?: string
+};
 
-const Points = ({}: PointsProps) => {
+const Points = ({points='0'}: PointsProps) => {
   return (
     <View style={style.container}>
       <View style={style.inner}>
             <Text style={style.textheading}>Points</Text>
-            <Text style={style.textheading}>250</Text>
+            <Text style={style.textheading}>{points}</Text>
       </View>
     </View>
   );

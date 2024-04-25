@@ -5,14 +5,14 @@ import { Text, View, StyleSheet, Font } from "@react-pdf/renderer";
 import { docStyles } from "../../styles";
 import SignatureComponent from "../SignatureComponent";
 
-type TotalChargesProps = {};
+type TotalChargesProps = {total?: string};
 
-const TotalCharges = ({}: TotalChargesProps) => {
+const TotalCharges = ({total="0"}: TotalChargesProps) => {
   return (
     <View style={style.container}>
       <View style={style.inner}>
             <Text style={{...style.textheading, ...style.fontBold}}>Total Charges</Text>
-            <Text style={style.textheading}>250</Text>
+            <Text style={style.textheading}>{total}</Text>
       </View>
     </View>
   );
