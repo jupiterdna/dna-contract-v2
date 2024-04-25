@@ -3,7 +3,7 @@
 import React from "react";
 import { Text, View, StyleSheet, Image } from "@react-pdf/renderer";
 import _, { isEmpty } from "lodash";
-import SignatureComponent from "./SignatureComponent";
+import SignatureComponent from "../common/SignatureComponent";
 import { public_path } from "@/utils";
 
 type TemplateVehicleDamageProps = {

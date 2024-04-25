@@ -1,6 +1,6 @@
 import { Image, StyleSheet, Text, View } from '@react-pdf/renderer'
 import React from 'react'
-import { docStyles } from '../styles'
+import { docStyles } from '../../styles'
 import { public_path } from '@/utils';
 
 type TemplateHeaderProps = {

@@ -10,7 +10,7 @@ import {
   Text,
   BlobProvider,
 } from "@react-pdf/renderer";
-import TestRender from "./GeneratePdf";
+import TestRender from "./GenerateContract";
 import { saveAs } from "file-saver";
 import { GetServerSideProps, InferGetServerSidePropsType } from "next";
 

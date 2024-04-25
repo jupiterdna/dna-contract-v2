@@ -1,7 +1,7 @@
 
 import { Document, PDFDownloadLink, Page, StyleSheet, Text, View, pdf } from "@react-pdf/renderer";
 import { Html } from "react-pdf-html";
-import Template, {template} from "../../component/GeneratePdf";
+import Template, {template} from "../../component/GenerateContract";
 import { GetServerSideProps } from "next";
 import fs, {promises as fsP} from "fs";
 import dynamic from "next/dynamic";

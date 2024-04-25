@@ -2,7 +2,7 @@ import type { NextApiRequest, NextApiResponse } from 'next'
 import path from "path";
 import { writeFile } from "fs/promises"; 
 import ReactPDF, { Document, Page, Text, View, renderToFile } from '@react-pdf/renderer';
-import TestRender from '../../component/GeneratePdf';
+import TestRender from '../../component/GenerateContract';
 
 type ResponseData = {
   message: string

@@ -1,7 +1,7 @@
 import React from "react";
 import { Text, View, Image, StyleSheet } from "@react-pdf/renderer";
 
-import { docStyles } from "../styles";
+import { docStyles } from "../../styles";
 
 import car from "../assets/car.png";
 

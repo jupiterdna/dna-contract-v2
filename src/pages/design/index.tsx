@@ -3,7 +3,7 @@ import Image from "next/image";
 import ContractTemplate from "../../component/Template";
 import { Document, PDFDownloadLink, PDFViewer, Page, StyleSheet, Text, View } from "@react-pdf/renderer";
 import { Html } from "react-pdf-html";
-import TestRender from "../../component/GeneratePdf";
+import TestRender from "../../component/GenerateContract";
 
 const styles = StyleSheet.create({
   page: {

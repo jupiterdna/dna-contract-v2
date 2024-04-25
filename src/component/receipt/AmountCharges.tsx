@@ -3,7 +3,7 @@
 import React from "react";
 import { Text, View, StyleSheet, Font } from "@react-pdf/renderer";
 import { docStyles } from "../../styles";
-import SignatureComponent from "../SignatureComponent";
+import SignatureComponent from "../common/SignatureComponent";
 
 type AmountChargesProps = {
   amount?: string

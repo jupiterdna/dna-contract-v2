@@ -2,7 +2,7 @@
 
 import React from 'react'
 import { Text, View, StyleSheet, Font } from "@react-pdf/renderer";
-import { docStyles } from '../styles';
+import { docStyles } from '../../styles';
 
 
 type dateType = {
