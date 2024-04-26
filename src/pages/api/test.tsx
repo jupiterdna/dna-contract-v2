@@ -14,40 +14,9 @@ export const config = {
     bodyParser: false,
   },
 };
-
-const MyDoc = (
-  <Document>
-    <Page>
-      <View>
-          <Text>sdfsdf</Text>
-      </View>
-    </Page>
-  </Document>
-);
-
-
 export default function handler(
   req: NextApiRequest,
   res: NextApiResponse<ResponseData>
 ) {
-  
-
-  
-  saveFile()
-
   res.status(200).json({ message: 'Hello from Next.js!', data: 'sdfsdasdsf'})
-}
-
-const  saveFile = async () => {
-
-  const MyDocument = (
-    <Document>
-      <Page>
-        <Text>Section #1</Text>
-      </Page>
-    </Document>
-  )
-
-
-
 }
