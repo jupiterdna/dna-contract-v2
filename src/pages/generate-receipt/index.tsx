@@ -49,7 +49,7 @@ const PDFViewer = dynamic(
 //         res.end(JSON.stringify({ data: {url: `http://${host}:${port}/pdf/${fileName}`}, error: data}));
 
 
-//     } catch (error: any) {
+//     } catch (error: any) { 
 //         res.statusCode = 500;
 //         res.end(JSON.stringify({ data: {}, error: error.message}))
 //     }

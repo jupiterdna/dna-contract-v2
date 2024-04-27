@@ -1,5 +1,3 @@
-"use client";
-
 import React from "react";
 import { Text, View, StyleSheet } from "@react-pdf/renderer";
 import _, { isEmpty } from "lodash";

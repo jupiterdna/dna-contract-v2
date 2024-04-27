@@ -1,5 +1,3 @@
-"use client";
-
 import React from "react";
 import { Text, View, StyleSheet, Image } from "@react-pdf/renderer";
 import { docStyles } from "../../styles";
