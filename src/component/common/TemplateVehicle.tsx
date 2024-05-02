@@ -4,6 +4,7 @@ import { Text, View, Image, StyleSheet } from "@react-pdf/renderer";
 import { docStyles } from "../../styles";
 
 import car from "../assets/car.png";
+import { public_path } from "@/utils";
 
 type vehicleType = {
   id?: string;
@@ -55,7 +56,7 @@ const TemplateVehicle = ({ vehicles }: TemplateVehicleProps) => {
             key={id || i}
           >
             <Image
-              src={vehicle_image}
+              src={vehicle_image || public_path + "/images/car.png"}
               style={{ ...docStyles.img, width: 60 }}
               cache={false}
             />

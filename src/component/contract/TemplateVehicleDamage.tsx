@@ -5,26 +5,28 @@ import SignatureComponent from "../common/SignatureComponent";
 import { public_path } from "@/utils";
 
 type TemplateVehicleDamageProps = {
+  vehicle_image:'',
+  signature_image:'',
   damage: {
-    vehicle_image?: string;
     dent?: number;
     scratch?: number;
     chip?: number;
     missing?: number;
     crack?: number;
     paint_swap?: number;
-    signature?: string
   }
-  path?: string;
 };
 
 
 const TemplateVehicleDamage = ({
   damage,
-  path,
+  signature_image, 
+  vehicle_image
 }: TemplateVehicleDamageProps) => {
 
-    const { dent, scratch, chip, missing, crack, paint_swap, signature } = damage;
+    const { dent, scratch, chip, missing, crack, paint_swap } = damage;
+
+    const path= public_path
 
   return (
     <>
@@ -32,7 +34,7 @@ const TemplateVehicleDamage = ({
         <View style={styles.row}>
           <View style={styles.content}>
             <Image
-              src={path+'/images/symbols-dent.png'}
+              src={vehicle_image || public_path+'/images/symbols-dent.png'}
               style={{ width: 10, height: 10 }}
               cache={false}
             />
@@ -102,7 +104,7 @@ const TemplateVehicleDamage = ({
       <View style={styles.signatureContainer}>
         <Text style={styles.labelText}>Condition Agreed to:</Text>
         <SignatureComponent 
-            image_source={signature}
+            image_source={signature_image}
         />
       </View>
     </>

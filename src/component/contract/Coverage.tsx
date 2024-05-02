@@ -1,12 +1,13 @@
 import { Text, View, StyleSheet, Image, Rect, Svg } from "@react-pdf/renderer";
 import React from "react";
+import AcceptDeclineBox from "./AcceptDeclineBox";
 
-type dataType = {
-  title: string;
-  signature_type: "accept" | "decline";
-  signature_id: string;
+export type dataType = {
+  title?: string;
+  signature_type?: "accept" | "decline";
+  signature_id?: string;
+  signature_image?: string;
   description?: string;
-  onSignatureClick?: (signature_id: string) => void;
 };
 
 type CoverageProps = {
@@ -29,7 +30,7 @@ const signatureStyle = (
 const Coverage = ({ data }: CoverageProps) => {
   return data.map((item, index) => {
     return (
-      <View key={index} style={{ marginBottom: 20 }}>
+      <View key={item?.signature_id || index} style={{ marginBottom: 20 }}>
         <View style={style.titleContainer}>
           <Text style={style.headingTxt}>{item.title}</Text>
         </View>
@@ -40,55 +41,9 @@ const Coverage = ({ data }: CoverageProps) => {
             justifyContent: "space-between",
           }}
         >
-          <View style={{ ...style.row, ...style.boxcontainer }}>
-            <View>
-              <Svg viewBox="0 0 120 160">
-                <Text
-                  x={16}
-                  y={20}
-                  style={{
-                    fontFamily: "Karla",
-                    fontSize: 26,
-                    fontWeight: "bold",
-                  }}
-                >
-                  Accept
-                </Text>
-                <Rect
-                  height="120"
-                  width="120"
-                  y={40}
-                  stroke="#222"
-                  fill={item.signature_type === "accept" ? "#d0edfb" : "#fff"}
-                />
-              </Svg>
-            </View>
-
-            <View>
-              <Svg viewBox="0 0 120 160">
-                <Text
-                  x={16}
-                  y={20}
-                  style={{
-                    fontFamily: "Karla",
-                    fontSize: 26,
-                    fontWeight: "bold",
-                  }}
-                >
-                  Decline
-                </Text>
-                <Rect
-                  height="120"
-                  width="120"
-                  y={40}
-                  stroke="#222"
-                  fill={item.signature_type !== "accept" ? "#d0edfb" : "#fff"}
-                />
-              </Svg>
-            </View>
-          </View>
+         <AcceptDeclineBox item={item} key={item?.signature_id || index} />
           <View style={{ flex: 1, paddingTop: 10, width: "80%" }}>
-            <Text style={style.text}>{item.description}</Text>
+            <Text style={style.text}>{item?.description}</Text>
           </View>
         </View>
       </View>

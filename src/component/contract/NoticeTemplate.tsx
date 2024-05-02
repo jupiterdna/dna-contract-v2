@@ -4,9 +4,12 @@ import { Text, View, StyleSheet, Font } from "@react-pdf/renderer";
 import { docStyles } from "../../styles";
 import SignatureComponent from "../common/SignatureComponent";
 
-type NoticeTemplate = {};
+type NoticeTemplate = {
+  signature_image1?: string;
+  signature_image2?: string;
+};
 
-const NoticeTemplate = ({}: NoticeTemplate) => {
+const NoticeTemplate = ({signature_image1, signature_image2}: NoticeTemplate) => {
   return (
     <View>
       <View style={style.container}>
@@ -25,10 +28,10 @@ const NoticeTemplate = ({}: NoticeTemplate) => {
         </Text>
       </View>
       <View style={{...style.signatureContainer, marginTop: 10}}>
-        <SignatureComponent />
+        <SignatureComponent image_source={signature_image1}/>
       </View>
 
-      <Text style={style.text}>
+      <Text style={{...style.text, marginTop: 6}}>
         NOTICE: Our liability insurance does not cover injuries to passengers in
         the Vehicle.{" "}
       </Text>
@@ -43,7 +46,7 @@ const NoticeTemplate = ({}: NoticeTemplate) => {
       </Text>
 
       <View style={style.signatureContainer}>
-        <SignatureComponent />
+        <SignatureComponent image_source={signature_image2}/>
       </View>
     </View>
   );
