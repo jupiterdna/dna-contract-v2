@@ -6,10 +6,12 @@ import { public_path } from '@/utils';
 type TemplateHeaderProps = {
     title?: string
     subTitle?: string
-    path: string
 }
 
-const TemplateHeader = ({title, subTitle, path}: TemplateHeaderProps) => {
+const TemplateHeader = ({title, subTitle}: TemplateHeaderProps) => {
+
+  const path = public_path
+
   return (
     <View
           style={style.container}

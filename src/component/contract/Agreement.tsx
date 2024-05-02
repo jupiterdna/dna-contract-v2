@@ -24,15 +24,15 @@ const Agreement = ({
             image_source={renter_signature}
           />
         </View>
-        <View>
+        <View style={{rowGap: 20}}>
           {!additional_signatures?.length ? (
             <View style={style.signatureContainer}>
               <SignatureComponent label="Signature of Additional Driver" />
             </View>
           ) : (
             additional_signatures?.map((signature, i) => (
-              <View style={style.signatureContainer} key={i}>
-                <SignatureComponent image_source={signature} />
+              <View style={{...style.signatureContainer, height: 43}} key={i}>
+                <SignatureComponent image_source={signature} label="Signature of Additional Driver" />
               </View>
             ))
           )}

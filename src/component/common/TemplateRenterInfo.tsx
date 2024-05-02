@@ -20,7 +20,7 @@ const TemplateRenterInfo = ({ renters }: TemplateRenterInfoProps) => {
     <>
       {Object.entries(renters).map(([key, value], i) => {
         return (
-          <View key={i} style={style.row}>
+          <View key={i} style={{...style.row, flexWrap: 'wrap'}}>
             <Text style={style.textHeading}>{formatKey(key)}: </Text>
             <Text style={style.text}>{value}</Text>
           </View>
