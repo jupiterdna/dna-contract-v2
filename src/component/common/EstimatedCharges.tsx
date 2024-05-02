@@ -1,27 +1,44 @@
 import React from "react";
 import { Text, View, StyleSheet, Image } from "@react-pdf/renderer";
-import { docStyles } from "../../styles";
 
 type headingType = {
-  label: string
-}
+  label: string;
+};
 
 type EstimatedChargesProps = {
   heading: headingType[];
   rows: any[];
 };
 
-const aligment = ['flex-start', 'flex-start', 'center', 'flex-end']
+const getRownumber = (rows: any[]) => {
+  let max = 0;
+  rows.forEach((item) => {
+    if (Object.values(item).length > max) {
+      max = Object.values(item).length;
+    }
+  });
+  return max;
+};
+
+const aligment = (num_row: number) => {
+  return num_row === 3
+    ? ["flex-start", "center", "flex-end"]
+    : ["flex-start", "flex-start", "center", "flex-end"];
+};
 
 const EstimatedCharges = ({ heading, rows }: EstimatedChargesProps) => {
+  const numRows = 100 / getRownumber(rows) === 0 ? 4 : 100 / getRownumber(rows);
+
   return (
     <View>
       <View style={styles.mainContainer}>
         {heading.map((item, index) => {
-          const align: any = {justifyContent: aligment[index]}
+          const align: any = {
+            justifyContent: aligment(getRownumber(rows))[index],
+          };
           return (
-            <View key={index} style={styles.row}>
-              <View style={{...styles.content, ...align}}>
+            <View key={index} style={{ ...styles.row, width: `${numRows}%` }}>
+              <View style={{ ...styles.content, ...align }}>
                 <Text style={styles.textheading}>{item.label}</Text>
               </View>
             </View>
@@ -29,26 +46,28 @@ const EstimatedCharges = ({ heading, rows }: EstimatedChargesProps) => {
         })}
       </View>
       <View>
+        {rows.map((item, index) => {
+          return (
+            <View key={index} style={styles.mainContainer}>
+              {Object.values(item).map((value, in_index) => {
+                const align: any = {
+                  justifyContent: aligment(getRownumber(rows))[in_index],
+                };
 
-          {rows.map((item, index) => {
-            return (
-              <View key={index} style={styles.mainContainer}>
-                {Object.values(item).map((value, in_index) => {
-                  
-                  const align: any = {justifyContent: aligment[in_index]}
-
-                  return (
-                    <View key={in_index} style={styles.row}>
-                      <View style={{...styles.content, ...align}}>
-                        <Text style={{...styles.text}}>{value}</Text>
-                      </View>
+                return (
+                  <View
+                    key={in_index}
+                    style={{ ...styles.row, width: `${numRows}%` }}
+                  >
+                    <View style={{ ...styles.content, ...align }}>
+                      <Text style={{ ...styles.text }}>{value}</Text>
                     </View>
-                  );
-                })}
-              </View>
-            )
-          })}
-
+                  </View>
+                );
+              })}
+            </View>
+          );
+        })}
       </View>
     </View>
   );
@@ -63,7 +82,7 @@ const styles = StyleSheet.create({
   content: {
     columnGap: 3,
     width: "100%",
-    flexDirection: 'row',
+    flexDirection: "row",
   },
   row: {
     flexDirection: "row",
@@ -72,7 +91,6 @@ const styles = StyleSheet.create({
     marginBottom: 5,
     paddingHorizontal: 3,
     paddingBottom: 3,
-    width:'25%'
   },
   textheading: {
     fontSize: 9,

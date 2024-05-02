@@ -152,7 +152,7 @@ export const receipt = (data: any) => {
           </TemplateSection>
           <View style={{ width: "35%" }}>
             <TemplateSection title="Payment">
-              <AmountCharges amount={amount_charges?.amount || '$0'} paymentMethod={amount_charges?.payment_metho || ''} />
+              <AmountCharges amount={amount_charges?.amount || '$0'} paymentMethod={amount_charges?.payment_method || ''} />
             </TemplateSection>
             <TemplateSection title="Points">
               <Points points={points || 0} />
