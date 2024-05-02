@@ -65,7 +65,7 @@ export const temp = (data: any) => {
     footer_info={}
   } = data;
 
-  console.log("notice_info", notice_info)
+
   return (
     <Document style={{ display: "flex" }}>
       <Page size="LETTER" orientation="portrait" style={docStyles.page}>

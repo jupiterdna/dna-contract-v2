@@ -1,27 +1,19 @@
-import { type NextRequest, NextResponse } from 'next/server'
-import  {temp, template, testt} from "../../../component/GenerateContract2";
-import { Document, PDFDownloadLink, Page, StyleSheet, Text, View, pdf } from "@react-pdf/renderer";
+import  {temp} from "../../../component/GenerateContract2";
+import  {receipt} from "../../../component/GenerateReceipt";
+import {pdf } from "@react-pdf/renderer";
 import { v4 as uuidv4 } from 'uuid'
-import fs, {promises as fsP} from "fs";
-
-export async function GET(request: Request) {
-    const data = {
-        name: 'John Doe',
-        age: '21'
-    }
-    
-    return Response.json({ data })
-}
+import {promises as fsP} from "fs";
 
 export async function POST(request: Request) {
     const reqBody = await request.text();
 
     if(!reqBody) {
-        return Response.json({ error: 'No data found' })
+        return Response.json({ error: 'No data provided' }, { status: 400 });  
     }
 
     const data = JSON.parse(reqBody);
-    const blob = await pdf(temp(data)).toBlob();
+    const template = data?.document_type === 'contract' ? temp : receipt;
+    const blob = await pdf(template(data)).toBlob();
     const buffer = await blob.arrayBuffer();
     const base64 = await Buffer.from(buffer).toString('base64');
     // fs.writeFileSync('public/test.pdf', base64, );
