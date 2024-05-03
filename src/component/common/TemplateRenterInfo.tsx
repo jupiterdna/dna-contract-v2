@@ -18,7 +18,7 @@ const TemplateRenterInfo = ({ renters }: TemplateRenterInfoProps) => {
 
   return (
     <>
-      {Object.entries(renters).map(([key, value], i) => {
+      {Object.entries(renters).map(([key, value]: any, i) => {
         return (
           <View key={i} style={{...style.row, flexWrap: 'wrap'}}>
             <Text style={style.textHeading}>{formatKey(key)}: </Text>

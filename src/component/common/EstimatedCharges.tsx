@@ -53,7 +53,7 @@ const EstimatedCharges = ({ heading, rows,id, rowType }: EstimatedChargesProps) 
         {rows.map((item, index) => {
           return (
             <View key={index} style={styles.mainContainer}>
-              {Object.values(item).map((value, in_index) => {
+              {Object.values(item).map((value: any, in_index) => {
                 const align: any = {
                   justifyContent: aligment(getRownumber(rows))[in_index],
                 };

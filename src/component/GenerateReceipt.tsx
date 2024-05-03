@@ -128,7 +128,7 @@ export const receipt = (data: any) => {
         >
           <TemplateSection title="Estimated Charges" style={{ width: "65%" }}>
             <View>
-              {estimated_charges?.map((charge, i) => {
+              {estimated_charges?.map((charge: any, i: number) => {
                 return (
                   <View
                     style={{ marginTop: i !== 0 ? 20 : 10 }}

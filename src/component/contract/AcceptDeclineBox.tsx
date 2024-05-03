@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/alt-text */
 import { Image, Rect, StyleSheet, Svg, Text, View } from "@react-pdf/renderer";
 import React from "react";
 import { dataType } from "./Coverage";

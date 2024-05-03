@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/alt-text */
 
 import React from "react";
 import { Text, View, StyleSheet, Image } from "@react-pdf/renderer";
@@ -12,13 +13,14 @@ type itemType = {
 
 type HeaderProps = {
   heading: itemType[];
+  items: itemType[];
 };
 
 const VehicleDamage = ({ items }: HeaderProps) => {
   return (
     <View>
       <View style={styles.mainContainer}>
-        {items.map((item, index) => {
+        {items.map((item: any, index: number) => {
           return (
             <View key={index} style={styles.row}>
               <View style={styles.content}>
