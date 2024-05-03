@@ -41,7 +41,7 @@ const Coverage = ({ data }: CoverageProps) => {
             justifyContent: "space-between",
           }}
         >
-         <AcceptDeclineBox item={item} key={item?.signature_id || index} />
+         <AcceptDeclineBox item={item} item_key={item?.signature_id || index} />
           <View style={{ flex: 1, paddingTop: 10, width: "80%" }}>
             <Text style={style.text}>{item?.description}</Text>
           </View>

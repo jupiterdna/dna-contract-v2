@@ -1,40 +1,22 @@
 import { StyleSheet, Font } from "@react-pdf/renderer";
+const path = `http://${process.env.HOST}:${process.env.PORT}/`;
 
 Font.register({
   family: "krona",
   src: "http://fonts.gstatic.com/s/kronaone/v4/ix3TbrGcGYAHLWi4hTTy1KCWcynf_cDxXwCLxiixG1c.ttf",
 });
 
-// Font.register({
-//     family: "karla",
-//     src: "http://fonts.gstatic.com/s/karla/v5/Vu9Dx8oyiuqEkuIyR3OPDQ.ttf",
-// });
-
-// Font.register({
-//   family: "karla",
-//   src: "http://fonts.gstatic.com/s/karla/v5/Vu9Dx8oyiuqEkuIyR3OPDQ.ttf",
-// });
-
-// Font.register({
-//   family: "krona",
-//   src: "http://localhost:3000/font/krona.ttf",
-// });
-
-// Font.register({
-//   family: "krona",
-//   src: "http://localhost:3000/font/krona.ttf",
-// });
 
 Font.register({
   family: "Karla",
   fonts: [
     {
       fontWeight: "normal",
-      src: "http://localhost:3000/font/Karla.ttf",
+      src: `${path}font/Karla.ttf`,
     },
     {
       fontWeight: "bold",
-      src: "http://localhost:3000/font/Karla-Bold.ttf",
+      src: `${path}font/Karla-Bold.ttf`,
     },
   ],
 });

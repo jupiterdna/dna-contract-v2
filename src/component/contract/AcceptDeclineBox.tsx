@@ -5,10 +5,10 @@ import { dataType } from "./Coverage";
 
 type AcceptDeclineBoxType = {
   item?: dataType;
-  key: string | number;
+  item_key: string | number;
 };
 
-const AcceptDeclineBox = ({ item, key }: AcceptDeclineBoxType) => {
+const AcceptDeclineBox = ({ item, item_key }: AcceptDeclineBoxType) => {
   const _renderImage = (isMatch?: boolean, title?: "Accept" | "Decline") => {
     if (item?.signature_image && isMatch) {
       return (
@@ -59,7 +59,7 @@ const AcceptDeclineBox = ({ item, key }: AcceptDeclineBoxType) => {
   };
 
   return (
-    <View style={{ ...style.row, ...style.boxcontainer }} key={key}>
+    <View style={{ ...style.row, ...style.boxcontainer }} key={item_key}>
       <View>{_renderImage(item?.signature_type === "accept", "Accept")}</View>
       <View>{_renderImage(item?.signature_type === "decline", "Decline")}</View>
     </View>
