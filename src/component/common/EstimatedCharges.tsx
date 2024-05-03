@@ -8,6 +8,8 @@ type headingType = {
 type EstimatedChargesProps = {
   heading: headingType[];
   rows: any[];
+  rowType?: string;
+  id?: string;
 };
 
 const getRownumber = (rows: any[]) => {
@@ -26,11 +28,13 @@ const aligment = (num_row: number) => {
     : ["flex-start", "flex-start", "center", "flex-end"];
 };
 
-const EstimatedCharges = ({ heading, rows }: EstimatedChargesProps) => {
+const EstimatedCharges = ({ heading, rows,id, rowType }: EstimatedChargesProps) => {
   const numRows = 100 / getRownumber(rows) === 0 ? 4 : 100 / getRownumber(rows);
 
+  const disCountedStyle = rowType === "discount" ? { color: "#e75139" } : {};
+
   return (
-    <View>
+    <View key={id}>
       <View style={styles.mainContainer}>
         {heading.map((item, index) => {
           const align: any = {
@@ -39,7 +43,7 @@ const EstimatedCharges = ({ heading, rows }: EstimatedChargesProps) => {
           return (
             <View key={index} style={{ ...styles.row, width: `${numRows}%` }}>
               <View style={{ ...styles.content, ...align }}>
-                <Text style={styles.textheading}>{item.label}</Text>
+                <Text style={{...styles.textheading}}>{item.label}</Text>
               </View>
             </View>
           );
@@ -60,7 +64,7 @@ const EstimatedCharges = ({ heading, rows }: EstimatedChargesProps) => {
                     style={{ ...styles.row, width: `${numRows}%` }}
                   >
                     <View style={{ ...styles.content, ...align }}>
-                      <Text style={{ ...styles.text }}>{value}</Text>
+                      <Text style={{ ...styles.text,...disCountedStyle}}>{value}</Text>
                     </View>
                   </View>
                 );

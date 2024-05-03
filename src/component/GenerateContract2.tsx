@@ -197,6 +197,8 @@ export const temp = (data: any) => {
                   <EstimatedCharges
                     heading={charge.headers}
                     rows={charge.rows}
+                    id={charge?.id}
+                    rowType={charge?.row_type}
                   />
                 </View>
               );

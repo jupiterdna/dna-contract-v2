@@ -1,9 +1,4 @@
-import {
-  Document,
-  Page,
-  StyleSheet,
-  View,
-} from "@react-pdf/renderer";
+import { Document, Page, StyleSheet, View } from "@react-pdf/renderer";
 import { docStyles } from "../styles";
 
 // @ts-ignore
@@ -26,9 +21,9 @@ export const receipt = (data: any) => {
     renter_info = {},
     vehicle_info = [],
     estimated_charges = [],
-    total_charges=0,
-    amount_charges= {},
-    points=0,
+    total_charges = 0,
+    amount_charges = {},
+    points = 0,
   } = data;
 
   return (
@@ -105,7 +100,7 @@ export const receipt = (data: any) => {
           }}
         >
           <TemplateSection title="Renter Information" style={{ width: "30%" }}>
-          <TemplateRenterInfo
+            <TemplateRenterInfo
               renters={{
                 renter: renter_info?.renter || "",
                 additional_driver: renter_info?.additional_driver || "N/A",
@@ -118,9 +113,7 @@ export const receipt = (data: any) => {
             style={{ width: "70%" }}
           >
             <View style={{ rowGap: 15 }}>
-              <TemplateVehicle
-                vehicles={vehicle_info}
-              />
+              <TemplateVehicle vehicles={vehicle_info} />
             </View>
           </TemplateSection>
         </View>
@@ -135,16 +128,21 @@ export const receipt = (data: any) => {
         >
           <TemplateSection title="Estimated Charges" style={{ width: "65%" }}>
             <View>
-            {estimated_charges?.map((charge, i) => {
-              return (
-                <View style={{ marginTop: i!==0 ? 20 : 10 }} key={charge.id || i}>
-                  <EstimatedCharges
-                    heading={charge.headers}
-                    rows={charge.rows}
-                  />
-                </View>
-              );
-            })}
+              {estimated_charges?.map((charge, i) => {
+                return (
+                  <View
+                    style={{ marginTop: i !== 0 ? 20 : 10 }}
+                    key={charge.id || i}
+                  >
+                    <EstimatedCharges
+                      heading={charge.headers}
+                      rows={charge.rows}
+                      id={charge?.id}
+                      rowType={charge?.row_type}
+                    />
+                  </View>
+                );
+              })}
 
               {/* total charges */}
               <TotalCharges total={total_charges || 0} />
@@ -152,7 +150,10 @@ export const receipt = (data: any) => {
           </TemplateSection>
           <View style={{ width: "35%" }}>
             <TemplateSection title="Payment">
-              <AmountCharges amount={amount_charges?.amount || '$0'} paymentMethod={amount_charges?.payment_method || ''} />
+              <AmountCharges
+                amount={amount_charges?.amount || "$0"}
+                paymentMethod={amount_charges?.payment_method || ""}
+              />
             </TemplateSection>
             <TemplateSection title="Points">
               <Points points={points || 0} />
@@ -421,8 +422,6 @@ export const receipt = (data: any) => {
 
 // function TestRender() {
 //   const [isClient, setIsClient] = useState(false);
-
-
 
 //   if (!isClient) return null;
 
