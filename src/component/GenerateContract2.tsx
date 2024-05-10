@@ -28,7 +28,7 @@ import { public_path } from "@/utils";
 const host = process.env.HOST || "localhost";
 const port = process.env.PORT || 3000;
 
-const image_path = `${host}:${port}/images`;
+const image_path = `http://form-contract.development.local/images`;
 
 const style = StyleSheet.create({
   text: {
