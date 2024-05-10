@@ -4,6 +4,7 @@ FROM node:20-bullseye-slim
 WORKDIR /var/app
 COPY ./package.json /var/app/package.json
 COPY ./.yarnrc /var/app/.yarnrc
+COPY ./.next /var/app/.next
 
 # Copy the envconsul binary from the builder stage
 COPY --from=builder /bin/envconsul /bin/envconsul
