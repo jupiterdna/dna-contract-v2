@@ -25,7 +25,7 @@ update_stack:
     STACK_ID: 120
     PORTAINER_USERNAME: 'admin'
     PORTAINER_PASSWORD: 'tLs&uG3p2L?rIvl'
-    PORTAINER_HOST: http://portainer.development.local
+    PORTAINER_HOST: https://portainer.development.dnadev.net
     PORTAINER_YML_FILE: application.yml
     PORTAINER_ENV_FILE: application.env
     REGISTRY_ADDRESS: 'registry.dnamicro.com'
