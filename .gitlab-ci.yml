@@ -1,0 +1,40 @@
+stages:
+  - build
+  - deployment-development
+
+master_build:
+  stage: build
+  variables:
+    REGISTRY_ADDRESS: 'registry.dnamicro.com'
+    REGISTRY_USERNAME: 'dev'
+    REGISTRY_PASSWORD: 'F0nch3rt0'
+  script:
+    - 'docker login $REGISTRY_ADDRESS -u $REGISTRY_USERNAME -p $REGISTRY_PASSWORD'
+    - "docker build -t $REGISTRY_ADDRESS/$CI_PROJECT_NAME:$CI_COMMIT_REF_NAME-$CI_PIPELINE_ID -f dockerfile \
+      --build-arg PROJECT=$CI_PROJECT_NAME ."
+    - 'docker tag $REGISTRY_ADDRESS/$CI_PROJECT_NAME:$CI_COMMIT_REF_NAME-$CI_PIPELINE_ID $REGISTRY_ADDRESS/$CI_PROJECT_NAME:$CI_COMMIT_REF_NAME'
+    - 'docker push $REGISTRY_ADDRESS/$CI_PROJECT_NAME:$CI_COMMIT_REF_NAME-$CI_PIPELINE_ID'
+    - 'docker push $REGISTRY_ADDRESS/$CI_PROJECT_NAME:$CI_COMMIT_REF_NAME'
+  only:
+    - 'development'
+
+# update_stack:
+#   stage: deployment-development
+#   variables:
+#     ENDPOINT_ID: 2
+#     STACK_ID: 120
+#     PORTAINER_USERNAME: 'admin'
+#     PORTAINER_PASSWORD: 'tLs&uG3p2L?rIvl'
+#     PORTAINER_HOST: http://portainer.development.local
+#     PORTAINER_YML_FILE: application.yml
+#     PORTAINER_ENV_FILE: application.env
+#     REGISTRY_ADDRESS: 'registry.dnamicro.com'
+#     FILE_PATH: /var/apps/portainer
+#   script:
+#     - PORTAINER_HOST=$PORTAINER_HOST portainer login -u $PORTAINER_USERNAME -p $PORTAINER_PASSWORD
+#     - cd  $FILE_PATH && rm -rf  $PORTAINER_YML_FILE && PORTAINER_HOST=$PORTAINER_HOST portainer stackfile $STACK_ID $PORTAINER_YML_FILE
+#     - cd  $FILE_PATH && sed -i "s/${CI_PROJECT_NAME}:.*/${CI_PROJECT_NAME}:${CI_COMMIT_REF_NAME}-${CI_PIPELINE_ID}/g" $PORTAINER_YML_FILE
+#     - echo 'updating booking-fn'
+#     - cd  $FILE_PATH && PORTAINER_HOST=$PORTAINER_HOST portainer stack:update  $ENDPOINT_ID  $STACK_ID  $PORTAINER_YML_FILE -e $PORTAINER_ENV_FILE
+#   only:
+#     - 'development'
