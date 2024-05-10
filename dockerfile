@@ -1,5 +1,6 @@
 FROM hashicorp/envconsul as builder
-FROM node:16
+FROM node:18-alpine
+
 
 RUN apt-get update;
 RUN apt-get install git curl htop -qq -y;
