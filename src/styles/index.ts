@@ -1,5 +1,5 @@
 import { StyleSheet, Font } from "@react-pdf/renderer";
-const path = `http://${process.env.HOST}:${process.env.PORT}/`;
+const path = `${process.env.HOST}:${process.env.PORT}/` || "http://localhost:3000/";
 
 Font.register({
   family: "krona",

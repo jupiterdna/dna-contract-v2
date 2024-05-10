@@ -3,7 +3,6 @@ import { Text, View, StyleSheet, Font } from "@react-pdf/renderer";
 import { docStyles } from "../../styles";
 import SignatureComponent from "../common/SignatureComponent";
 
-
 type AgreementProps = {
   content?: string;
   renter_signature?: string;
@@ -18,25 +17,26 @@ const Agreement = ({
   return (
     <View style={{ ...style.container }}>
       <Text style={style.text}>{content}</Text>
-      <View style={{ flexDirection: "row", justifyContent: "space-between" }}>
+      <View style={{ ...style.rowStyle, justifyContent: "space-between" }}>
         <View style={style.signatureContainer}>
-          <SignatureComponent
-            image_source={renter_signature}
-          />
+          <SignatureComponent image_source={renter_signature} />
         </View>
-        <View style={{rowGap: 20}}>
-          {!additional_signatures?.length ? (
-            <View style={style.signatureContainer}>
-              <SignatureComponent label="Signature of Additional Driver" />
-            </View>
-          ) : (
-            additional_signatures?.map((signature, i) => (
-              <View style={{...style.signatureContainer, height: 43}} key={i}>
-                <SignatureComponent image_source={signature} label="Signature of Additional Driver" />
+        {!additional_signatures?.length ? (
+          <View style={style.signatureContainer}>
+            <SignatureComponent label="Signature of Additional Driver" />
+          </View>
+        ) : (
+          <View style={{ rowGap: 20, ...style.colStyle }}>
+            {additional_signatures?.map((signature, i) => (
+              <View style={{ ...style.signatureContainer, height: 43 }} key={i}>
+                <SignatureComponent
+                  image_source={signature}
+                  label="Signature of Additional Driver"
+                />
               </View>
-            ))
-          )}
-        </View>
+            ))}
+          </View>
+        )}
       </View>
     </View>
   );
@@ -45,6 +45,17 @@ const Agreement = ({
 const style = StyleSheet.create({
   container: {
     width: "100%",
+  },
+  colStyle: {
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "flex-start",
+  },
+  rowStyle: {
+    display: "flex",
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "space-between",
   },
   headingText: {
     fontSize: 9,
@@ -55,6 +66,7 @@ const style = StyleSheet.create({
   labelText: {
     fontSize: 9,
     fontFamily: "Karla",
+    fontWeight: "normal",
   },
   text: {
     fontSize: 9,
@@ -62,6 +74,13 @@ const style = StyleSheet.create({
     lineHeight: 1.7,
     marginBottom: 10,
     textAlign: "justify",
+    fontWeight: "normal",
+  },
+  signatureContainer2: {
+    marginTop: 5,
+    rowGap: 5,
+    marginBottom: 15,
+    width: 300,
   },
   signatureContainer: {
     marginTop: 5,

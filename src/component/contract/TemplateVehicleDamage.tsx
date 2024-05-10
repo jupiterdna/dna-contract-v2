@@ -35,7 +35,7 @@ const TemplateVehicleDamage = ({
         <View style={styles.row}>
           <View style={styles.content}>
             <Image
-              src={vehicle_image || public_path+'/images/symbols-dent.png'}
+              src={path+'/images/symbols-dent.png'}
               style={{ width: 10, height: 10 }}
               cache={false}
             />
@@ -138,7 +138,6 @@ const styles = StyleSheet.create({
   },
   labelText: {
     fontSize: 9,
-    fontFamily: "Karla",
   },
   signatureContainer: {
     marginTop: 20,

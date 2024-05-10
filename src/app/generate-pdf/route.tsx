@@ -5,7 +5,7 @@ import { v4 as uuidv4 } from "uuid";
 import { promises as fsP } from "fs";
 
 export async function POST(request: Request) {
-  const reqBody = await request.text();
+   const reqBody = await request.text();
 
   if (!reqBody) {
     return Response.json({ error: "No data provided" }, { status: 400 });
@@ -21,16 +21,16 @@ export async function POST(request: Request) {
     const fileName = `${uuidv4()}.pdf`;
     const filePath = `public/pdf/${fileName}`;
     const asPdf = await fsP.writeFile(filePath, base64, "base64");
-
+    
     setTimeout(() => {
       deleteFile(filePath);
     }, 1000 * 60);
-
-    const url = `http://${process.env.HOST}:${process.env.PORT}/pdf/${fileName}`;
+    
+    const url = `${process.env.HOST}:${process.env.PORT}/pdf/${fileName}`;
 
     return Response.json({ data: url }, { status: 200 });
   } catch (error) {
-    return Response.json({ error: 'Thers an error in generating pdf' }, { status: 400 });
+    return Response.json({ error: 'Theres an error in generating pdf', er: error }, { status: 400 });
   }
 }
 

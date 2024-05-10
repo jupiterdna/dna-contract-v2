@@ -69,70 +69,70 @@ const TemplateVehicle = ({ vehicles }: TemplateVehicleProps) => {
                 <Text style={style.text}>{vehicle_name}</Text>
               </View>
 
-              {vin && (
+              {vin ?  (
                 <View style={style.row}>
                   <Text style={style.textHeading}>VIN: </Text>
                   <Text style={style.text}>{vin}</Text>
                 </View>
-              )}
+              ) : null}
 
-              {unit_no && (
+              {unit_no ? (
                 <View style={style.row}>
                   <Text style={style.textHeading}>Unit Number: </Text>
                   <Text style={style.text}>{unit_no}</Text>
                 </View>
-              )}
+              ) : null}
 
-              {license_no && (
+              {license_no ? (
                 <View style={style.row}>
                   <Text style={style.textHeading}>License #: </Text>
                   <Text style={style.text}>{license_no}</Text>
                 </View>
-              )}
+              ) : null}
 
-              {checkout && (
+              {checkout ? (
                 <View style={style.row}>
                   <Text style={style.textHeading}>Checkout: </Text>
                   <Text style={style.text}>{checkout}</Text>
                 </View>
-              )}
+              ) : null}
 
-              {checkin && (
+              {checkin ? (
                 <View style={style.row}>
                   <Text style={style.textHeading}>Checkin: </Text>
                   <Text style={style.text}>{checkin}</Text>
                 </View>
-              )}
+              ) : null}
 
               <View style={{ ...style.row, columnGap: 20 }}>
-                {milage_out && (
+                {milage_out ? (
                   <View style={style.firstRow}>
                     <Text style={style.textHeading}>Mileage Out: </Text>
                     <Text style={style.text}>{milage_out}</Text>
                   </View>
-                )}
+                ) : null}
 
-                {milage_in && (
+                {milage_in ? (
                   <View style={style.row}>
                     <Text style={style.textHeading}>Mileage In: </Text>
                     <Text style={style.text}>{milage_in}</Text>
                   </View>
-                )}
+                ) : null}
               </View>
 
               <View style={{ ...style.row, columnGap: 20 }}>
-                {fuel_out && (
+                {fuel_out ? (
                   <View style={style.firstRow}>
                     <Text style={style.textHeading}>Fuel Out: </Text>
                     <Text style={style.text}>{fuel_out}</Text>
                   </View>
-                )}
-                {fuel_in && (
+                ) : null}
+                {fuel_in ? (
                   <View style={style.row}>
                     <Text style={style.textHeading}>Fuel In: </Text>
                     <Text style={style.text}>{fuel_in}</Text>
                   </View>
-                )}
+                ) : null}
               </View>
             </View>
           </View>

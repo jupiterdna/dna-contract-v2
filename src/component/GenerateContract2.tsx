@@ -28,7 +28,7 @@ import { public_path } from "@/utils";
 const host = process.env.HOST || "localhost";
 const port = process.env.PORT || 3000;
 
-const image_path = `http://${host}:${port}/images`;
+const image_path = `${host}:${port}/images`;
 
 const style = StyleSheet.create({
   text: {
@@ -176,7 +176,7 @@ export const temp = (data: any) => {
                 }}
               >
                 <Image
-                  src={image_path + "/vehicle_damage_marks.png"}
+                  src={(vehicle_damage?.vehicle_image || "") || image_path + "/vehicle_damage_marks.png"}
                   style={{ ...docStyles.img, width: "96%" }}
                   cache={false}
                 />
