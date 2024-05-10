@@ -2,9 +2,10 @@ FROM hashicorp/envconsul as builder
 FROM node:18-alpine
 
 
-RUN apt-get update;
-RUN apt-get install git curl htop -qq -y;
-RUN npm install -g pm2;
+RUN apk update;
+RUN apk add git;
+RUN npm install -g pm2
+
 
 # Copy the envconsul binary from the builder stage
 COPY --from=builder /bin/envconsul /bin/envconsul
