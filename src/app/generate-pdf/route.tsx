@@ -26,7 +26,7 @@ export async function POST(request: Request) {
       deleteFile(filePath);
     }, 1000 * 60);
     
-    const url = `${process.env.HOST}:${process.env.PORT}/pdf/${fileName}`;
+    const url = `http://form-contract.development.local/pdf/${fileName}`;
 
     return Response.json({ data: url }, { status: 200 });
   } catch (error) {
