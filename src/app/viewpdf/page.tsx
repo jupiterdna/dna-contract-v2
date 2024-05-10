@@ -5,6 +5,9 @@ import { docStyles } from "@/styles";
 import { Document, PDFViewer, Page, StyleSheet } from "@react-pdf/renderer";
 
 export default function PdfRender() {
+
+  return null
+
   return (
     <div style={{ width: "100%" }}>
       <PDFViewer style={{ width: "100%", height: "100vh" }}>

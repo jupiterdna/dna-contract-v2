@@ -9,8 +9,8 @@ export default function Template() {
   return (
     <div>
         <p className="text-lg mb-8">
-        Here's how to generate a receipt PDF. You can use another promise-based
-        HTTP client to send data to the server, and in this example, we'll use
+        Here`s how to generate a receipt PDF. You can use another promise-based
+        HTTP client to send data to the server, and in this example, we`ll use
         the Axios library.
       </p>
       <p className="text-lg mb-4 font-bold">Example Code</p>
