@@ -27,6 +27,11 @@ const signatureStyle = (
       };
 };
 
+const removeHtmlTags = (str?: string) => {
+  const regex = /(<([^>]+)>)/gi;
+  return str?.replace(regex, "");
+};
+
 const Coverage = ({ data }: CoverageProps) => {
   return data.map((item, index) => {
     return (
@@ -43,7 +48,7 @@ const Coverage = ({ data }: CoverageProps) => {
         >
          <AcceptDeclineBox item={item} item_key={item?.signature_id || index} />
           <View style={{ flex: 1, paddingTop: 10, width: "80%" }}>
-            <Text style={style.text}>{item?.description}</Text>
+            <Text style={style.text}>{removeHtmlTags(item?.description)}</Text>
           </View>
         </View>
       </View>
