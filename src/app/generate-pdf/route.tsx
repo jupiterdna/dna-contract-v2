@@ -18,17 +18,18 @@ export async function POST(request: Request) {
     const buffer = await blob.arrayBuffer();
     const base64 = await Buffer.from(buffer).toString("base64");
     // fs.writeFileSync('public/test.pdf', base64, );
-    const fileName = `${uuidv4()}.pdf`;
-    const filePath = `public/pdf/${fileName}`;
-    const asPdf = await fsP.writeFile(filePath, base64, "base64");
+    // const fileName = `${uuidv4()}.pdf`;
+    // const filePath = `public/pdf/${fileName}`;
+    // const asPdf = await fsP.writeFile(filePath, base64, "base64");
     
-    setTimeout(() => {
-      deleteFile(filePath);
-    }, 1000 * 60);
+    // setTimeout(() => {
+    //   deleteFile(filePath);
+    // }, 1000 * 60);
     
-    const url = `http://form-contract.development.local/pdf/${fileName}`;
+    // const url = `http://form-contract.development.local/pdf/${fileName}`;
 
-    return Response.json({ data: url }, { status: 200 });
+    return Response.json({ data: 'data:application/pdf;base64,'+base64 }, { status: 200 });
+    // return Response.json({ data: url }, { status: 200 });
   } catch (error) {
     return Response.json({ error: 'Theres an error in generating pdf', er: error }, { status: 400 });
   }
