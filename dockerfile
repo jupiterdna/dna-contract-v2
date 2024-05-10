@@ -28,5 +28,5 @@ RUN npm run build
 ENV PORT=5000
 ENV NODE_ENV=production
 ##CMD ["pm2-runtime","dist/main.js"]
-CMD ["pm2-runtime", "npm start"]
+CMD ["next build"]
 # ENTRYPOINT ["envconsul", "-config", "application.hcl" , "-once"]
