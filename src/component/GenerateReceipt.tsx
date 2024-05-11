@@ -61,7 +61,7 @@ export const receipt = (data: any) => {
             }}
             contact={header_boxes?.left?.contact || "(678) 768-7687"}
             date={{
-              date: header_boxes?.left?.date?.date || moment().format("DD"),
+              day: header_boxes?.left?.date?.day || moment().format("DD"),
               month: header_boxes?.left?.date?.month || moment().format("MMM"),
             }}
           />
@@ -84,7 +84,7 @@ export const receipt = (data: any) => {
             }}
             contact={header_boxes?.right?.contact || "(678) 768-7687"}
             date={{
-              date: header_boxes?.right?.date?.date || moment().format("DD"),
+              day: header_boxes?.right?.date?.day || moment().format("DD"),
               month: header_boxes?.right?.date?.month || moment().format("MMM"),
             }}
           />
