@@ -28,7 +28,7 @@ export async function POST(request: Request) {
     //   deleteFile(filePath);
     // }, 1000 * 60);
     
-    // const url = `http://localhost:3000/pdf/${fileName}`;
+    // const url = `http://form-contract.development.local/pdf/${fileName}`;
 
     return Response.json({ data: 'data:application/pdf;base64,'+base64 }, { status: 200 });
     // return Response.json({ data: url }, { status: 200 });
