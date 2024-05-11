@@ -28,7 +28,7 @@ import { public_path } from "@/utils";
 const host = process.env.HOST || "localhost";
 const port = process.env.PORT || 3000;
 
-const image_path = `http://form-contract.development.local/images`;
+const image_path = `http://localhost:3000/images`;
 
 const style = StyleSheet.create({
   text: {
@@ -63,7 +63,8 @@ export const temp = (data: any) => {
     optional_insurance_policies={},
     converage_info=[],
     agreement={},
-    footer_info={}
+    footer_info={},
+    isSof=false
   } = data;
 
 
@@ -102,7 +103,7 @@ export const temp = (data: any) => {
             }}
             contact={header_boxes?.left?.contact || "(678) 768-7687"}
             date={{
-              date: header_boxes?.left?.date?.date || moment().format("DD"),
+              day: header_boxes?.left?.date?.day || moment().format("DD"),
               month: header_boxes?.left?.date?.month || moment().format("MMM"),
             }}
           />
@@ -124,7 +125,7 @@ export const temp = (data: any) => {
             }}
             contact={header_boxes?.right?.contact || "(678) 768-7687"}
             date={{
-              date: header_boxes?.right?.date?.date || moment().format("DD"),
+              day: header_boxes?.right?.date?.day || moment().format("DD"),
               month: header_boxes?.right?.date?.month || moment().format("MMM"),
             }}
           />
@@ -186,6 +187,7 @@ export const temp = (data: any) => {
                   vehicle_image={vehicle_damage?.vehicle_image || ""}
                   damage={vehicle_damage?.damage || {}}
                   signature_image={vehicle_damage?.signature_image || ""}
+                  isSof={isSof}
                 />
               </View>
             </View>
@@ -210,6 +212,7 @@ export const temp = (data: any) => {
         <NoticeTemplate 
             signature_image1={notice_info?.signature_image || ""}
             signature_image2={optional_insurance_policies?.signature_image || ""}
+            isSof={isSof}
         />
 
         {/* coverages */}
@@ -217,6 +220,7 @@ export const temp = (data: any) => {
           <TemplateSection title="Coverage" />
           <Coverage
             data={converage_info}
+            isSof={isSof}
           />
         </View>
         {/* agreement */}
@@ -226,6 +230,7 @@ export const temp = (data: any) => {
             content={agreement?.content  || `By signing below, you certify that you (1) had the opportunity to read, and that you agree to, the terms and conditions of this agreement as set forth on this Rental Agreement Face Page and in either the Rental Agreement Terms and Conditions or the Master Rental Terms and Conditions (the “Agreement”), (2) authorize us to process a separate payment card transaction in your name for all Charges, (3) authorize us to release your billing and rental information to a third-party processor for billing and processing purposes; (4) authorize us or a third-party processor to charge your payment card account after the rental concludes for any Tolls or Violations assessed against you, us or the Vehicle during this rental plus taxes, administrative fees of up to $50 per Toll or Violation, convenience fees, service charges, and related fees; (5) accept or decline Optional Products as shown on the Face Page; (6) understand that all Charges are subject to our final audit and authorize us to adjust your payment card account to reflect changes resulting from our audit; (7) understand that the purchase of optional insurance products or CDW is not required to rent the Vehicle, and that the optional insurance products and CDW that we offer may duplicate coverage provided by your personal automobile insurance policy or another source of coverage; and (8) agree to our collection and use of vehicle data and texting and calling terms as described in Paragraphs 15 and 17 of the Rental Agreement Terms and Conditions (or the Master Rental Agreement Terms and Conditions if applicable).`}
             renter_signature={agreement?.signature_image}
             additional_signatures={agreement?.additional_signatures}
+            isSof={isSof}
           />
         </View>
 
@@ -244,7 +249,7 @@ export const temp = (data: any) => {
           }}
         >
           <View style={{ ...style.row, justifyContent: "space-between" }}>
-            <SignatureComponent image_source={footer_info?.signature_image} label="Renter's Signature" />
+            <SignatureComponent isSof={isSof} image_source={footer_info?.signature_image} label="Renter's Signature" />
             <DateComponent label="Date " value={footer_info?.date || moment().format('MM-DD-YYYY')}/>
           </View>
         </View>

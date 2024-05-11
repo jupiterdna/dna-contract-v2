@@ -3,7 +3,7 @@ import { docStyles } from '../../styles';
 
 
 type dateType = {
-  date?: string
+  day?: string
   month?: string
 }
 
@@ -41,7 +41,7 @@ const TemplateHeaderBox = ({first_heading, second_heading, contact, date }:Contr
       
         }}>
             <Text style={style.text}>{date?.month}</Text>
-            <Text style={{...style.text, ...style.heading, ...docStyles.fontKarlaBold}}>{date?.date}</Text>
+            <Text style={{...style.text, ...style.heading, ...docStyles.fontKarlaBold}}>{date?.day}</Text>
         </View>
         <View>
             <Text style={style.headingText}>{first_heading.label}</Text>

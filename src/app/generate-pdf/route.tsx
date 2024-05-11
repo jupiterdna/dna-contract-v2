@@ -18,6 +18,8 @@ export async function POST(request: Request) {
     const buffer = await blob.arrayBuffer();
     const base64 = await Buffer.from(buffer).toString("base64");
     // fs.writeFileSync('public/test.pdf', base64, );
+
+    // uncomment for testing
     // const fileName = `${uuidv4()}.pdf`;
     // const filePath = `public/pdf/${fileName}`;
     // const asPdf = await fsP.writeFile(filePath, base64, "base64");
@@ -26,7 +28,7 @@ export async function POST(request: Request) {
     //   deleteFile(filePath);
     // }, 1000 * 60);
     
-    // const url = `http://form-contract.development.local/pdf/${fileName}`;
+    // const url = `http://localhost:3000/pdf/${fileName}`;
 
     return Response.json({ data: 'data:application/pdf;base64,'+base64 }, { status: 200 });
     // return Response.json({ data: url }, { status: 200 });

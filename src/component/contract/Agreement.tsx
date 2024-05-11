@@ -7,29 +7,32 @@ type AgreementProps = {
   content?: string;
   renter_signature?: string;
   additional_signatures?: string[];
+  isSof?: boolean;
 };
 
 const Agreement = ({
   content,
   renter_signature,
   additional_signatures,
+  isSof
 }: AgreementProps) => {
   return (
     <View style={{ ...style.container }}>
       <Text style={style.text}>{content}</Text>
       <View style={{ ...style.rowStyle, justifyContent: "space-between" }}>
         <View style={style.signatureContainer}>
-          <SignatureComponent image_source={renter_signature} />
+          <SignatureComponent isSof={isSof} image_source={renter_signature} />
         </View>
         {!additional_signatures?.length ? (
           <View style={style.signatureContainer}>
-            <SignatureComponent label="Signature of Additional Driver" />
+            <SignatureComponent isSof={isSof} label="Signature of Additional Driver" />
           </View>
         ) : (
           <View style={{ rowGap: 20, ...style.colStyle }}>
             {additional_signatures?.map((signature, i) => (
               <View style={{ ...style.signatureContainer, height: 43 }} key={i}>
                 <SignatureComponent
+                  isSof={isSof}
                   image_source={signature}
                   label="Signature of Additional Driver"
                 />

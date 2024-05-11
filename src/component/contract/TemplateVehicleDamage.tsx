@@ -16,13 +16,15 @@ type TemplateVehicleDamageProps = {
     crack?: number;
     paint_swap?: number;
   }
+  isSof?: boolean;
 };
 
 
 const TemplateVehicleDamage = ({
   damage,
   signature_image, 
-  vehicle_image
+  vehicle_image,
+  isSof
 }: TemplateVehicleDamageProps) => {
 
     const { dent, scratch, chip, missing, crack, paint_swap } = damage;
@@ -105,6 +107,7 @@ const TemplateVehicleDamage = ({
       <View style={styles.signatureContainer}>
         <Text style={styles.labelText}>Condition Agreed to:</Text>
         <SignatureComponent 
+            isSof={isSof}
             image_source={signature_image}
         />
       </View>

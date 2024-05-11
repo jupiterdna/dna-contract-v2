@@ -6,10 +6,47 @@ import { dataType } from "./Coverage";
 type AcceptDeclineBoxType = {
   item?: dataType;
   item_key: string | number;
+  isSof?: boolean;
 };
 
-const AcceptDeclineBox = ({ item, item_key }: AcceptDeclineBoxType) => {
+const AcceptDeclineBox = ({ item, item_key, isSof }: AcceptDeclineBoxType) => {
   const _renderImage = (isMatch?: boolean, title?: "Accept" | "Decline") => {
+
+    if(isSof && isMatch){
+      return (
+        <Svg viewBox="0 0 120 160">
+          <Text
+            x={16}
+            y={20}
+            style={{
+              fontFamily: "Karla",
+              fontSize: 26,
+              fontWeight: "bold",
+            }}
+          >
+            {title}
+          </Text>
+          <Rect
+            height="120"
+            width="120"
+            y={40}
+            stroke="#222"
+            fill={isMatch ? "#d0edfb" : "#fff"}
+          />
+          <Text
+            x={35}
+            y={106}
+            style={{
+              fontFamily: "Karla",
+              fontSize: 26,
+            }}
+          >
+           SOF
+          </Text>
+        </Svg>
+      );
+    }
+
     if (item?.signature_image && isMatch) {
       return (
         <View

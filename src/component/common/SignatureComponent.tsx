@@ -13,12 +13,31 @@ import React from "react";
 type SignatureComponentProps = {
   label?: string;
   image_source?: string;
+  isSof?: boolean;
 };
 
 const SignatureComponent = ({
   label = "Renter's Signature",
   image_source,
+  isSof
 }: SignatureComponentProps) => {
+
+  if(isSof) {
+    return (
+      <View style={{ position: "relative" }}>
+        <Svg viewBox="0 0 150 37" width={150}>
+          <Rect x={0} y={0} width={150} height={20} fill="#d0edfb" />
+          <Text x={10} y={13} style={{ fontFamily: "Karla", fontSize: 8.5 }}>
+            SOF
+          </Text>
+          <Text x={0} y={33} style={{ fontFamily: "Karla", fontSize: 8.5 }}>
+            {label}
+          </Text>
+        </Svg>
+      </View>
+    );
+  }
+
   if (image_source) {
     return (
       <View

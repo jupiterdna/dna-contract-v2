@@ -5,9 +5,9 @@ import {data} from './data';
 const App = () => {
 
     const generatePDFfile = async () => {
-        const response = await axios.post('http://localhost:3000/generate-pdf/',  data)
+        const response = await axios.post('http://form-contract.development.local/generate-pdf/',  data)
         console.log('PDF source result: ', response.data)
-        // PDF source result:  {data: 'http://localhost:3000/pdf/1234-5678-91011-1213.pdf'}
+        // PDF source result:  {data: '...base64 data'}
     }
     
     return (
@@ -31,9 +31,9 @@ import {receiptData} from './data';
 const App = () => {
 
     const generatePDFfile = async () => {
-        const response = await axios.post('http://localhost:3000/generate-pdf/',  data)
+        const response = await axios.post('http://form-contract.development.local/generate-pdf/',  data)
         console.log('PDF source result: ', response.data)
-        // PDF source result:  {data: 'http://localhost:3000/pdf/1234-5678-91011-1213.pdf'}
+        // PDF source result:  {data: '...base64 data'}
     }
     
     return (

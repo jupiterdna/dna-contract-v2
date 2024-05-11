@@ -7,9 +7,10 @@ import SignatureComponent from "../common/SignatureComponent";
 type NoticeTemplate = {
   signature_image1?: string;
   signature_image2?: string;
+  isSof?: boolean;
 };
 
-const NoticeTemplate = ({signature_image1, signature_image2}: NoticeTemplate) => {
+const NoticeTemplate = ({signature_image1, signature_image2, isSof}: NoticeTemplate) => {
   return (
     <View>
       <View style={style.container}>
@@ -28,7 +29,7 @@ const NoticeTemplate = ({signature_image1, signature_image2}: NoticeTemplate) =>
         </Text>
       </View>
       <View style={{...style.signatureContainer, marginTop: 10}}>
-        <SignatureComponent image_source={signature_image1}/>
+        <SignatureComponent isSof={isSof} image_source={signature_image1}/>
       </View>
 
       <Text style={{...style.text, marginTop: 6}}>
@@ -46,7 +47,7 @@ const NoticeTemplate = ({signature_image1, signature_image2}: NoticeTemplate) =>
       </Text>
 
       <View style={style.signatureContainer}>
-        <SignatureComponent image_source={signature_image2}/>
+        <SignatureComponent isSof={isSof} image_source={signature_image2}/>
       </View>
     </View>
   );

@@ -12,6 +12,7 @@ export type dataType = {
 
 type CoverageProps = {
   data: dataType[];
+  isSof?: boolean;
 };
 
 const signatureStyle = (
@@ -32,7 +33,7 @@ const removeHtmlTags = (str?: string) => {
   return str?.replace(regex, "");
 };
 
-const Coverage = ({ data }: CoverageProps) => {
+const Coverage = ({ data, isSof }: CoverageProps) => {
   return data.map((item, index) => {
     return (
       <View key={item?.signature_id || index} style={{ marginBottom: 20 }}>
@@ -46,7 +47,7 @@ const Coverage = ({ data }: CoverageProps) => {
             justifyContent: "space-between",
           }}
         >
-         <AcceptDeclineBox item={item} item_key={item?.signature_id || index} />
+         <AcceptDeclineBox isSof={isSof} item={item} item_key={item?.signature_id || index} />
           <View style={{ flex: 1, paddingTop: 10, width: "80%" }}>
             <Text style={style.text}>{removeHtmlTags(item?.description)}</Text>
           </View>

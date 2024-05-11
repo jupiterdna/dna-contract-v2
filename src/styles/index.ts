@@ -1,5 +1,5 @@
 import { StyleSheet, Font } from "@react-pdf/renderer";
-const path = `http://form-contract.development.local/` || "http://localhost:3000/";
+const path = `http://localhost:3000/` || "http://localhost:3000/";
 
 Font.register({
   family: "krona",
