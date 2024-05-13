@@ -9,7 +9,6 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@playbook/pdf-components": "^0.6.40",
     "@react-pdf/renderer": "^3.4.2",
     "body-parser": "^1.20.2",
     "file-saver": "^2.0.5",
