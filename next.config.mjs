@@ -2,6 +2,11 @@
 const nextConfig = {
   experimental: {
     // …
+    experimental: {
+      serverActions: {
+        bodySizeLimit: '5mb',
+      },
+    },
     serverComponentsExternalPackages: ["@react-pdf/renderer"],
   },
   async headers() {
