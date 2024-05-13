@@ -1,11 +1,8 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   experimental: {
-    // …
-    experimental: {
-      serverActions: {
-        bodySizeLimit: '5mb',
-      },
+    serverActions: {
+      bodySizeLimit: '5mb',
     },
     serverComponentsExternalPackages: ["@react-pdf/renderer"],
   },
