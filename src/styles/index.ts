@@ -1,6 +1,9 @@
 import { StyleSheet, Font } from "@react-pdf/renderer";
 // const path = `http://form-contract.development.local/` || "http://form-contract.development.local/";
-const path = `http://localhost:3000/`
+// const path = `http://localhost:3000/`
+const path = `https://dna-contract-development.vercel.app/`
+
+
 
 Font.register({
   family: "krona",

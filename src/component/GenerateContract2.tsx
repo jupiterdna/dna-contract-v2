@@ -29,7 +29,8 @@ const host = process.env.HOST || "localhost";
 const port = process.env.PORT || 3000;
 
 // const image_path = `http://form-contract.development.local/images`;
-const image_path = `http://localhost:3000/images`
+const image_path = `https://dna-contract-development.vercel.app/images`
+
 
 
 const style = StyleSheet.create({
