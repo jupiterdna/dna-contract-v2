@@ -28,8 +28,8 @@ import { public_path } from "@/utils";
 const host = process.env.HOST || "localhost";
 const port = process.env.PORT || 3000;
 
-// const image_path = `http://form-contract.development.local/images`;
-const image_path = `https://dna-contract-development.vercel.app/images`
+const image_path = `http://form-contract.development.local/images`;
+// const image_path = `https://dna-contract-development.vercel.app/images`
 
 
 

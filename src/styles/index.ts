@@ -1,7 +1,7 @@
 import { StyleSheet, Font } from "@dna/react-pdf";
 // const path = `http://form-contract.development.local/` || "http://form-contract.development.local/";
 // const path = `http://localhost:3000/`
-const path = `https://dna-contract-development.vercel.app/`
+const path = `http://form-contract.development.local/`
 
 
 
