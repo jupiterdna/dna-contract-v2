@@ -50,7 +50,7 @@ const SignatureComponent = ({
       >
         <Image
           src={image_source}
-          style={{ width: 80, position: "absolute", left: 33, zIndex: 21230 }}
+          style={{ width: 80, top: -10, position: "absolute", left: 33, zIndex: 21230 }}
         />
         <Text style={{ fontFamily: "Karla", fontSize: 8.5, top: 25 }}>
           {label}

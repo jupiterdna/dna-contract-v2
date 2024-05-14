@@ -199,7 +199,7 @@ export const temp = (data: any) => {
           <TemplateSection title="Estimated Charges" style={{ width: "70%" }}>
             {estimated_charges?.map((charge: any, i: number) => {
               return (
-                <View style={{ marginTop: i!==0 ? 20 : 10 }} key={charge.id || i}>
+                <View style={{ marginTop: i!==0 ? 10 : 6 }} key={charge.id || i}>
                   <EstimatedCharges
                     heading={charge.headers}
                     rows={charge.rows}

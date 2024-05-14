@@ -81,7 +81,7 @@ const styles = StyleSheet.create({
   mainContainer: {
     width: "100%",
     flexDirection: "row",
-    columnGap: 10,
+    columnGap: 6,
   },
   content: {
     columnGap: 3,
