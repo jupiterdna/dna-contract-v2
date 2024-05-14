@@ -131,7 +131,7 @@ export const receipt = (data: any) => {
               {estimated_charges?.map((charge: any, i: number) => {
                 return (
                   <View
-                    style={{ marginTop: i !== 0 ? 20 : 10 }}
+                    style={{ marginTop: i !== 0 ? 10 : 3 }}
                     key={charge.id || i}
                   >
                     <EstimatedCharges
