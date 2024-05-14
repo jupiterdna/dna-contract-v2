@@ -1,4 +1,4 @@
-import { Text, View, StyleSheet, Font, Svg, Rect } from "@react-pdf/renderer";
+import { Text, View, StyleSheet, Font, Svg, Rect } from "@dna/react-pdf";
 import React from 'react'
 
 type DateComponentProps = {

@@ -1,6 +1,6 @@
 
 import React from "react";
-import { Text, View, StyleSheet, Font } from "@react-pdf/renderer";
+import { Text, View, StyleSheet, Font } from "@dna/react-pdf";
 import { docStyles } from "../../styles";
 import SignatureComponent from "../common/SignatureComponent";
 

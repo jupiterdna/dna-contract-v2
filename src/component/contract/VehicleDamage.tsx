@@ -1,7 +1,7 @@
 /* eslint-disable jsx-a11y/alt-text */
 
 import React from "react";
-import { Text, View, StyleSheet, Image } from "@react-pdf/renderer";
+import { Text, View, StyleSheet, Image } from "@dna/react-pdf";
 import { docStyles } from "../../styles";
 import SignatureComponent from "../common/SignatureComponent";
 

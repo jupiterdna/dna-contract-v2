@@ -2,7 +2,7 @@
 
 import { Template } from "@/component/templates/TempColorado";
 import { docStyles } from "@/styles";
-import { Document, PDFViewer, Page, StyleSheet } from "@react-pdf/renderer";
+import { Document, PDFViewer, Page, StyleSheet } from "@dna/react-pdf";
 
 export default function PdfRender() {
 

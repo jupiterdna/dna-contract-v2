@@ -1,4 +1,4 @@
-import { Text, View, StyleSheet, Image, Rect, Svg } from "@react-pdf/renderer";
+import { Text, View, StyleSheet, Image, Rect, Svg } from "@dna/react-pdf";
 import React from "react";
 import AcceptDeclineBox from "./AcceptDeclineBox";
 

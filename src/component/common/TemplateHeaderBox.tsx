@@ -1,4 +1,4 @@
-import { Text, View, StyleSheet, Font } from "@react-pdf/renderer";
+import { Text, View, StyleSheet, Font } from "@dna/react-pdf";
 import { docStyles } from '../../styles';
 
 

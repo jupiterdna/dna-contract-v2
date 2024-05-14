@@ -1,6 +1,6 @@
 import { temp } from "../../component/GenerateContract2";
 import { receipt } from "../../component/GenerateReceipt";
-import { pdf } from "@react-pdf/renderer";
+import { pdf } from "@dna/react-pdf";
 import { v4 as uuidv4 } from "uuid";
 import { promises as fsP } from "fs";
 

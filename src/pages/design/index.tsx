@@ -1,6 +1,6 @@
 'use client'
 import Image from "next/image";
-import { Document, PDFDownloadLink, PDFViewer, Page, StyleSheet, Text, View } from "@react-pdf/renderer";
+import { Document, PDFDownloadLink, PDFViewer, Page, StyleSheet, Text, View } from "@dna/react-pdf";
 import { Html } from "react-pdf-html";
 
 const styles = StyleSheet.create({

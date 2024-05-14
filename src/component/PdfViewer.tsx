@@ -9,7 +9,7 @@ import {
   View,
   Text,
   BlobProvider,
-} from "@react-pdf/renderer";
+} from "@dna/react-pdf";
 import { saveAs } from "file-saver";
 import { GetServerSideProps, InferGetServerSidePropsType } from "next";
 

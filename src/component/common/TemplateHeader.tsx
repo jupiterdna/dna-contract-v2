@@ -1,6 +1,6 @@
 
 /* eslint-disable jsx-a11y/alt-text */
-import { Image, StyleSheet, Text, View } from '@react-pdf/renderer'
+import { Image, StyleSheet, Text, View } from '@dna/react-pdf'
 import React from 'react'
 import { docStyles } from '../../styles'
 import { public_path } from '@/utils';

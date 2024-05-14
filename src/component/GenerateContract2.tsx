@@ -6,7 +6,7 @@ import {
   View,
   Image,
   Font,
-} from "@react-pdf/renderer";
+} from "@dna/react-pdf";
 import { docStyles } from "../styles";
 import moment from "moment";
 

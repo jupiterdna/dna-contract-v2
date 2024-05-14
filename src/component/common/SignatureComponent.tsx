@@ -7,7 +7,7 @@ import {
   Svg,
   Rect,
   Image,
-} from "@react-pdf/renderer";
+} from "@dna/react-pdf";
 import React from "react";
 
 type SignatureComponentProps = {

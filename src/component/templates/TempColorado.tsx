@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View } from "@react-pdf/renderer";
+import { StyleSheet, Text, View } from "@dna/react-pdf";
 import TemplateSection from "../common/TemplateSection";
 
 type TemplateProps ={ 

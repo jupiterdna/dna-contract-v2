@@ -1,5 +1,5 @@
 import React from "react";
-import { Text, View, StyleSheet } from "@react-pdf/renderer";
+import { Text, View, StyleSheet } from "@dna/react-pdf";
 import _, { isEmpty } from "lodash";
 
 type TemplateRenterInfoProps = {
