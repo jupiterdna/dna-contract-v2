@@ -1,0 +1,187 @@
+/* eslint-disable jsx-a11y/alt-text */
+import React from "react";
+import { Text, View, Image, StyleSheet } from "@dna/react-pdf";
+
+import { docStyles } from "../../styles";
+
+import car from "../assets/car.png";
+import { public_path } from "@/utils";
+
+type vehicleType = {
+  id?: string;
+  vehicle_name: string;
+  vin: string;
+  license_no: string;
+  unit_no?: string;
+  milage_out?: string;
+  milage_in?: string;
+  fuel_in?: string;
+  fuel_out?: string;
+  miles_per_day?: string;
+  vehicle_type?: string;
+  vehicle_image?: string;
+  checkout?: string;
+  checkin?: string;
+  show_vin?: boolean;
+};
+
+type TemplateVehicleProps = {
+  vehicles: vehicleType[];
+};
+
+const TemplateVehicleReceipt= ({ vehicles }: TemplateVehicleProps) => {
+  if (!vehicles?.length) return null;
+
+  return (
+    <>
+      {vehicles.map((vehicle, i) => {
+        const {
+          id,
+          vehicle_image,
+          vehicle_name,
+          vin,
+          license_no,
+          vehicle_type,
+          unit_no,
+          milage_out,
+          fuel_in,
+          fuel_out,
+          milage_in,
+          miles_per_day,
+          checkout,
+          checkin,
+          show_vin=true
+        } = vehicle;
+
+        return (
+          <View
+            style={{ ...style.row, columnGap: 10, alignItems: "flex-start" }}
+            key={id || i}
+          >
+            <Image
+              src={vehicle_image || public_path + "/images/car.png"}
+              style={{ ...docStyles.img, width: 60 }}
+              cache={false}
+            />
+            <View>
+              <View style={{ ...style.row, ...style.primary }}>
+                <Text style={style.text}>{vehicle_type}</Text>
+              </View>
+              <View style={{ ...style.fontBold, ...style.text }}>
+                <Text style={style.text}>{vehicle_name}</Text>
+              </View>
+
+              {vin ?  (
+                <View style={style.row}>
+                  {show_vin ?<Text style={style.textHeading}>VIN: </Text> : null } 
+                  <Text style={style.text}>{vin}</Text>
+                </View>
+              ) : null}
+
+              {unit_no ? (
+                <View style={style.row}>
+                  <Text style={style.textHeading}>Unit Number: </Text>
+                  <Text style={style.text}>{unit_no}</Text>
+                </View>
+              ) : null}
+
+              {license_no ? (
+                <View style={style.row}>
+                  <Text style={style.textHeading}>License #: </Text>
+                  <Text style={style.text}>{license_no}</Text>
+                </View>
+              ) : null}
+
+              {checkout ? (
+                <View style={style.row}>
+                  <Text style={style.textHeading}>Checkout: </Text>
+                  <Text style={style.text}>{checkout}</Text>
+                </View>
+              ) : null}
+
+              {checkin ? (
+                <View style={style.row}>
+                  <Text style={style.textHeading}>Checkin: </Text>
+                  <Text style={style.text}>{checkin}</Text>
+                </View>
+              ) : null}
+
+              <View style={{ ...style.row, columnGap: 20 }}>
+                {fuel_out ? (
+                  <View style={style.firstRow}>
+                    <Text style={style.textHeading}>Fuel Out: </Text>
+                    <Text style={style.text}>{fuel_out}</Text>
+                  </View>
+                ) : null}
+                {fuel_in ? (
+                  <View style={style.row}>
+                    <Text style={style.textHeading}>Fuel In: </Text>
+                    <Text style={style.text}>{fuel_in}</Text>
+                  </View>
+                ) : null}
+              </View>
+
+              <View style={{ ...style.row, columnGap: 20 }}>
+                {milage_out ? (
+                  <View style={style.firstRow}>
+                    <Text style={style.textHeading}>Mileage Out: </Text>
+                    <Text style={style.text}>{milage_out}</Text>
+                  </View>
+                ) : null}
+
+                {milage_in ? (
+                  <View style={style.row}>
+                    <Text style={style.textHeading}>Mileage In: </Text>
+                    <Text style={style.text}>{milage_in}</Text>
+                  </View>
+                ) : null}
+              </View>
+
+              {miles_per_day ? (
+                <View style={style.row}>
+                  <Text style={style.textHeading}>Miles Per Day free: </Text>
+                  <Text style={style.text}>{miles_per_day}</Text>
+                </View>
+              ) : null}
+
+
+              
+            </View>
+          </View>
+        );
+      })}
+    </>
+  );
+};
+
+const style = StyleSheet.create({
+  text: {
+    fontSize: 9,
+    fontFamily: "Karla",
+  },
+  fontBold: {
+    fontWeight: "bold",
+  },
+  primary: {
+    color: "#52a0f3",
+    fontWeight: "semibold",
+  },
+  textHeading: {
+    fontSize: 9,
+    fontFamily: "Karla",
+    fontWeight: "semibold",
+  },
+  row: {
+    display: "flex",
+    flexDirection: "row",
+    alignItems: "center",
+  },
+  firstRow: {
+    width: "50%",
+    display: "flex",
+    flexDirection: "row",
+    alignItems: "center",
+  },
+});
+
+export default TemplateVehicleReceipt;

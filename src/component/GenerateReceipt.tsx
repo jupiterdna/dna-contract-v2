@@ -12,6 +12,7 @@ import AmountCharges from "./receipt/AmountCharges";
 import Points from "./receipt/Points";
 import TotalCharges from "./receipt/TotalCharges";
 import moment from "moment";
+import TemplateVehicleReceipt from "./common/TemplateVehicleReceipt";
 
 export const receipt = (data: any) => {
   const {
@@ -113,7 +114,7 @@ export const receipt = (data: any) => {
             style={{ width: "70%" }}
           >
             <View style={{ rowGap: 15 }}>
-              <TemplateVehicle vehicles={vehicle_info} />
+              <TemplateVehicleReceipt vehicles={vehicle_info} />
             </View>
           </TemplateSection>
         </View>
