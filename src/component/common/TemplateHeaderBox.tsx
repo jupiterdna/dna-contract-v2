@@ -48,7 +48,7 @@ const TemplateHeaderBox = ({first_heading, second_heading, contact, date }:Contr
             <Text style={style.text}>{first_heading.value}</Text>
         </View>
         <View style={{marginTop: 8}}>
-            <Text style={style.headingText}>{second_heading.label}</Text>
+            <Text style={style.capitalize}>{second_heading.label}</Text>
             <Text style={style.text}>{second_heading.value}</Text>
             <Text style={style.text}>{contact}</Text>
         </View>
@@ -64,6 +64,12 @@ const style = StyleSheet.create({
         width: '100%',
         position:'relative',
         paddingBottom: 10
+    },
+    capitalize:{
+      textTransform: 'capitalize',
+      fontSize: 9,
+      fontWeight: 'bold',
+      fontFamily: 'Karla',
     },
   headingText:{
     fontSize: 9,

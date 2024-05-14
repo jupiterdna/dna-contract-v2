@@ -60,7 +60,7 @@ export const receipt = (data: any) => {
                 header_boxes?.left?.second_heading?.value ||
                 "Arizona Convention Center, 14th Street, Denver, CO, USA",
             }}
-            contact={header_boxes?.left?.contact || "(678) 768-7687"}
+            contact={header_boxes?.left?.contact || ""}
             date={{
               day: header_boxes?.left?.date?.day || moment().format("DD"),
               month: header_boxes?.left?.date?.month || moment().format("MMM"),
@@ -83,7 +83,7 @@ export const receipt = (data: any) => {
                 header_boxes?.right?.second_heading?.value ||
                 "Arizona Convention Center, 14th Street, Denver, CO, USA",
             }}
-            contact={header_boxes?.right?.contact || "(678) 768-7687"}
+            contact={header_boxes?.right?.contact || ""}
             date={{
               day: header_boxes?.right?.date?.day || moment().format("DD"),
               month: header_boxes?.right?.date?.month || moment().format("MMM"),
@@ -127,7 +127,7 @@ export const receipt = (data: any) => {
             marginTop: 10,
           }}
         >
-          <TemplateSection title="Estimated Charges" style={{ width: "65%" }}>
+          <TemplateSection title="Charges and Fees" style={{ width: "65%" }}>
             <View>
               {estimated_charges?.map((charge: any, i: number) => {
                 return (
