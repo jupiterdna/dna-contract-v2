@@ -3,33 +3,35 @@ import { Text, View, StyleSheet, Font } from "@dna/react-pdf";
 import { docStyles } from "../../styles";
 import SignatureComponent from "../common/SignatureComponent";
 
-type AmountChargesProps = {
-  amount?: string
-  paymentMethod?: string
+type paymentitemType = {
+  payment_method?: string;
+  amount?: string | number;
 };
 
-const AmountCharges = ({amount, paymentMethod}: AmountChargesProps) => {
+type paymentType = {
+  payments: paymentitemType[];
+};
+
+const AmountCharges = ({ payments }: paymentType) => {
   return (
-    <View style={style.container}>
-      <View style={style.inner}>
-        <View style={style.row}>
-          <View style={style.cell}>
-            <Text style={style.textheading}>Amount Charges</Text>
+    <>
+      {payments?.map((item, index) => {
+        return (
+          <View style={style.container} key={index}>
+            <View style={style.inner}>
+              <View style={style.row}>
+                <View style={style.cell}>
+                  <Text style={style.textheading}>{item.payment_method}</Text>
+                </View>
+                <View style={style.totalContainer}>
+                  <Text style={style.textheading}>{item.amount}</Text>
+                </View>
+              </View>
+            </View>
           </View>
-          <View style={style.totalContainer}>
-             <Text style={style.textheading}>{amount}</Text>
-          </View>
-        </View>
-        <View style={{...style.row, marginTop: -2}}>
-          <View style={style.cell}>
-            <Text style={style.textheading}>Payment Method</Text>
-          </View>
-          <View style={style.totalContainer}>
-             <Text style={style.textheading}>{paymentMethod}</Text>
-          </View>
-        </View>
-      </View>
-    </View>
+        );
+      })}
+    </>
   );
 };
 
@@ -39,25 +41,24 @@ const style = StyleSheet.create({
     // backgroundColor: '#d6d6d6'
     // backgroundColor: '#222',
   },
-  cell:{
+  cell: {
     padding: 7,
-    
   },
-  row:{
-    backgroundColor: '#d6d6d6',
+  row: {
+    backgroundColor: "#d6d6d6",
     flexDirection: "row",
     alignItems: "center",
     justifyContent: "space-between",
   },
-  totalContainer:{
-    backgroundColor: '#222',
-    color: '#fff',
+  totalContainer: {
+    backgroundColor: "#222",
+    color: "#fff",
     padding: 7,
-    width: '35%',
+    width: "35%",
     alignItems: "flex-end",
-    justifyContent:'center'
+    justifyContent: "center",
   },
-  inner:{
+  inner: {
     // rowGap: 10
   },
   textheading: {

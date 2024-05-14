@@ -22,7 +22,7 @@ export const receipt = (data: any) => {
     vehicle_info = [],
     estimated_charges = [],
     total_charges = 0,
-    amount_charges = {},
+    payments = [],
     points = 0,
   } = data;
 
@@ -151,8 +151,7 @@ export const receipt = (data: any) => {
           <View style={{ width: "35%" }}>
             <TemplateSection title="Payment">
               <AmountCharges
-                amount={amount_charges?.amount || "$0"}
-                paymentMethod={amount_charges?.payment_method || ""}
+                payments={payments}
               />
             </TemplateSection>
             <TemplateSection title="Points">
