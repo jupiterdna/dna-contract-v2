@@ -45,10 +45,11 @@ const Coverage = ({ data, isSof }: CoverageProps) => {
             ...style.row,
             columnGap: 10,
             justifyContent: "space-between",
+            display: "flex",
           }}
         >
          <AcceptDeclineBox isSof={isSof} item={item} item_key={item?.signature_id || index} />
-          <View style={{ flex: 1, paddingTop: 10, width: "80%" }}>
+          <View style={{ flex: 1, paddingTop: 10, width: 100, alignSelf: 'flex-end' }}>
             <Text style={style.text}>{removeHtmlTags(item?.description)}</Text>
           </View>
         </View>

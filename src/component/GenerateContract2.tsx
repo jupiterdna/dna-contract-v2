@@ -25,6 +25,7 @@ import TemplateRenterInfo from "./common/TemplateRenterInfo";
 import TemplateVehicleDamage from "./contract/TemplateVehicleDamage";
 import { BASE_URL, public_path } from "@/utils";
 import { agreementText } from "./data";
+import HeadingSection from "./contract/HeadingSection";
 
 const image_path = `${BASE_URL}images`;
 // const image_path = `https://dna-contract-development.vercel.app/images`
@@ -197,7 +198,7 @@ export const temp = (data: any) => {
           <TemplateSection title="Estimated Charges" style={{ width: "70%" }}>
             {estimated_charges?.map((charge: any, i: number) => {
               return (
-                <View style={{ marginTop: i!==0 ? 10 : 6 }} key={charge.id || i}>
+                <View style={{ marginTop: i!==0 ? 4 : 5 }} key={charge.id || i}>
                   <EstimatedCharges
                     heading={charge.headers}
                     rows={charge.rows}
@@ -207,7 +208,7 @@ export const temp = (data: any) => {
                 </View>
               );
             })}
-          </TemplateSection>≈
+          </TemplateSection>
         </View>
           {/* notice template */}
         <NoticeTemplate 
@@ -219,17 +220,19 @@ export const temp = (data: any) => {
             cdw_daily_rate={notice_info?.cdw_daily_rate || 0}
         />
 
+{/* <View style={{height:270,backgroundColor: 'red'}}></View> */}
+     
         {/* coverages */}
-        <View style={{ marginTop: 15 }}>
-          <TemplateSection title="Coverage" />
+        <View style={{ marginTop: 20 }}>
+        <HeadingSection text="Coverage"/>
           <Coverage
             data={converage_info}
             isSof={isSof}
           />
         </View>
         {/* agreement */}
-        <View style={{ marginTop: 15 }}>
-          <TemplateSection title="Agreement" />
+        <View style={{ marginTop: 5 }}>
+          <HeadingSection text="Agreement"/>
           <Agreement
             content={agreement?.content  || agreementText(state?.toLowerCase())}
             renter_signature={agreement?.signature_image}

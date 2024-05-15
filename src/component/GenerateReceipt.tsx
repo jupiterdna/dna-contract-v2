@@ -131,17 +131,14 @@ export const receipt = (data: any) => {
             <View>
               {estimated_charges?.map((charge: any, i: number) => {
                 return (
-                  <View
-                    style={{ marginTop: i !== 0 ? 10 : 3 }}
-                    key={charge.id || i}
-                  >
+                  <View style={{ marginTop: i!==0 ? 4 : 5 }} key={charge.id || i}>
                     <EstimatedCharges
                       heading={charge.headers}
                       rows={charge.rows}
                       id={charge?.id}
                       rowType={charge?.row_type}
                     />
-                  </View>
+                </View>
                 );
               })}
 

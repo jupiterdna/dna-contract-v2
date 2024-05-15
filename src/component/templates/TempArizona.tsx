@@ -1,5 +1,6 @@
 import { StyleSheet, Text, View } from "@dna/react-pdf";
 import TemplateSection from "../common/TemplateSection";
+import HeadingSection from "../contract/HeadingSection";
 
 type TemplateProps ={ 
     title?: string;
@@ -13,7 +14,7 @@ export const Template = ({title= ''}: TemplateProps) => {
 
     return (
         <View>
-          <TemplateSection title={title} />
+          <HeadingSection text={title} />
           <View>
             <View style={style.textcontainer}>
               <Text style={{ ...style.headingText }}>
