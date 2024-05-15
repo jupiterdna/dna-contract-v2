@@ -1,8 +1,13 @@
+
+export const maxDuration = 50;
+export const dynamic = 'force-dynamic';
+
 import { temp } from "../../component/GenerateContract2";
 import { receipt } from "../../component/GenerateReceipt";
 import { pdf } from "@dna/react-pdf";
 import { v4 as uuidv4 } from "uuid";
 import { promises as fsP } from "fs";
+import { BASE_URL } from "@/utils";
 
 export async function POST(request: Request) {
    const reqBody = await request.text();
@@ -28,7 +33,7 @@ export async function POST(request: Request) {
     //   deleteFile(filePath);
     // }, 1000 * 60);
     
-    // const url = `http://form-contract.development.local/pdf/${fileName}`;
+    // const url = `${BASE_URL}/pdf/${fileName}`;
 
     return Response.json({ data: 'data:application/pdf;base64,'+base64 }, { status: 200 });
     // return Response.json({ data: url }, { status: 200 });
