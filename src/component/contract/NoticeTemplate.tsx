@@ -1,55 +1,29 @@
-
 import React from "react";
 import { Text, View, StyleSheet, Font } from "@dna/react-pdf";
 import { docStyles } from "../../styles";
 import SignatureComponent from "../common/SignatureComponent";
+import NoticeRenderer from "../notice_templates/NoticeRenderer";
 
 type NoticeTemplate = {
   signature_image1?: string;
   signature_image2?: string;
   isSof?: boolean;
+  state?: "colorado" | "arizona" | "california";
 };
 
-const NoticeTemplate = ({signature_image1, signature_image2, isSof}: NoticeTemplate) => {
+const NoticeTemplate = ({
+  signature_image1,
+  signature_image2,
+  isSof,
+  state = "arizona",
+}: NoticeTemplate) => {
   return (
-    <View>
-      <View style={style.container}>
-        <Text style={style.text}>
-          You will be in violation of A.R.S. § 13-1806 if the Vehicle is not
-          returned within 72 hours of the date and time the Vehicle is due back.
-          If you fail to return the Vehicle within 72 hours of the date and time
-          due in, you may be found guilty of a Class 5 felony that could result
-          in a fine of up to $150,000 per charge and/or imprisonment of up to 2
-          years for the first offense.
-        </Text>
-        <Text style={style.headingText}>
-          THE OWNER DOES NOT EXTEND ANY OF ITS MOTOR VEHICLE FINANCIAL
-          RESPONSIBILITY OR PROVIDE PUBLIC LIABILITY INSURANCE COVERAGE TO THE
-          RENTER, AUTHORIZED DRIVERS OR ANY OTHER DRIVER.
-        </Text>
-      </View>
-      <View style={{...style.signatureContainer, marginTop: 10}}>
-        <SignatureComponent isSof={isSof} image_source={signature_image1}/>
-      </View>
-
-      <Text style={{...style.text, marginTop: 6}}>
-        NOTICE: Our liability insurance does not cover injuries to passengers in
-        the Vehicle.{" "}
-      </Text>
-
-      <Text style={style.noticeText}>OPTIONAL INSURANCE POLICIES</Text>
-
-      <Text style={style.text}>
-        Any optional insurance policies that we offer may provide a duplication
-        of coverage already provided by your personal automobile insurance
-        policy or by another source of coverage. You are not required to
-        purchase any insurance from us in order to rent the Vehicle.
-      </Text>
-
-      <View style={style.signatureContainer}>
-        <SignatureComponent isSof={isSof} image_source={signature_image2}/>
-      </View>
-    </View>
+    <NoticeRenderer
+      state={state}
+      signature_image1={signature_image1}
+      signature_image2={signature_image2}
+      isSof={isSof}
+    />
   );
 };
 
@@ -87,7 +61,7 @@ const style = StyleSheet.create({
   signatureContainer: {
     marginTop: 5,
     rowGap: 5,
-    marginBottom: 15
+    marginBottom: 15,
   },
 });
 

@@ -1,7 +1,8 @@
+import { BASE_URL } from "@/utils";
 import { StyleSheet, Font } from "@dna/react-pdf";
 // const path = `http://form-contract.development.local/` || "http://form-contract.development.local/";
 // const path = `http://localhost:3000/`
-const path = `http://form-contract.development.local/`
+const path = BASE_URL
 
 
 

@@ -23,12 +23,10 @@ import TemplateHeader from "./common/TemplateHeader";
 import TemplateSection from "./common/TemplateSection";
 import TemplateRenterInfo from "./common/TemplateRenterInfo";
 import TemplateVehicleDamage from "./contract/TemplateVehicleDamage";
-import { public_path } from "@/utils";
+import { BASE_URL, public_path } from "@/utils";
+import { agreementText } from "./data";
 
-const host = process.env.HOST || "localhost";
-const port = process.env.PORT || 3000;
-
-const image_path = `http://form-contract.development.local/images`;
+const image_path = `${BASE_URL}images`;
 // const image_path = `https://dna-contract-development.vercel.app/images`
 
 
@@ -209,13 +207,14 @@ export const temp = (data: any) => {
                 </View>
               );
             })}
-          </TemplateSection>
+          </TemplateSection>≈
         </View>
           {/* notice template */}
         <NoticeTemplate 
             signature_image1={notice_info?.signature_image || ""}
             signature_image2={optional_insurance_policies?.signature_image || ""}
             isSof={isSof}
+            state={state?.toLowerCase()}
         />
 
         {/* coverages */}
@@ -230,7 +229,7 @@ export const temp = (data: any) => {
         <View style={{ marginTop: 15 }}>
           <TemplateSection title="Agreement" />
           <Agreement
-            content={agreement?.content  || `By signing below, you certify that you (1) had the opportunity to read, and that you agree to, the terms and conditions of this agreement as set forth on this Rental Agreement Face Page and in either the Rental Agreement Terms and Conditions or the Master Rental Terms and Conditions (the “Agreement”), (2) authorize us to process a separate payment card transaction in your name for all Charges, (3) authorize us to release your billing and rental information to a third-party processor for billing and processing purposes; (4) authorize us or a third-party processor to charge your payment card account after the rental concludes for any Tolls or Violations assessed against you, us or the Vehicle during this rental plus taxes, administrative fees of up to $50 per Toll or Violation, convenience fees, service charges, and related fees; (5) accept or decline Optional Products as shown on the Face Page; (6) understand that all Charges are subject to our final audit and authorize us to adjust your payment card account to reflect changes resulting from our audit; (7) understand that the purchase of optional insurance products or CDW is not required to rent the Vehicle, and that the optional insurance products and CDW that we offer may duplicate coverage provided by your personal automobile insurance policy or another source of coverage; and (8) agree to our collection and use of vehicle data and texting and calling terms as described in Paragraphs 15 and 17 of the Rental Agreement Terms and Conditions (or the Master Rental Agreement Terms and Conditions if applicable).`}
+            content={agreement?.content  || agreementText(state?.toLowerCase())}
             renter_signature={agreement?.signature_image}
             additional_signatures={agreement?.additional_signatures}
             isSof={isSof}

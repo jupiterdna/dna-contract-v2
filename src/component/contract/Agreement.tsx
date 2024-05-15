@@ -57,7 +57,7 @@ const style = StyleSheet.create({
   rowStyle: {
     display: "flex",
     flexDirection: "row",
-    alignItems: "center",
+    alignItems: "flex-start",
     justifyContent: "space-between",
   },
   headingText: {
