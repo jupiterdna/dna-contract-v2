@@ -3,7 +3,6 @@ import TemplateSection from "../common/TemplateSection";
 
 type TemplateProps ={ 
     title?: string;
-
 }
 
 export const Template = ({title= ''}: TemplateProps) => {
@@ -24,7 +23,12 @@ export const Template = ({title= ''}: TemplateProps) => {
                 </Text>
                 <Text style={style.text}>
                   {" "}
-                  These Rental Agreement Terms and Conditions, the Rental Agreement Face Page signed by you, and any other documents which you are required to sign to rent the vehicle together constitute the rental agreement (the “Agreement”) between you (the renter) and Gitibin & Associates, Inc., a California corporation doing business as “Go Rentals” <Text style={style.textBold}>(“Go Rentals”)</Text>.
+                  These Rental Agreement Terms and Conditions, the Rental Agreement
+                  Face Page signed by you, and any other documents which you are
+                  required to sign to rent the vehicle together constitute the
+                  rental agreement (the “Agreement”) between you (the renter) and
+                  Gitibin & Associates, Inc., a California corporation doing
+                  business as “Go Rentals”
                 </Text>
               </Text>
             </View>
@@ -37,35 +41,46 @@ export const Template = ({title= ''}: TemplateProps) => {
               <Text style={{ ...style.headingText }}>
                 <Text style={style.indented}>
                   {spaces(6)} <Text style={style.text}>(a)</Text>{" "}
-                  <Text>“Additional Mandatory Charges”</Text>{" "}
-                  <Text style={style.text}>
-                  means any separately stated charges that we require you pay that specifically relate to the operation of a rental vehicle, including customer facility charges, airport concession recovery fees, road safety program fees, vehicle license recovery fees, or any government-imposed tax or fee.
-                  </Text>
-                </Text>
-              </Text>
-              <Text style={{ ...style.headingText }}>
-                <Text style={style.indented}>
-                  {spaces(6)} <Text style={style.text}>(b)</Text>{" "}
                   <Text>“Authorized Driver”</Text>{" "}
                   <Text style={style.text}>
-                  means a driver authorized to use the Vehicle.  Except where otherwise specifically authorized by applicable law, only the renter and an additional driver listed by us on your Rental Agreement Face Page at the time of rental are authorized to drive the Vehicle.  Except as otherwise required by applicable law, each Authorized Driver must have a valid driver’s license and be at least age 25. 
+                    means a driver authorized to use the Vehicle. Except where
+                    otherwise specifically authorized by applicable motor vehicle
+                    rental law, only the renter and an additional driver listed by
+                    us on your Rental Agreement Face Page at the time of rental are
+                    authorized to drive the Vehicle. Except as otherwise required by
+                    applicable law, each Authorized Driver must have a valid
+                    driver’s license and be at least age 25.
                   </Text>
                 </Text>
               </Text>
     
               <Text style={{ ...style.headingText }}>
                 <Text style={style.indented}>
-                  {spaces(6)} <Text style={style.text}>(c)</Text> <Text>“CDW”</Text>{" "}
+                  {spaces(6)} <Text style={style.text}>(b)</Text> <Text>“CDW”</Text>{" "}
                   <Text style={style.text}>means Collision Damage Waiver.</Text>
                 </Text>
               </Text>
     
               <Text style={{ ...style.headingText }}>
                 <Text style={style.indented}>
-                  {spaces(6)} <Text style={style.text}>(d)</Text>{" "}
+                  {spaces(6)} <Text style={style.text}>(c)</Text>{" "}
                   <Text>“Charges”</Text>{" "}
                   <Text style={style.text}>
-                    means the fees and charges that are incurred under this Agreement.
+                    means the fees and charges that are incurred under this
+                    Agreement.
+                  </Text>
+                </Text>
+              </Text>
+    
+              <Text style={{ ...style.headingText }}>
+                <Text style={style.indented}>
+                  {spaces(6)} <Text style={style.text}>(d)</Text>{" "}
+                  <Text>“Diminished Value”</Text>{" "}
+                  <Text style={style.text}>
+                    means the difference between the fair market value of the
+                    Vehicle before damage or loss and its value after repairs as
+                    calculated by a third-party estimate obtained by us or on our
+                    behalf.
                   </Text>
                 </Text>
               </Text>
@@ -73,16 +88,6 @@ export const Template = ({title= ''}: TemplateProps) => {
               <Text style={{ ...style.headingText }}>
                 <Text style={style.indented}>
                   {spaces(6)} <Text style={style.text}>(e)</Text>{" "}
-                  <Text>“Diminished Value”</Text>{" "}
-                  <Text style={style.text}>
-                  means the difference between the fair market value of the Vehicle before damage or loss and its value after repairs as calculated by a third-party estimate obtained by us or on our behalf.  
-                  </Text>
-                </Text>
-              </Text>
-    
-              <Text style={{ ...style.headingText }}>
-                <Text style={style.indented}>
-                  {spaces(6)} <Text style={style.text}>(f)</Text>{" "}
                   <Text>“Includes” or “Including”</Text>{" "}
                   <Text style={style.text}>
                     means “including (or includes), but not limited to,” “including
@@ -93,17 +98,20 @@ export const Template = ({title= ''}: TemplateProps) => {
     
               <Text style={{ ...style.headingText }}>
                 <Text style={style.indented}>
-                  {spaces(6)} <Text style={style.text}>(g)</Text>{" "}
+                  {spaces(6)} <Text style={style.text}>(f)</Text>{" "}
                   <Text>“Loss of Use”</Text>{" "}
                   <Text style={style.text}>
-                  means the loss of our ability to use a Vehicle for our purposes because of Vehicle damage or loss during a Rental Period, including use for rent, display for rent and/or sale, opportunity to upgrade or sell, or transportation of employees.
+                    means the loss of our ability to use a Vehicle for our purposes
+                    because of Vehicle damage or loss during a Rental Period,
+                    including use for rent, display for rent and/or sale,
+                    opportunity to upgrade or sell, or transportation of employees.
                   </Text>
                 </Text>
               </Text>
     
               <Text style={{ ...style.headingText }}>
                 <Text style={style.indented}>
-                  {spaces(6)} <Text style={style.text}>(h)</Text>{" "}
+                  {spaces(6)} <Text style={style.text}>(g)</Text>{" "}
                   <Text>“Optional Equipment”</Text>{" "}
                   <Text style={style.text}>
                     means optional accessories and equipment that we may offer for
@@ -115,7 +123,7 @@ export const Template = ({title= ''}: TemplateProps) => {
     
               <Text style={{ ...style.headingText }}>
                 <Text style={style.indented}>
-                  {spaces(6)} <Text style={style.text}>(i)</Text>{" "}
+                  {spaces(6)} <Text style={style.text}>(h)</Text>{" "}
                   <Text>“Rental Period”</Text>{" "}
                   <Text style={style.text}>
                     means the period between the date and time that you take
@@ -126,7 +134,7 @@ export const Template = ({title= ''}: TemplateProps) => {
               </Text>
               <Text style={{ ...style.headingText }}>
                 <Text style={style.indented}>
-                  {spaces(6)} <Text style={style.text}>(j)</Text>{" "}
+                  {spaces(6)} <Text style={style.text}>(i)</Text>{" "}
                   <Text>“Toll”</Text>{" "}
                   <Text style={style.text}>
                     means a toll charge assessed by a charging authority for use of
@@ -137,7 +145,7 @@ export const Template = ({title= ''}: TemplateProps) => {
     
               <Text style={{ ...style.headingText }}>
                 <Text style={style.indented}>
-                  {spaces(6)} <Text style={style.text}>(k)</Text>{" "}
+                  {spaces(6)} <Text style={style.text}>(j)</Text>{" "}
                   <Text>“Vehicle”</Text>{" "}
                   <Text style={style.text}>
                     means the motor vehicle that you rent from Go Rentals and any
@@ -149,7 +157,7 @@ export const Template = ({title= ''}: TemplateProps) => {
     
               <Text style={{ ...style.headingText }}>
                 <Text style={style.indented}>
-                  {spaces(6)} <Text style={style.text}>(l)</Text>{" "}
+                  {spaces(6)} <Text style={style.text}>(k)</Text>{" "}
                   <Text>“Vehicle License Cost Recovery Fee”</Text>{" "}
                   <Text style={style.text}>
                     means a vehicle license cost recovery fee based on our estimated
@@ -162,7 +170,7 @@ export const Template = ({title= ''}: TemplateProps) => {
     
               <Text style={{ ...style.headingText }}>
                 <Text style={style.indented}>
-                  {spaces(6)} <Text style={style.text}>(m)</Text>{" "}
+                  {spaces(6)} <Text style={style.text}>(l)</Text>{" "}
                   <Text>“Violation”</Text>{" "}
                   <Text style={style.text}>
                     means a parking citation, photo enforcement fee, a fine for toll
@@ -174,7 +182,7 @@ export const Template = ({title= ''}: TemplateProps) => {
     
               <Text style={{ ...style.headingText }}>
                 <Text style={style.indented}>
-                  {spaces(6)} <Text style={style.text}>(n)</Text>{" "}
+                  {spaces(6)} <Text style={style.text}>(m)</Text>{" "}
                   <Text>“You” or “your”</Text>{" "}
                   <Text style={style.text}>
                     means the person identified as the renter in this Agreement,
@@ -188,7 +196,7 @@ export const Template = ({title= ''}: TemplateProps) => {
     
               <Text style={{ ...style.headingText }}>
                 <Text style={style.indented}>
-                  {spaces(6)} <Text style={style.text}>(o)</Text>{" "}
+                  {spaces(6)} <Text style={style.text}>(n)</Text>{" "}
                   <Text>“We“, “our“ or “us“</Text>{" "}
                   <Text style={style.text}>means Go Rentals.</Text>
                 </Text>
@@ -627,17 +635,27 @@ export const Template = ({title= ''}: TemplateProps) => {
               <Text style={{ ...style.headingText }}>
                 {spaces(6)}
                 <Text style={style.textNormal}>
-                  (a) If we offer, and you purchase, CDW, we waive our right to hold you financially responsible for damage to or loss of the Vehicle.
+                  (a) If you purchase CDW, we will waive our right to hold you
+                  financially responsible for damage to or loss of the Vehicle.
                 </Text>
                 <Text style={style.textBold}>
                   {" "}
-                  Your CDW will be invalidated, and we will not waive our right to hold you financially responsible for loss of or damage to the Vehicle if (a) you gave us false information with the intent to defraud us, (b) the speedometer or odometer is tampered with or disconnected during the Rental Period, or (c) damage to the Vehicle is caused: (i) by your willful and wanton conduct or misconduct; (ii) when the Vehicle is operated by an Authorized Driver who is intoxicated by alcohol or a controlled substance as defined in C.R.S. § 42-4-1301; (iii) by or during participation in a speed contest; (iv) when carrying persons or property for hire, or when pushing or towing anything; (v) when using the Vehicle while committing a misdemeanor, felony or other criminal act; (vi) when operated outside the continental United States, unless specifically authorized elsewhere in this Agreement; or (vii) when the Vehicle is used by a person who is not an Authorized Driver.  Notwithstanding the purchase or other availability of CDW or any other coverage that you may have, you agree to cooperate with us or our assignees in the investigation of any damage incident or claim of any size.  Failure to do so is prohibited and constitutes a material breach of this Agreement.
+                  Any CDW that you purchase will be invalidated, and we do not waive
+                  our right to hold you financially responsible for loss of or
+                  damage to the Vehicle that results from a Prohibited Use described
+                  in Paragraph 7 above. CDW may also be void if you fail to report
+                  an accident or incident to the police or to cooperate in a loss
+                  investigation by us or our insurer.
                 </Text>
               </Text>
               <Text style={{ ...style.headingText }}>
                 {spaces(6)}
                 <Text style={style.textBold}>
-                  <Text style={style.textNormal}>(b)</Text> CDW is not insurance, is optional, and may duplicate coverage under your own insurance policy or credit card. You may wish to check with your insurance representative or credit card company to determine whether you have coverage or protection for damage or loss of the Vehicle.  CDW does not apply to keys, key fobs, transponders or Optional Equipment that we rent to you for use in the Vehicle. {" "}
+                  <Text style={style.textNormal}>(b)</Text> CDW is not insurance, is
+                  optional, and may duplicate coverage under your own insurance
+                  policy or credit card. You may wish to check with your insurance
+                  representative or credit card company to determine whether you
+                  have coverage or protection for damage or loss of the Vehicle.{" "}
                   <Text style={style.textNormal}>
                     CDW does not apply to: (i) comprehensive loss, such as damage to
                     or loss of the Vehicle due to theft (unless you are in
@@ -653,8 +671,12 @@ export const Template = ({title= ''}: TemplateProps) => {
               </Text>
               <Text style={{ ...style.headingText }}>
                 {spaces(6)}
-                <Text style={style.textNormal}>
-                  <Text style={style.textNormal}>(c)</Text> You may accept CDW by selecting CDW when you reserve a Vehicle or at the time you pick up a vehicle. You agree to pay the per-day CDW charge in effect at the time of rental for each full or partial day for each rental for which you have selected CDW.
+                <Text style={style.textBold}>
+                  <Text style={style.textNormal}>(c)</Text> You may accept CDW by
+                  selecting CDW when you reserve a Vehicle or at the time you pick
+                  up a vehicle. You agree to pay the per-day CDW charge in effect at
+                  the time of rental for each full or partial day for each rental
+                  for which you have selected CDW.
                 </Text>
               </Text>
             </View>
@@ -716,7 +738,7 @@ export const Template = ({title= ''}: TemplateProps) => {
                   payment card issuer’s rules will apply to crediting your account
                   for any excess, which may not be immediately released by your card
                   issuer.
-                  <Text style={style.textNormal}>{' '}
+                  <Text style={style.textNormal}>
                     You will pay us at or before conclusion of each rental, or on
                     demand, all Charges, including: (a) time & mileage charge for
                     the Rental Period, including an additional mileage fee if you
@@ -1042,8 +1064,8 @@ export const Template = ({title= ''}: TemplateProps) => {
               <Text style={{ ...style.headingText }}>
                 <Text style={style.textNormal}>
                   {spaces(6)}(a){" "}
-                  <Text style={{...style.textBold, ...style.underline}}>Electronic Communications, Generally.</Text>{" "}
-                  To the fullest extent permitted by law, we may provide this Agreement and any notices or other communications (including by e-mail) regarding this Agreement, your reservation, or the rental of the Vehicle (<Text style={style.textBold}>“Communications”</Text>) to you electronically, and you agree to receive Communications from us in an electronic form. We may deliver Electronic Communications to the email address that you provide to us when entering into this Agreement or otherwise. All Communications in either electronic or paper format will be considered to be in “writing.” All Communications will be considered to have been received no later than five (5) business days after dissemination, whether or not you have received or retrieved the Communications. Although we reserve the right to provide Communications in paper format to you at the postal address you provide to us, you expressly agree that any notice or other Communications due under this Agreement may be given in email form to the email address that you provide to us. Your consent to receive Communications electronically is valid until you revoke your consent.
+                  <Text style={style.textBold}>Electronic Communications, Generally.</Text>{" "}
+                  To the fullest extent permitted by law, we may provide this Agreement and any notices or other communications (including by e-mail) regarding this Agreement, your reservation, or the rental of the Vehicle (“Communications”) to you electronically, and you agree to receive Communications from us in an electronic form. We may deliver Electronic Communications to the email address that you provide to us when entering into this Agreement or otherwise. All Communications in either electronic or paper format will be considered to be in “writing.” All Communications will be considered to have been received no later than five (5) business days after dissemination, whether or not you have received or retrieved the Communications. Although we reserve the right to provide Communications in paper format to you at the postal address you provide to us, you expressly agree that any notice or other Communications due under this Agreement may be given in email form to the email address that you provide to us. Your consent to receive Communications electronically is valid until you revoke your consent.
                 </Text>
               </Text>
             </View>
@@ -1051,8 +1073,8 @@ export const Template = ({title= ''}: TemplateProps) => {
               <Text style={{ ...style.headingText }}>
                 <Text style={style.textNormal}>
                   {spaces(6)}(b){" "}
-                  <Text style={{...style.textBold, ...style.underline}}>Texting & Calling.</Text>{" "}
-                  By executing this Agreement, you consent to us and/or our representatives contacting you at the phone number(s) provided in connection with this Agreement for the purpose of delivering informational or transactional outreach, including customer surveys, via live, pre-recorded, or autodialed calls or texts. Your consent to receiving these calls or texts is not a condition of this Agreement or any other agreement with us. For questions about privacy, please see Paragraph 13 above.
+                  <Text style={style.textBold}>Texting & Calling.</Text>{" "}
+                  By executing this Agreement, you consent to us and/or our representatives contacting you at the phone number(s) provided in connection with this Agreement for the purpose of delivering informational or transactional outreach, including customer surveys, via live, pre-recorded, or autodialed calls or texts. Your consent to receiving these calls or texts is not a condition of this Agreement or any other agreement with us. For questions about privacy, please see Paragraph 13 of this Agreement.
                 </Text>
               </Text>
             </View>
