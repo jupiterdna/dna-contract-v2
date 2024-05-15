@@ -1,5 +1,5 @@
 
-export const maxDuration = 60;
+export const maxDuration = 50;
 export const dynamic = 'force-dynamic';
 
 import { temp } from "../../component/GenerateContract2";
@@ -25,18 +25,18 @@ export async function POST(request: Request) {
     // fs.writeFileSync('public/test.pdf', base64, );
 
     // uncomment for testing
-    const fileName = `${uuidv4()}.pdf`;
-    const filePath = `public/pdf/${fileName}`;
-    const asPdf = await fsP.writeFile(filePath, base64, "base64");
+    // const fileName = `${uuidv4()}.pdf`;
+    // const filePath = `public/pdf/${fileName}`;
+    // const asPdf = await fsP.writeFile(filePath, base64, "base64");
     
-    setTimeout(() => {
-      deleteFile(filePath);
-    }, 1000 * 60);
+    // setTimeout(() => {
+    //   deleteFile(filePath);
+    // }, 1000 * 60);
     
-    const url = `${BASE_URL}/pdf/${fileName}`;
+    // const url = `${BASE_URL}/pdf/${fileName}`;
 
-    // return Response.json({ data: 'data:application/pdf;base64,'+base64 }, { status: 200 });
-    return Response.json({ data: url }, { status: 200 });
+    return Response.json({ data: 'data:application/pdf;base64,'+base64 }, { status: 200 });
+    // return Response.json({ data: url }, { status: 200 });
   } catch (error) {
     return Response.json({ error: 'Theres an error in generating pdf', er: error }, { status: 400 });
   }
