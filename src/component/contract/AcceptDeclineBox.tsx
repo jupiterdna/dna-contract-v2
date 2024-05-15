@@ -96,9 +96,11 @@ const AcceptDeclineBox = ({ item, item_key, isSof }: AcceptDeclineBoxType) => {
   };
 
   return (
-    <View style={{ ...style.row, ...style.boxcontainer }} key={item_key}>
-      <View>{_renderImage(item?.signature_type === "accept", "Accept")}</View>
-      <View>{_renderImage(item?.signature_type === "decline", "Decline")}</View>
+    <View style={{height: '100%', width: "18%",}}>
+      <View style={{ ...style.row, ...style.boxcontainer }} key={item_key}>
+        <View>{_renderImage(item?.signature_type === "accept", "Accept")}</View>
+        <View>{_renderImage(item?.signature_type === "decline", "Decline")}</View>
+      </View>
     </View>
   );
 };
@@ -124,7 +126,6 @@ const style = StyleSheet.create({
   },
   boxcontainer: {
     columnGap: 6,
-    width: "18%",
     minWidth: 100,
     height: 50,
   },
