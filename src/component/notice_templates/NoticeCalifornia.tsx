@@ -32,6 +32,11 @@ const Template = ({
         <Text style={{...style.text}}>
             <Text style={style.fontBold}>Warning:</Text> Operating a motor vehicle can expose you to chemicals including engine exhaust, carbon monoxide, phthalates, and lead, which are known to the State of California to cause cancer and birth defects or other reproductive harm. To minimize exposure, avoid breathing exhaust, do not idle the engine except as necessary, and assure adequate ventilation inside the car. For more information go to <Text style={{color:'#1a7ee2'}}>www.P65Warnings.ca.gov/products/passenger-vehicle/privacy/.</Text>
         </Text>
+
+        
+      </View>
+      <View style={style.signatureContainer}>
+        <SignatureComponent isSof={isSof} image_source={signature_image2} />
       </View>
     </View>
   );

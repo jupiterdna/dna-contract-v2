@@ -215,6 +215,8 @@ export const temp = (data: any) => {
             signature_image2={optional_insurance_policies?.signature_image || ""}
             isSof={isSof}
             state={state?.toLowerCase()}
+            cdw_sub_total={notice_info?.cdw_sub_total || 0}
+            cdw_daily_rate={notice_info?.cdw_daily_rate || 0}
         />
 
         {/* coverages */}

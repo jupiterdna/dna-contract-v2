@@ -3,12 +3,15 @@ import { Text, View, StyleSheet, Font } from "@dna/react-pdf";
 import { docStyles } from "../../styles";
 import SignatureComponent from "../common/SignatureComponent";
 import NoticeRenderer from "../notice_templates/NoticeRenderer";
+import { stateType } from "../types";
 
 type NoticeTemplate = {
   signature_image1?: string;
   signature_image2?: string;
   isSof?: boolean;
-  state?: "colorado" | "arizona" | "california";
+  state?: stateType
+  cdw_daily_rate?: string | number
+  cdw_sub_total?: string | number
 };
 
 const NoticeTemplate = ({
@@ -16,6 +19,8 @@ const NoticeTemplate = ({
   signature_image2,
   isSof,
   state = "arizona",
+  cdw_daily_rate,
+  cdw_sub_total,
 }: NoticeTemplate) => {
   return (
     <NoticeRenderer
@@ -23,6 +28,8 @@ const NoticeTemplate = ({
       signature_image1={signature_image1}
       signature_image2={signature_image2}
       isSof={isSof}
+      cdw_daily_rate={cdw_daily_rate}
+      cdw_sub_total={cdw_sub_total}
     />
   );
 };
