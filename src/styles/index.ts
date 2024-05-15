@@ -5,7 +5,6 @@ import { StyleSheet, Font } from "@dna/react-pdf";
 const path = BASE_URL
 
 
-
 Font.register({
   family: "krona",
   src: "http://fonts.gstatic.com/s/kronaone/v4/ix3TbrGcGYAHLWi4hTTy1KCWcynf_cDxXwCLxiixG1c.ttf",
