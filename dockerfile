@@ -1,6 +1,10 @@
 FROM hashicorp/envconsul as builder
 FROM node:20-bullseye-slim
 
+RUN apk update;
+RUN apk add git;
+
+
 WORKDIR /var/app
 COPY ./package.json /var/app/package.json
 COPY ./.yarnrc /var/app/.yarnrc
