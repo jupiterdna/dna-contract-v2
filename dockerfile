@@ -14,5 +14,5 @@ RUN yarn build
 
 ENV PORT 3000
 
-CMD ["yarn", "start", "--keepAliveTimeout"]
+CMD ["yarn", "start"]
 # ENTRYPOINT ["envconsul", "-config", "application.hcl" , "-once"]
