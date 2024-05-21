@@ -17,6 +17,7 @@ type TemplateVehicleDamageProps = {
     paint_swap?: number;
   }
   isSof?: boolean;
+  gen_from: 'mobile' | 'web';
 };
 
 
@@ -24,7 +25,8 @@ const TemplateVehicleDamage = ({
   damage,
   signature_image, 
   vehicle_image,
-  isSof
+  isSof,
+  gen_from='mobile'
 }: TemplateVehicleDamageProps) => {
 
     const { dent, scratch, chip, missing, crack, paint_swap } = damage;
@@ -109,6 +111,7 @@ const TemplateVehicleDamage = ({
         <SignatureComponent 
             isSof={isSof}
             image_source={signature_image}
+            gen_from={gen_from}
         />
       </View>
     </>

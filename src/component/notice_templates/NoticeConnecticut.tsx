@@ -7,6 +7,7 @@ type NoticeTemplate = {
   isSof?: boolean;
   cdw_daily_rate?: string | number;
   cdw_sub_total?: string | number;
+  gen_from: "mobile" | "web";
 };
 
 const Template = ({
@@ -15,6 +16,7 @@ const Template = ({
   isSof,
   cdw_daily_rate,
   cdw_sub_total,
+  gen_from = "mobile",
 }: NoticeTemplate) => {
   return (
     <View>
@@ -42,7 +44,7 @@ const Template = ({
       </Text>
   
       <View style={style.signatureContainer}>
-        <SignatureComponent isSof={isSof} image_source={signature_image2} />
+        <SignatureComponent gen_from={gen_from} isSof={isSof} image_source={signature_image2} />
       </View>
     </View>
   );

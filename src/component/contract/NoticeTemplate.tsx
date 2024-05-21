@@ -12,6 +12,7 @@ type NoticeTemplate = {
   state?: stateType
   cdw_daily_rate?: string | number
   cdw_sub_total?: string | number
+  gen_from: 'mobile' | 'web';
 };
 
 const NoticeTemplate = ({
@@ -21,6 +22,7 @@ const NoticeTemplate = ({
   state = "arizona",
   cdw_daily_rate,
   cdw_sub_total,
+  gen_from = 'mobile'
 }: NoticeTemplate) => {
   return (
     <NoticeRenderer
@@ -28,6 +30,7 @@ const NoticeTemplate = ({
       signature_image1={signature_image1}
       signature_image2={signature_image2}
       isSof={isSof}
+      gen_from={gen_from}
       cdw_daily_rate={cdw_daily_rate}
       cdw_sub_total={cdw_sub_total}
     />

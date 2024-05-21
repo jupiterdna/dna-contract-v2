@@ -7,12 +7,29 @@ type AcceptDeclineBoxType = {
   item?: dataType;
   item_key: string | number;
   isSof?: boolean;
+  gen_from?: "mobile" | "web";
 };
 
-const AcceptDeclineBox = ({ item, item_key, isSof }: AcceptDeclineBoxType) => {
-  const _renderImage = (isMatch?: boolean, title?: "Accept" | "Decline") => {
+const AcceptDeclineBox = ({
+  item,
+  item_key,
+  isSof,
+  gen_from,
+}: AcceptDeclineBoxType) => {
+  const sigStyle: any =
+    gen_from === "mobile"
+      ? { width: "100%", position: "absolute", left: 0, top: 8, zIndex: 21230 }
+      : {
+          width: 20,
+          height: 20,
+          position: "absolute",
+          left: 7,
+          top: 6,
+          zIndex: 21230,
+        };
 
-    if(isSof && isMatch){
+  const _renderImage = (isMatch?: boolean, title?: "Accept" | "Decline") => {
+    if (isSof && isMatch) {
       return (
         <Svg viewBox="0 0 120 160">
           <Text
@@ -41,7 +58,7 @@ const AcceptDeclineBox = ({ item, item_key, isSof }: AcceptDeclineBoxType) => {
               fontSize: 26,
             }}
           >
-           SOF
+            SOF
           </Text>
         </Svg>
       );
@@ -53,19 +70,27 @@ const AcceptDeclineBox = ({ item, item_key, isSof }: AcceptDeclineBoxType) => {
           style={{
             width: 38,
             height: 38,
-            marginRight: title === 'Accept' ? 45 : 45,
-            marginLeft: title === 'Accept' ? 5 : 0,
-            backgroundColor:  "#d0edfb",
+            marginRight: title === "Accept" ? 45 : 45,
+            marginLeft: title === "Accept" ? 5 : 0,
+            backgroundColor: "#d0edfb",
             position: "relative",
-            border:'1px solid black',
+            border: "1px solid black",
             top: 12,
           }}
         >
           <Image
             src={item?.signature_image}
-            style={{ width: '100%', position: "absolute", left: 0, top: 8, zIndex: 21230 }}
+            style={sigStyle}
           />
-          <Text style={{ fontFamily: "Karla", fontSize: 8.5, top: -14, left: 3, fontWeight: 'bold' }}>
+          <Text
+            style={{
+              fontFamily: "Karla",
+              fontSize: 8.5,
+              top: -14,
+              left: 3,
+              fontWeight: "bold",
+            }}
+          >
             {title}
           </Text>
         </View>
@@ -96,10 +121,12 @@ const AcceptDeclineBox = ({ item, item_key, isSof }: AcceptDeclineBoxType) => {
   };
 
   return (
-    <View style={{height: '100%', width: "18%",}}>
+    <View style={{ height: "100%", width: "18%" }}>
       <View style={{ ...style.row, ...style.boxcontainer }} key={item_key}>
         <View>{_renderImage(item?.signature_type === "accept", "Accept")}</View>
-        <View>{_renderImage(item?.signature_type === "decline", "Decline")}</View>
+        <View>
+          {_renderImage(item?.signature_type === "decline", "Decline")}
+        </View>
       </View>
     </View>
   );
