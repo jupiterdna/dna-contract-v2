@@ -5,12 +5,14 @@ type NoticeTemplate = {
   signature_image1?: string;
   signature_image2?: string;
   isSof?: boolean;
+  gen_from: "mobile" | "web";
 };
 
 const Template = ({
   signature_image1,
   signature_image2,
   isSof,
+  gen_from = "mobile",
 }: NoticeTemplate) => {
   return (
     <View>
@@ -36,7 +38,7 @@ const Template = ({
         
       </View>
       <View style={style.signatureContainer}>
-        <SignatureComponent isSof={isSof} image_source={signature_image2} />
+        <SignatureComponent gen_from={gen_from} isSof={isSof} image_source={signature_image2} />
       </View>
     </View>
   );

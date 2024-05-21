@@ -12,6 +12,7 @@ type ComponentRendererProps = {
   isSof?: boolean;
   cdw_daily_rate?: string | number
   cdw_sub_total?: string | number
+  gen_from: 'mobile' | 'web';
 };
 
 const ComponentRenderer = ({
@@ -21,6 +22,7 @@ const ComponentRenderer = ({
   isSof,
   cdw_daily_rate,
   cdw_sub_total,
+  gen_from = 'mobile'
 }: ComponentRendererProps) => {
   const Template = {
     arizona: NoticeArizona,
@@ -31,6 +33,7 @@ const ComponentRenderer = ({
   return (
     <Template
       isSof={isSof}
+      gen_from={gen_from}
       signature_image1={signature_image1}
       signature_image2={signature_image2}
       cdw_daily_rate={cdw_daily_rate}
