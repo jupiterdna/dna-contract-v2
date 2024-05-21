@@ -232,7 +232,7 @@ export const temp = (data: any) => {
         {/* coverages */}
         <View style={{ marginTop: 20 }}>
           <HeadingSection text="Coverage" />
-          <Coverage data={converage_info} isSof={isSof} />
+          <Coverage data={converage_info} gen_from={generate_from} isSof={isSof} />
         </View>
         {/* agreement */}
         <View style={{ marginTop: 5 }}>
