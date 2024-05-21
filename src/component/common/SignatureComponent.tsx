@@ -14,13 +14,23 @@ type SignatureComponentProps = {
   label?: string;
   image_source?: string;
   isSof?: boolean;
+  gen_from?: 'mobile' | 'web';
 };
 
 const SignatureComponent = ({
   label = "Renter's Signature",
   image_source,
-  isSof
+  isSof,
+  gen_from='mobile'
 }: SignatureComponentProps) => {
+
+
+  const imgSize: any = gen_from  === 'mobile' ? {
+    width: 80, top: -10, position: "absolute", left: 33, zIndex: 21230 
+  } : {
+    width: 25, height: 25,  top: 0, position: "absolute", left: 70, zIndex: 21230 
+  };
+
 
   if(isSof) {
     return (
@@ -50,7 +60,7 @@ const SignatureComponent = ({
       >
         <Image
           src={image_source}
-          style={{ width: 80, top: -10, position: "absolute", left: 33, zIndex: 21230 }}
+          style={imgSize}
         />
         <Text style={{ fontFamily: "Karla", fontSize: 8.5, top: 25 }}>
           {label}

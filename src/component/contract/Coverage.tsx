@@ -13,11 +13,12 @@ export type dataType = {
 type CoverageProps = {
   data: dataType[];
   isSof?: boolean;
+  gen_from?: "mobile" | "web";
 };
 
 const signatureStyle = (
   sigType: "accept" | "decline",
-  key: "accept" | "decline"
+  key: "accept" | "decline",
 ) => {
   return sigType === key
     ? {
@@ -28,12 +29,16 @@ const signatureStyle = (
       };
 };
 
+
+
 const removeHtmlTags = (str?: string) => {
   const regex = /(<([^>]+)>)/gi;
   return str?.replace(regex, "");
 };
 
-const Coverage = ({ data, isSof }: CoverageProps) => {
+const Coverage = ({ data, isSof, gen_from }: CoverageProps) => {
+
+
   return data.map((item, index) => {
     return (
       <View key={item?.signature_id || index} style={{ marginBottom: 20 }}>
@@ -48,7 +53,7 @@ const Coverage = ({ data, isSof }: CoverageProps) => {
             display: "flex",
           }}
         >
-         <AcceptDeclineBox isSof={isSof} item={item} item_key={item?.signature_id || index} />
+         <AcceptDeclineBox gen_from={gen_from} isSof={isSof} item={item} item_key={item?.signature_id || index} />
           <View style={{ flex: 1, paddingTop: 10, width: 100, alignSelf: 'flex-end' }}>
             <Text style={style.text}>{removeHtmlTags(item?.description)}</Text>
           </View>

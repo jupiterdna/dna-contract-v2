@@ -65,6 +65,7 @@ export const temp = (data: any) => {
     agreement = {},
     footer_info = {},
     isSof = false,
+    generate_from ='mobile'
   } = data;
 
   return (
@@ -191,6 +192,7 @@ export const temp = (data: any) => {
                   damage={vehicle_damage?.damage || {}}
                   signature_image={vehicle_damage?.signature_image || ""}
                   isSof={isSof}
+                  gen_from={generate_from}
                 />
               </View>
             </View>
@@ -218,6 +220,7 @@ export const temp = (data: any) => {
         <NoticeTemplate
           signature_image1={notice_info?.signature_image || ""}
           signature_image2={optional_insurance_policies?.signature_image || ""}
+          gen_from={generate_from}
           isSof={isSof}
           state={state?.toLowerCase()}
           cdw_sub_total={notice_info?.cdw_sub_total || 0}
@@ -238,6 +241,7 @@ export const temp = (data: any) => {
             content={agreement?.content || agreementText(state?.toLowerCase())}
             renter_signature={agreement?.signature_image}
             additional_signatures={agreement?.additional_signatures}
+            gen_from={generate_from}
             isSof={isSof}
           />
         </View>
@@ -268,7 +272,7 @@ export const temp = (data: any) => {
               // alignItems: "center",
               justifyContent: "space-between",
             }}>
-            <SignatureComponent isSof={isSof} image_source={footer_info?.signature_image} label="Renter's Signature" />
+            <SignatureComponent gen_from={generate_from} isSof={isSof} image_source={footer_info?.signature_image} label="Renter's Signature" />
             <DateComponent label="Date " value={footer_info?.date || moment().format('MM-DD-YYYY')}/>
           </View>
         </View>
