@@ -1,5 +1,9 @@
 FROM hashicorp/envconsul as builder
-FROM node:20-bullseye-slim
+FROM node:20-alpine
+
+RUN apk update;
+RUN apk add git;
+
 
 WORKDIR /var/app
 COPY ./package.json /var/app/package.json
@@ -14,5 +18,5 @@ RUN yarn build
 
 ENV PORT 3000
 
-CMD ["yarn", "start", "--keepAliveTimeout"]
+CMD ["yarn", "start"]
 # ENTRYPOINT ["envconsul", "-config", "application.hcl" , "-once"]

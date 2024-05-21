@@ -262,23 +262,14 @@ export const temp = (data: any) => {
             marginTop: 10,
           }}
         >
-          <View
-            style={{
+          <View style={{
               display: "flex",
               flexDirection: "row",
               // alignItems: "center",
               justifyContent: "space-between",
-            }}
-          >
-            <SignatureComponent
-              isSof={isSof}
-              image_source={footer_info?.signature_image}
-              label="Renter's Signature"
-            />
-            <DateComponent
-              label="Date "
-              value={footer_info?.date || moment().format("MM-DD-YYYY")}
-            />
+            }}>
+            <SignatureComponent isSof={isSof} image_source={footer_info?.signature_image} label="Renter's Signature" />
+            <DateComponent label="Date " value={footer_info?.date || moment().format('MM-DD-YYYY')}/>
           </View>
         </View>
       </Page>
