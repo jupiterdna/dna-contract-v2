@@ -1,5 +1,6 @@
 import React from "react";
 import { Text, View, StyleSheet, Image } from "@dna/react-pdf";
+import _ from "lodash";
 
 type headingType = {
   label: string;
@@ -14,7 +15,10 @@ type EstimatedChargesProps = {
 
 const getRownumber = (rows: any[]) => {
   let max = 0;
-  rows.forEach((item) => {
+
+  const newRows = rows.filter((item) => item.type !== "discount");
+
+  newRows.forEach((item) => {
     if (Object.values(item).length > max) {
       max = Object.values(item).length;
     }
@@ -51,9 +55,14 @@ const EstimatedCharges = ({ heading, rows,id, rowType }: EstimatedChargesProps) 
       </View>
       <View>
         {rows.map((item, index) => {
+
+        const rowStyle = item.type === "discount" ? { color: "#e75139" } : {};
+
+          const arr = Object.values({...item}).filter(itm => itm !== 'discount');
+
           return (
             <View key={index} style={styles.mainContainer}>
-              {Object.values(item).map((value: any, in_index) => {
+              {arr.map((value: any, in_index) => {
                 const align: any = {
                   justifyContent: aligment(getRownumber(rows))[in_index],
                 };
@@ -64,7 +73,7 @@ const EstimatedCharges = ({ heading, rows,id, rowType }: EstimatedChargesProps) 
                     style={{ ...styles.row, width: `${numRows}%` }}
                   >
                     <View style={{ ...styles.content, ...align }}>
-                      <Text style={{ ...styles.text,...disCountedStyle}}>{value}</Text>
+                      <Text style={{ ...styles.text,...disCountedStyle, ...rowStyle}}>{value}</Text>
                     </View>
                   </View>
                 );
