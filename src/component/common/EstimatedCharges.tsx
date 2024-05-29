@@ -16,7 +16,7 @@ type EstimatedChargesProps = {
 const getRownumber = (rows: any[]) => {
   let max = 0;
 
-  const newRows = rows.filter((item) => item.type !== "discount");
+  const newRows = rows.filter((item) => item.type !== "" && item.type !== "discount");
 
   newRows.forEach((item) => {
     if (Object.values(item).length > max) {
@@ -36,6 +36,7 @@ const EstimatedCharges = ({ heading, rows,id, rowType }: EstimatedChargesProps) 
   const numRows = 100 / getRownumber(rows) === 0 ? 4 : 100 / getRownumber(rows);
 
   const disCountedStyle = rowType === "discount" ? { color: "#e75139" } : {};
+  const isDiscountHeader = heading[0]?.label === "Discount";
 
   return (
     <View key={id}>
@@ -56,16 +57,24 @@ const EstimatedCharges = ({ heading, rows,id, rowType }: EstimatedChargesProps) 
       <View>
         {rows.map((item, index) => {
 
-        const rowStyle = item.type === "discount" ? { color: "#e75139" } : {};
+        const isDiscount = item.type === "discount";
 
-          const arr = Object.values({...item}).filter(itm => itm !== 'discount');
+        const rowStyle = isDiscount ? { color: "#e75139" } : {};
+        
+        const newItems = {...item}
+        delete newItems.type;
+
+          const arr = Object.values(newItems).filter(itm => itm !== 'discount');
 
           return (
-            <View key={index} style={styles.mainContainer}>
+            <>
+              {(isDiscount && !isDiscountHeader) ? <Text style={{ ...styles.text,...disCountedStyle, ...rowStyle, marginLeft: 2, fontWeight: 'bold'}}>Discount</Text> : null}
+              <View key={index} style={styles.mainContainer}>
               {arr.map((value: any, in_index) => {
                 const align: any = {
                   justifyContent: aligment(getRownumber(rows))[in_index],
                 };
+
 
                 return (
                   <View
@@ -73,18 +82,40 @@ const EstimatedCharges = ({ heading, rows,id, rowType }: EstimatedChargesProps) 
                     style={{ ...styles.row, width: `${numRows}%` }}
                   >
                     <View style={{ ...styles.content, ...align }}>
-                      <Text style={{ ...styles.text,...disCountedStyle, ...rowStyle}}>{value}</Text>
+                      {wrapText(value+"").map((text, i) => {
+                        const val = text?.text?.charAt(0) === ' ' ? text?.text?.slice(1) : text?.text
+                        return <Text style={{ ...styles.text,...disCountedStyle, ...rowStyle }} key={i}>{val}</Text>
+                      })}
                     </View>
                   </View>
                 );
               })}
             </View>
+            </>
           );
         })}
       </View>
     </View>
   );
 };
+
+
+const wrapText = (text: string) => { 
+  if(!text) return [{text: '', isWrapped: false}]
+  const textArr = text?.split(' ');
+  const res = textArr.reduce((acc, item, index) => {
+    if (acc[acc.length - 1].text.length + item.length < 18) {
+      acc[acc.length - 1].text += ` ${item}`;
+    } else {
+      acc.push({text: item, isWrapped: true})
+    }
+    return acc
+
+  }, [{text: '', isWrapped: false}])
+
+  return res
+
+}
 
 const styles = StyleSheet.create({
   mainContainer: {
@@ -96,6 +127,7 @@ const styles = StyleSheet.create({
     columnGap: 3,
     width: "100%",
     flexDirection: "row",
+    flexWrap: "wrap",
   },
   row: {
     flexDirection: "row",
@@ -113,6 +145,7 @@ const styles = StyleSheet.create({
   text: {
     fontSize: 8,
     fontFamily: "Karla",
+
   },
   //   content:{
   //     paddingVertical: 10,
