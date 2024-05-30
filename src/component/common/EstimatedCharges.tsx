@@ -34,7 +34,7 @@ const aligment = (num_row: number) => {
 
 const EstimatedCharges = ({ heading, rows,id, rowType }: EstimatedChargesProps) => {
   
-  if(rows?.length) return null
+  if(!rows?.length) return null
 
   const numRows = 100 / getRownumber(rows) === 0 ? 4 : 100 / getRownumber(rows);
 
