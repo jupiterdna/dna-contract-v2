@@ -124,7 +124,7 @@ export const estimates = (data: any) => {
             marginTop: 10,
           }}
         >
-          <TemplateSection title="Estimated Charges" style={{ width: "100%" }}>
+          <TemplateSection title="Estimated Charges & Fees" style={{ width: "100%" }}>
             <View>
               {estimated_charges?.map((charge: any, i: number) => {
                 return (

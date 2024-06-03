@@ -16,11 +16,16 @@ type EstimatedChargesProps = {
 const getRownumber = (rows: any[]) => {
   let max = 0;
 
-  const newRows = rows.filter((item) => item.type !== "" && item.type !== "discount");
+  const newRows = rows.filter((item) => item.type !== "" && (item.type !== "discount") );
 
   newRows.forEach((item) => {
-    if (Object.values(item).length > max) {
-      max = Object.values(item).length;
+
+    const newItem = {...item}
+    delete newItem.transfer_to;
+    delete newItem.type;
+
+    if (Object.values(newItem).length > max) {
+      max = Object.values(newItem).length;
     }
   });
   return max;
@@ -61,11 +66,11 @@ const EstimatedCharges = ({ heading, rows,id, rowType }: EstimatedChargesProps) 
         {rows.map((item, index) => {
 
         const isDiscount = item.type === "discount";
-
         const rowStyle = isDiscount ? { color: "#e75139" } : {};
         
         const newItems = {...item}
         delete newItems.type;
+        delete newItems.transfer_to;
 
           const arr = Object.values(newItems).filter(itm => itm !== 'discount');
 
@@ -77,7 +82,6 @@ const EstimatedCharges = ({ heading, rows,id, rowType }: EstimatedChargesProps) 
                 const align: any = {
                   justifyContent: aligment(getRownumber(rows))[in_index],
                 };
-
 
                 return (
                   <View

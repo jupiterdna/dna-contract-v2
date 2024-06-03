@@ -32,7 +32,7 @@ const Template = ({
         </Text>
       </View>
       <View style={{ ...style.signatureContainer, marginTop: 10 }}>
-        <SignatureComponent isSof={isSof} image_source={signature_image1} />
+        <SignatureComponent isSof={isSof} image_source={signature_image1} gen_from={gen_from} />
       </View>
 
       <Text style={{ ...style.text, marginTop: 6 }}>
