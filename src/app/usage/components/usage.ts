@@ -1,11 +1,13 @@
 export const usage = `import axios from 'axios';
 import React from 'react';
 import {data} from './data';  
+// specify the endpoint URL (QA. UAT, Development)
+const URL = process.env.ENDPOINT_URL; 
 
 const App = () => {
 
     const generatePDFfile = async () => {
-        const response = await axios.post('http://form-contract.development.local/generate-pdf/',  data)
+        const response = await axios.post(URL,  data)
         console.log('PDF source result: ', response.data)
         // PDF source result:  {data: '...base64 data'}
     }
@@ -26,12 +28,42 @@ export default App;`
 
 export const usageReceipt = `import axios from 'axios';
 import React from 'react';
-import {receiptData} from './data';  
+import {receipt_data} from './data'; 
+// specify the endpoint URL (QA. UAT, Development) 
+const URL = process.env.ENDPOINT_URL;
 
 const App = () => {
 
     const generatePDFfile = async () => {
-        const response = await axios.post('http://form-contract.development.local/generate-pdf/',  data)
+        const response = await axios.post(URL,  receipt_data)
+        console.log('PDF source result: ', response.data)
+        // PDF source result:  {data: '...base64 data'}
+    }
+    
+    return (
+        <div>
+            <button 
+                onClick={() => {
+                    generatePDFfile()
+                }}>
+                Generate Contract PDF
+            </button>    
+        </div>
+    )
+}
+
+export default App;`
+
+export const usageEstimates = `import axios from 'axios';
+import React from 'react';
+import {estimates_data} from './data';  
+// specify the endpoint URL (QA. UAT, Development)
+const URL = process.env.ENDPOINT_URL; 
+
+const App = () => {
+
+    const generatePDFfile = async () => {
+        const response = await axios.post(URL,  estimates_data)
         console.log('PDF source result: ', response.data)
         // PDF source result:  {data: '...base64 data'}
     }
@@ -53,6 +85,8 @@ export default App;`
 export const contractData = `export const data = {
     document_type: 'contract',
     state: 'Colorado',   //specify the state
+    isSof: true, //specify if the contract is sof or not
+    generate_from: 'web', //specify the source of the contract (web, mobile)
     header: {
       title: 'Colorado Go Rental Agreement',
       subtitle: 'Agreement #: GO1234567',
@@ -131,6 +165,7 @@ export const contractData = `export const data = {
             charge_name: 'Daily Rate',
             qty: '7',
             subtotal: '$840.00',
+            type: "discount",
           },
           {
             price_unit: '$40.00/Hour',
@@ -213,7 +248,7 @@ export const contractData = `export const data = {
         signature_image:
           'https://upload.wikimedia.org/wikipedia/commons/3/3a/Jon_Kirsch%27s_Signature.png',
         description:
-          'If you initial “accept,” you agree to purchase CDW and, subject to the provisions of Para-graph 8 of the Terms and Conditions, we will waive your financial responsibility for collision damage to the Vehicle. There are exclusions. See paragraph 8 of the Rental Agreement Terms and Conditions (or Master Rental Agreement Terms and Conditions, if applicable) for additional information. If you initial “decline,” you decline to purchase CDW, and you will be responsible for all damage to or loss of the Vehicle. See paragraph 5 of the Rental Agreement Terms and Conditions (or paragraph 6 of the Master Rental Agreement Terms and Conditions if applicable) for additional information on your responsibility for damage.',
+          'If you initial “accept,” you agree to purchase CDW and, subject',
       },
       {
         title: 'Personal Accident Insurance/Personal Effects Coverage (PAI/PEC)',
@@ -221,7 +256,7 @@ export const contractData = `export const data = {
         signature_id: 'pai_pec_123',
         signature_image: '',
         description:
-          'If you accept, you agree to purchase PAI/PEC. A summary of the terms of the PAI/PEC insur-ance policy is contained in a separate brochure that you acknowledge receiving.',
+          'If you accept, you agree to purchase PAI/PEC.',
       }
     ],
     agreement: {
@@ -241,7 +276,7 @@ export const contractData = `export const data = {
   `
 
   export const receipt = `
-  export const receiptData = {
+  export const receipt_data = {
     document_type: 'receipt',
     state: 'Arizona',
     header: {
@@ -319,26 +354,31 @@ export const contractData = `export const data = {
         ],
         rows: [
           {
+            charge_name: "Weekly Rate",
             price_unit: '$120.00/Day',
             qty: '7',
             subtotal: '$840.00',
           },
           {
+            charge_name: "Monthly Rate",
             price_unit: '$40.00/Hour',
             qty: '2',
             subtotal: '$80.00',
           },
           {
+            charge_name: "Monthly Rate",
             price_unit: '$720.00/Hour',
             qty: '0',
             subtotal: '$0.00',
           },
           {
+            charge_name: "Monthly Rate",
             price_unit: '$2,880.00/Hour',
             qty: '0',
             subtotal: '$0.00',
           },
           {
+            charge_name: "Monthly Rate",
             price_unit: '$120.00/Day',
             qty: '7',
             subtotal: '$840.00',
@@ -354,26 +394,31 @@ export const contractData = `export const data = {
         ],
         rows: [
           {
+            charge_name: "Daily Rate",
             price_unit: '$120.00/Day',
             qty: '7',
             subtotal: '$840.00',
           },
           {
+            charge_name: "Daily Rate",
             price_unit: '$40.00/Hour',
             qty: '2',
             subtotal: '$80.00',
           },
           {
+            charge_name: "Monthly Rate",
             price_unit: '$720.00/Hour',
             qty: '0',
             subtotal: '$0.00',
           },
           {
+            charge_name: "Monthly Rate",
             price_unit: '$2,880.00/Hour',
             qty: '0',
             subtotal: '$0.00',
           },
           {
+            charge_name: "Monthly Rate",
             price_unit: '$120.00/Day',
             qty: '7',
             subtotal: '$840.00',
@@ -387,4 +432,148 @@ export const contractData = `export const data = {
       payment_method: '12345',
     },
     points: '100',
+  };`
+
+
+  export const estimatesData = `
+  export const estimates_data = {
+    document_type: 'estimates', // make sure to specify the document type
+    state: 'Arizona',
+    header: {
+      title: 'Rental Estimate',
+      subtitle: 'GO1234567',
+    },
+    header_boxes: {
+      left: {
+        first_heading: {
+          label: 'Date & Time Outs',
+          value: '12/12/2021 13:00 PM',
+        },
+        second_heading: {
+          label: 'Go rentals Arizona Contract',
+          value: 'Arizona Convention Center, 14th Street, Denver, CO, USA',
+        },
+        contact: '(678) 768-7687',
+        date: {
+          date: '31',
+          month: 'Aug',
+        },
+      },
+      right: {
+        first_heading: {
+          label: 'Date & Time In',
+          value: 'Wednesday, Sep 6, 2023 10:59AM',
+        },
+        second_heading: {
+          label: 'Go Rentals Arizona Contract',
+          value: 'Arizona Convention Center, 14th Street, Denver, CO, USA',
+        },
+        contact: '(678) 768-7687',
+        date: {
+          date: '30',
+          month: 'Aug',
+        },
+      },
+    },
+    renter_info: {
+      renter: 'Shanons Miller Farmers',
+      additional_driver:
+        'Juphet Vitualla, Jupiter, Ancara Messi, jupiter 2, testing',
+      tail_number: 'N/A',
+    },
+    vehicle_info: [
+      {
+        vehicle_class: "Full Size Sedan",
+        vehicle_image: null
+      },
+    ],
+    estimated_charges: [
+      {
+        id: 'header',
+        headers: [
+          {
+            label: 'Vehicle Charges',
+          },
+          {
+            label: 'QTY',
+          },
+          {
+            label: 'Subtotal',
+          },
+        ],
+        rows: [
+          {
+            charge_name: "Weekly Rate",
+            price_unit: '$120.00/Day',
+            qty: '7',
+            subtotal: '$840.00',
+          },
+          {
+            charge_name: "Monthly Rate",
+            price_unit: '$40.00/Hour',
+            qty: '2',
+            subtotal: '$80.00',
+          },
+          {
+            charge_name: "Monthly Rate",
+            price_unit: '$720.00/Hour',
+            qty: '0',
+            subtotal: '$0.00',
+          },
+          {
+            charge_name: "Monthly Rate",
+            price_unit: '$2,880.00/Hour',
+            qty: '0',
+            subtotal: '$0.00',
+          },
+          {
+            charge_name: "Monthly Rate",
+            price_unit: '$120.00/Day',
+            qty: '7',
+            subtotal: '$840.00',
+          },
+        ],
+      },
+      {
+        id: 'fees',
+        headers: [
+          {
+            label: 'Fees',
+          },
+        ],
+        rows: [
+          {
+            charge_name: "Daily Rate",
+            price_unit: '$120.00/Day',
+            qty: '7',
+            subtotal: '$840.00',
+          },
+          {
+            charge_name: "Daily Rate",
+            price_unit: '$40.00/Hour',
+            qty: '2',
+            subtotal: '$80.00',
+          },
+          {
+            charge_name: "Monthly Rate",
+            price_unit: '$720.00/Hour',
+            qty: '0',
+            subtotal: '$0.00',
+          },
+          {
+            charge_name: "Monthly Rate",
+            price_unit: '$2,880.00/Hour',
+            qty: '0',
+            subtotal: '$0.00',
+          },
+          {
+            charge_name: "Monthly Rate",
+            price_unit: '$120.00/Day',
+            qty: '7',
+            subtotal: '$840.00',
+          },
+        ],
+      },
+    ],
+    total_charges: "$231.00"
   };`

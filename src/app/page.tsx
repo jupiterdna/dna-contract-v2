@@ -19,16 +19,12 @@ export default function Page() {
               <main className="p-4 lg:p-12 text-gray-600 w-full">
                 <div className="w-full">
                   <h2 className="text-xl lg:text-4xl mb-4 pb-3 border-b border-gray-200 flex items-center gap-x-2">
-                    Introduction{" "}
-                    <span className="italic text-red-400 text-xl  lg:text-2xl">
-                      (experimental only!)
-                    </span>
+                    Introduction
                   </h2>
                   <p className="my-4 lg:my-8 text-md lg:text-lg">
-                    Welcome to the documentation for Contract and Receipt PDF
+                    Welcome to the documentation for DNA PDF
                     Generator. This web application allows you to convert data
-                    into a PDF{" "}
-                    <span className="italic">(base64 format in Vercel)</span>.
+                    into a PDF.
                   </p>
 
                   <h2 className="mb-4 lg:text-2xl text-xl">
@@ -41,7 +37,14 @@ export default function Page() {
 
                   <CopyBlock
                     text={`
-POST https://pdf-generator-two-iota.vercel.app/generate-pdf
+//Development Endpoint (POST)
+http://form-contract.development.local/gererate-pdf
+
+//QA Endpoint (POST)
+https://form-contract.qa.mygo.gorentals.com/gererate-pdf
+
+//UAT Endpoint (POST)
+https://form-contract.uat.mygo.gorentals.com/gererate-pdf
                 `}
                     language={"jsx"}
                     showLineNumbers={true}
@@ -53,11 +56,7 @@ POST https://pdf-generator-two-iota.vercel.app/generate-pdf
                   </h2>
                   <div className="bg-red-400 p-2 px-3 rounded-lg">
                     <p className="lg:text-lg text-md  text-white italic">
-                      The app is currently hosted on Vercel in a serverless
-                      environment for experimental purposes only. As a result,
-                      the HTTP response is limited to a base64 encoded PDF file
-                      since Vercel does not support file writing and only
-                      permits read-only operations.
+                     Development instance requires extra configuration to access the endpoint. Please ask the devOps team for setting up the VPN connection.
                     </p>
                   </div>
                 </div>
