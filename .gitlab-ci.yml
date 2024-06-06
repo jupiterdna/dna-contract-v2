@@ -109,3 +109,4 @@ update_portainer_uat:
     - PORTAINER_HOST=$PORTAINER_HOST portainer stack:update $ENDPOINT_ID $STACK_ID $FILE_PATH/$PORTAINER_YML_FILE -e $FILE_PATH/$PORTAINER_ENV_FILE
   only:
     - 'uat'
+
