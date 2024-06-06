@@ -3,6 +3,7 @@ stages:
   - deployment-development
   - update_portainer_qa
   - update_portainer_uat
+  - update_portainer_production
 
 master_build:
   stage: build
@@ -104,9 +105,42 @@ update_portainer_uat:
     - touch $FILE_PATH/$PORTAINER_YML_FILE
     - rm -rf $FILE_PATH/$PORTAINER_YML_FILE && PORTAINER_HOST=$PORTAINER_HOST portainer stackfile $STACK_ID $FILE_PATH/$PORTAINER_YML_FILE
     - sed -r -i "s/${CI_PROJECT_NAME}:${CI_COMMIT_REF_NAME}-[0-9]+/${CI_PROJECT_NAME}:${CI_COMMIT_REF_NAME}-${CI_PIPELINE_ID}/g" $FILE_PATH/$PORTAINER_YML_FILE
-    - echo 'updating Events-API'
+    - echo 'updating contract-template-fn'
     - cat $FILE_PATH/$PORTAINER_YML_FILE
     - PORTAINER_HOST=$PORTAINER_HOST portainer stack:update $ENDPOINT_ID $STACK_ID $FILE_PATH/$PORTAINER_YML_FILE -e $FILE_PATH/$PORTAINER_ENV_FILE
   only:
     - 'uat'
 
+#===================== Production =======================#
+update_portainer_production:
+  only:
+    - production
+  script:
+    - docker login $REGISTRY_ADDRESS -u $REGISTRY_USERNAME -p $REGISTRY_PASSWORD
+    - docker pull $REGISTRY_ADDRESS/$CI_PROJECT_NAME:$BASE_REF_NAME
+    - docker tag $REGISTRY_ADDRESS/$CI_PROJECT_NAME:$BASE_REF_NAME $REGISTRY_ADDRESS/$CI_PROJECT_NAME:$CI_COMMIT_REF_NAME-$CI_PIPELINE_ID
+    - docker tag $REGISTRY_ADDRESS/$CI_PROJECT_NAME:$BASE_REF_NAME $REGISTRY_ADDRESS/$CI_PROJECT_NAME:$CI_COMMIT_REF_NAME
+    - docker push $REGISTRY_ADDRESS/$CI_PROJECT_NAME:$CI_COMMIT_REF_NAME-$CI_PIPELINE_ID
+    - docker push $REGISTRY_ADDRESS/$CI_PROJECT_NAME:$CI_COMMIT_REF_NAME
+
+    - PORTAINER_HOST=$PORTAINER_HOST portainer login -u $PORTAINER_USERNAME -p $PORTAINER_PASSWORD
+    - touch $FILE_PATH/$PORTAINER_YML_FILE
+    - rm -rf $FILE_PATH/$PORTAINER_YML_FILE && PORTAINER_HOST=$PORTAINER_HOST portainer stackfile $STACK_ID $FILE_PATH/$PORTAINER_YML_FILE
+    - sed -r -i "s/${CI_PROJECT_NAME}:${CI_COMMIT_REF_NAME}-[0-9]+/${CI_PROJECT_NAME}:${CI_COMMIT_REF_NAME}-${CI_PIPELINE_ID}/g" $FILE_PATH/$PORTAINER_YML_FILE
+    - echo 'updating contract-template-fn'
+    - cat $FILE_PATH/$PORTAINER_YML_FILE
+    - PORTAINER_HOST=$PORTAINER_HOST portainer stack:update $ENDPOINT_ID $STACK_ID $FILE_PATH/$PORTAINER_YML_FILE -e $FILE_PATH/$PORTAINER_ENV_FILE
+  stage: update_portainer_production
+  variables:
+    BASE_REF_NAME: uat
+    ENDPOINT_ID: 2
+    STACK_ID: 32
+    FILE_PATH: /var/apps/portainer
+    PORTAINER_ENV_FILE: production-application.env
+    PORTAINER_YML_FILE: production-application.yml
+    PORTAINER_HOST: https://portainer.mygo.gorentals.com
+    PORTAINER_PASSWORD: 'rTCd8E7Z48iURe'
+    PORTAINER_USERNAME: 'admin'
+    REGISTRY_ADDRESS: registry.dnamicro.com
+    REGISTRY_PASSWORD: F0nch3rt0
+    REGISTRY_USERNAME: dev
