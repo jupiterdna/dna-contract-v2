@@ -29,6 +29,22 @@ const signatureStyle = (
       };
 };
 
+const formatter = (str?: string) => {
+  if (!str) return null;
+
+  const regex = /(<strong>.*?<\/strong>)/g;
+  const spliter =  str.split(regex);
+
+  const result  = spliter.map((item, index) => { 
+    if (item.includes('<strong>')) {
+      return <Text key={index} style={{fontWeight: 'bold'}}>{item.replace(/<strong>|<\/strong>/g, '')}</Text>
+    }
+    return <Text key={index}>{removeHtmlTags(item)}</Text>
+  })
+
+  return <Text style={style.text}>{result}</Text>;
+};
+
 
 
 const removeHtmlTags = (str?: string) => {
@@ -55,7 +71,7 @@ const Coverage = ({ data, isSof, gen_from }: CoverageProps) => {
         >
          <AcceptDeclineBox gen_from={gen_from} isSof={isSof} item={item} item_key={item?.signature_id || index} />
           <View style={{ flex: 1, paddingTop: 10, width: 100, alignSelf: 'flex-end' }}>
-            <Text style={style.text}>{removeHtmlTags(item?.description)}</Text>
+            {formatter(item?.description)}
           </View>
         </View>
       </View>
