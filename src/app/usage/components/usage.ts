@@ -278,7 +278,6 @@ export const contractData = `export const data = {
   export const receipt = `
   export const receipt_data = {
     document_type: 'receipt',
-    state: 'Arizona',
     header: {
       title: 'Receipt',
       subtitle: 'GO1234567',
@@ -438,7 +437,6 @@ export const contractData = `export const data = {
   export const estimatesData = `
   export const estimates_data = {
     document_type: 'estimates', // make sure to specify the document type
-    state: 'Arizona',
     header: {
       title: 'Rental Estimate',
       subtitle: 'GO1234567',
