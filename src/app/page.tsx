@@ -22,9 +22,8 @@ export default function Page() {
                     Introduction
                   </h2>
                   <p className="my-4 lg:my-8 text-md lg:text-lg">
-                    Welcome to the documentation for DNA PDF
-                    Generator. This web application allows you to convert data
-                    into a PDF.
+                    Welcome to the documentation for DNA PDF Generator. This web
+                    application allows you to convert data into a PDF.
                   </p>
 
                   <h2 className="mb-4 lg:text-2xl text-xl">
@@ -38,13 +37,13 @@ export default function Page() {
                   <CopyBlock
                     text={`
 //Development Endpoint (POST)
-http://form-contract.development.local/gererate-pdf
+https://form-contract.dnadev.net
 
 //QA Endpoint (POST)
-https://form-contract.qa.mygo.gorentals.com/gererate-pdf
+https://form-contract.qa.mygo.gorentals.com
 
 //UAT Endpoint (POST)
-https://form-contract.uat.mygo.gorentals.com/gererate-pdf
+https://form-contract.uat.mygo.gorentals.com
                 `}
                     language={"jsx"}
                     showLineNumbers={true}
@@ -56,7 +55,9 @@ https://form-contract.uat.mygo.gorentals.com/gererate-pdf
                   </h2>
                   <div className="bg-red-400 p-2 px-3 rounded-lg">
                     <p className="lg:text-lg text-md  text-white italic">
-                     Development instance requires extra configuration to access the endpoint. Please ask the devOps team for setting up the VPN connection.
+                      Development instance requires extra configuration to
+                      access the endpoint. Please ask the devOps team for
+                      setting up the VPN connection.
                     </p>
                   </div>
                 </div>
