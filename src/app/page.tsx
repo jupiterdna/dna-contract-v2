@@ -37,13 +37,13 @@ export default function Page() {
                   <CopyBlock
                     text={`
 //Development Endpoint (POST)
-https://form-contract.dnadev.net
+https://form-contract.dnadev.net/generate-pdf
 
 //QA Endpoint (POST)
-https://form-contract.qa.mygo.gorentals.com
+https://form-contract.qa.mygo.gorentals.com/generate/pdf
 
 //UAT Endpoint (POST)
-https://form-contract.uat.mygo.gorentals.com
+https://form-contract.uat.mygo.gorentals.com/generate/pdf
                 `}
                     language={"jsx"}
                     showLineNumbers={true}
