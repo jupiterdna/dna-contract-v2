@@ -4,6 +4,7 @@ export const dynamic = "force-dynamic";
 import { temp } from "../../component/GenerateContract2";
 import { receipt } from "../../component/GenerateReceipt";
 import { estimates } from "../../component/GenerateEstimates";
+import { receipt_adjustment } from "../../component/GenerateReceiptAdjustment";
 import { pdf } from "@dna/react-pdf";
 import { v4 as uuidv4 } from "uuid";
 import { promises as fsP } from "fs";
@@ -55,7 +56,7 @@ const deleteFile = async (filePath: string) => {
 };
 
 const getdocType = (
-  dataType: "contract" | "receipt" | "estimates" | "invoice"
+  dataType: "contract" | "receipt" | "estimates" | "invoice" | "receipt_adjustment"
 ) => {
   switch (dataType) {
     case "contract":
@@ -64,6 +65,8 @@ const getdocType = (
       return receipt;
     case "estimates":
       return estimates;
+    case "receipt_adjustment":
+      return receipt_adjustment;
     default:
       return temp;
   }
